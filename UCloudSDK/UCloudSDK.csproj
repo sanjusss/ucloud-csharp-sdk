@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB3049AE-7687-4C98-A59C-70C77A525289}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UCloudSDK</RootNamespace>
+    <AssemblyName>UCloudSDK</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Models\SecurityGroupRule.cs" />
+    <Compile Include="Models\UCDN\BuyUcdnTrafficRequest.cs" />
+    <Compile Include="Models\UCDN\BuyUcdnTrafficResponse.cs" />
+    <Compile Include="Models\UCDN\CreateUcdnDomainRequest.cs" />
+    <Compile Include="Models\UCDN\CreateUcdnDomainResponse.cs" />
+    <Compile Include="Models\UCDN\DescribePrefetchCacheTask.TaskSet.cs" />
+    <Compile Include="Models\UCDN\DescribePrefetchCacheTaskRequest.cs" />
+    <Compile Include="Models\UCDN\DescribePrefetchCacheTaskResponse.cs" />
+    <Compile Include="Models\UCDN\DescribeRefreshCacheTask.TaskSet.cs" />
+    <Compile Include="Models\UCDN\DescribeRefreshCacheTaskRequest.cs" />
+    <Compile Include="Models\UCDN\DescribeRefreshCacheTaskResponse.cs" />
+    <Compile Include="Models\UCDN\DescribeUcdnDomain.DomainSet.cs" />
+    <Compile Include="Models\UCDN\DescribeUcdnDomainRequest.cs" />
+    <Compile Include="Models\UCDN\DescribeUcdnDomainResponse.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainBandwidth.BandwidthSet.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainBandwidthRequest.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainBandwidthResponse.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainLog.LogSet.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainLogRequest.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainLogResponse.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainPrefetchEnableRequest.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainPrefetchEnableResponse.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainTraffic.TrafficSet.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainTrafficRequest.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainTrafficResponse.cs" />
+    <Compile Include="Models\UCDN\GetUcdnTraffic.TrafficSet.cs" />
+    <Compile Include="Models\UCDN\GetUcdnTrafficRequest.cs" />
+    <Compile Include="Models\UCDN\GetUcdnTrafficResponse.cs" />
+    <Compile Include="Models\UCDN\PrefetchDomainCacheRequest.cs" />
+    <Compile Include="Models\UCDN\PrefetchDomainCacheResponse.cs" />
+    <Compile Include="Models\UCDN\RefreshUcdnDomainCacheRequest.cs" />
+    <Compile Include="Models\UCDN\RefreshUcdnDomainCacheResponse.cs" />
+    <Compile Include="Models\UCDN\UpdateUcdnDomainRequest.cs" />
+    <Compile Include="Models\UCDN\UpdateUcdnDomainResponse.cs" />
+    <Compile Include="Models\UCDN\UpdateUcdnDomainStatusRequest.cs" />
+    <Compile Include="Models\UCDN\UpdateUcdnDomainStatusResponse.cs" />
+    <Compile Include="Models\UDB\BackupUDBInstanceRequest.cs" />
+    <Compile Include="Models\UDB\BackupUDBInstanceResponse.cs" />
+    <Compile Include="Models\UDB\ClearUDBLogRequest.cs" />
+    <Compile Include="Models\UDB\ClearUDBLogResponse.cs" />
+    <Compile Include="Models\UDB\CreateUDBInstanceRequest.cs" />
+    <Compile Include="Models\UDB\CreateUDBInstanceResponse.cs" />
+    <Compile Include="Models\UDB\CreateUDBParamGroupRequest.cs" />
+    <Compile Include="Models\UDB\CreateUDBParamGroupResponse.cs" />
+    <Compile Include="Models\UDB\CreateUDBReplicationInstanceRequest.cs" />
+    <Compile Include="Models\UDB\CreateUDBReplicationInstanceResponse.cs" />
+    <Compile Include="Models\UDB\CreateUDBSlaveRequest.cs" />
+    <Compile Include="Models\UDB\CreateUDBSlaveResponse.cs" />
+    <Compile Include="Models\UDB\DeleteUDBBackupRequest.cs" />
+    <Compile Include="Models\UDB\DeleteUDBBackupResponse.cs" />
+    <Compile Include="Models\UDB\DeleteUDBInstanceRequest.cs" />
+    <Compile Include="Models\UDB\DeleteUDBInstanceResponse.cs" />
+    <Compile Include="Models\UDB\DeleteUDBParamGroupRequest.cs" />
+    <Compile Include="Models\UDB\DeleteUDBParamGroupResponse.cs" />
+    <Compile Include="Models\UDB\DescribeUDBBackup.DataSet.cs" />
+    <Compile Include="Models\UDB\DescribeUDBBackupBlacklistRequest.cs" />
+    <Compile Include="Models\UDB\DescribeUDBBackupBlacklistResponse.cs" />
+    <Compile Include="Models\UDB\DescribeUDBBackupRequest.cs" />
+    <Compile Include="Models\UDB\DescribeUDBBackupResponse.cs" />
+    <Compile Include="Models\UDB\DescribeUDBInstance.DataSet.cs" />
+    <Compile Include="Models\UDB\DescribeUDBInstancePrice.DataSet.cs" />
+    <Compile Include="Models\UDB\DescribeUDBInstancePriceRequest.cs" />
+    <Compile Include="Models\UDB\DescribeUDBInstancePriceResponse.cs" />
+    <Compile Include="Models\UDB\DescribeUDBInstanceRequest.cs" />
+    <Compile Include="Models\UDB\DescribeUDBInstanceResponse.cs" />
+    <Compile Include="Models\UDB\DescribeUDBInstanceStateRequest.cs" />
+    <Compile Include="Models\UDB\DescribeUDBInstanceStateResponse.cs" />
+    <Compile Include="Models\UDB\DescribeUDBParamGroup.DataSet.cs" />
+    <Compile Include="Models\UDB\DescribeUDBParamGroup.ParamMember.cs" />
+    <Compile Include="Models\UDB\DescribeUDBParamGroupRequest.cs" />
+    <Compile Include="Models\UDB\DescribeUDBParamGroupResponse.cs" />
+    <Compile Include="Models\UDB\DescribeUDBType.DataSet.cs" />
+    <Compile Include="Models\UDB\DescribeUDBTypeRequest.cs" />
+    <Compile Include="Models\UDB\DescribeUDBTypeResponse.cs" />
+    <Compile Include="Models\UDB\EditUDBBackupBlacklistRequest.cs" />
+    <Compile Include="Models\UDB\EditUDBBackupBlacklistResponse.cs" />
+    <Compile Include="Models\UDB\ModifyUDBInstanceNameRequest.cs" />
+    <Compile Include="Models\UDB\ModifyUDBInstanceNameResponse.cs" />
+    <Compile Include="Models\UDB\PromoteUDBSlaveRequest.cs" />
+    <Compile Include="Models\UDB\PromoteUDBSlaveResponse.cs" />
+    <Compile Include="Models\UDB\RestartUDBInstanceRequest.cs" />
+    <Compile Include="Models\UDB\RestartUDBInstanceResponse.cs" />
+    <Compile Include="Models\UDB\StartUDBInstanceRequest.cs" />
+    <Compile Include="Models\UDB\StartUDBInstanceResponse.cs" />
+    <Compile Include="Models\UDB\StopUDBInstanceRequest.cs" />
+    <Compile Include="Models\UDB\StopUDBInstanceResponse.cs" />
+    <Compile Include="Models\UDB\UpdateUDBParamGroupRequest.cs" />
+    <Compile Include="Models\UDB\UpdateUDBParamGroupResponse.cs" />
+    <Compile Include="Models\UDB\UploadUDBParamGroupRequest.cs" />
+    <Compile Include="Models\UDB\UploadUDBParamGroupResponse.cs" />
+    <Compile Include="Models\UHost\AttachUdiskRequest.cs" />
+    <Compile Include="Models\UHost\AttachUdiskResponse.cs" />
+    <Compile Include="Models\UHost\CreateCustomImageRequest.cs" />
+    <Compile Include="Models\UHost\CreateCustomImageResponse.cs" />
+    <Compile Include="Models\UHost\CreateUHostInstanceRequest.cs" />
+    <Compile Include="Models\UHost\CreateUHostInstanceResponse.cs" />
+    <Compile Include="Models\UHost\CreateUHostInstanceSnapshotRequest.cs" />
+    <Compile Include="Models\UHost\CreateUHostInstanceSnapshotResponse.cs" />
+    <Compile Include="Models\UHost\DescribeImage.ImageSet.cs" />
+    <Compile Include="Models\UHost\DescribeImageRequest.cs" />
+    <Compile Include="Models\UHost\DescribeImageResponse.cs" />
+    <Compile Include="Models\UHost\DescribeUHostInstance.DiskSet.cs" />
+    <Compile Include="Models\UHost\DescribeUHostInstance.IPSet.cs" />
+    <Compile Include="Models\UHost\DescribeUHostInstance.UHostSet.cs" />
+    <Compile Include="Models\UHost\DescribeUHostInstanceRequest.cs" />
+    <Compile Include="Models\UHost\DescribeUHostInstanceResponse.cs" />
+    <Compile Include="Models\UHost\DescribeUHostInstanceSnapshot.SnapshotSet.cs" />
+    <Compile Include="Models\UHost\DescribeUHostInstanceSnapshotRequest.cs" />
+    <Compile Include="Models\UHost\DescribeUHostInstanceSnapshotResponse.cs" />
+    <Compile Include="Models\UHost\DetachUdiskRequest.cs" />
+    <Compile Include="Models\UHost\DetachUdiskResponse.cs" />
+    <Compile Include="Models\UHost\GetUHostInstancePrice.PriceSet.cs" />
+    <Compile Include="Models\UHost\GetUHostInstancePriceRequest.cs" />
+    <Compile Include="Models\UHost\GetUHostInstancePriceResponse.cs" />
+    <Compile Include="Models\UHost\GetUHostInstanceVncInfoRequest.cs" />
+    <Compile Include="Models\UHost\GetUHostInstanceVncInfoResponse.cs" />
+    <Compile Include="Models\UHost\ModifyUHostInstanceNameRequest.cs" />
+    <Compile Include="Models\UHost\ModifyUHostInstanceNameResponse.cs" />
+    <Compile Include="Models\UHost\ModifyUHostInstanceRemarkRequest.cs" />
+    <Compile Include="Models\UHost\ModifyUHostInstanceRemarkResponse.cs" />
+    <Compile Include="Models\UHost\ModifyUHostInstanceTagRequest.cs" />
+    <Compile Include="Models\UHost\ModifyUHostInstanceTagResponse.cs" />
+    <Compile Include="Models\UHost\RebootUHostInstanceRequest.cs" />
+    <Compile Include="Models\UHost\RebootUHostInstanceResponse.cs" />
+    <Compile Include="Models\UHost\ReinstallUHostInstanceRequest.cs" />
+    <Compile Include="Models\UHost\ReinstallUHostInstanceResponse.cs" />
+    <Compile Include="Models\UHost\ResetUHostInstancePasswordRequest.cs" />
+    <Compile Include="Models\UHost\ResetUHostInstancePasswordResponse.cs" />
+    <Compile Include="Models\UHost\ResizeUHostInstanceRequest.cs" />
+    <Compile Include="Models\UHost\ResizeUHostInstanceResponse.cs" />
+    <Compile Include="Models\UHost\StartUHostInstanceRequest.cs" />
+    <Compile Include="Models\UHost\StartUHostInstanceResponse.cs" />
+    <Compile Include="Models\UHost\StopUHostInstanceRequest.cs" />
+    <Compile Include="Models\UHost\StopUHostInstanceResponse.cs" />
+    <Compile Include="Models\UHost\TerminateCustomImageRequest.cs" />
+    <Compile Include="Models\UHost\TerminateCustomImageResponse.cs" />
+    <Compile Include="Models\UHost\TerminateUHostInstanceRequest.cs" />
+    <Compile Include="Models\UHost\TerminateUHostInstanceResponse.cs" />
+    <Compile Include="Models\ULB\AllocateBackendRequest.cs" />
+    <Compile Include="Models\ULB\AllocateBackendResponse.cs" />
+    <Compile Include="Models\ULB\BindSSLRequest.cs" />
+    <Compile Include="Models\ULB\BindSSLResponse.cs" />
+    <Compile Include="Models\ULB\CreatePolicyGroupRequest.cs" />
+    <Compile Include="Models\ULB\CreatePolicyGroupResponse.cs" />
+    <Compile Include="Models\ULB\CreatePolicyRequest.cs" />
+    <Compile Include="Models\ULB\CreatePolicyResponse.cs" />
+    <Compile Include="Models\ULB\CreateSSLRequest.cs" />
+    <Compile Include="Models\ULB\CreateSSLResponse.cs" />
+    <Compile Include="Models\ULB\CreateULBRequest.cs" />
+    <Compile Include="Models\ULB\CreateULBResponse.cs" />
+    <Compile Include="Models\ULB\CreateVServerRequest.cs" />
+    <Compile Include="Models\ULB\CreateVServerResponse.cs" />
+    <Compile Include="Models\ULB\DeletePolicyGroupRequest.cs" />
+    <Compile Include="Models\ULB\DeletePolicyGroupResponse.cs" />
+    <Compile Include="Models\ULB\DeletePolicyRequest.cs" />
+    <Compile Include="Models\ULB\DeletePolicyResponse.cs" />
+    <Compile Include="Models\ULB\DeleteSSLRequest.cs" />
+    <Compile Include="Models\ULB\DeleteSSLResponse.cs" />
+    <Compile Include="Models\ULB\DeleteULBRequest.cs" />
+    <Compile Include="Models\ULB\DeleteULBResponse.cs" />
+    <Compile Include="Models\ULB\DeleteVServerRequest.cs" />
+    <Compile Include="Models\ULB\DeleteVServerResponse.cs" />
+    <Compile Include="Models\ULB\DescribePolicyGroup.BackendSet.cs" />
+    <Compile Include="Models\ULB\DescribePolicyGroup.DataSet.cs" />
+    <Compile Include="Models\ULB\DescribePolicyGroup.PolicySet.cs" />
+    <Compile Include="Models\ULB\DescribePolicyGroupRequest.cs" />
+    <Compile Include="Models\ULB\DescribePolicyGroupResponse.cs" />
+    <Compile Include="Models\ULB\DescribeSSL.DataSet.cs" />
+    <Compile Include="Models\ULB\DescribeSSLRequest.cs" />
+    <Compile Include="Models\ULB\DescribeSSLResponse.cs" />
+    <Compile Include="Models\ULB\DescribeULB.BackendSet.cs" />
+    <Compile Include="Models\ULB\DescribeULB.DataSet.cs" />
+    <Compile Include="Models\ULB\DescribeULB.IPSet.cs" />
+    <Compile Include="Models\ULB\DescribeULB.SSLSet.cs" />
+    <Compile Include="Models\ULB\DescribeULB.VserverSet.cs" />
+    <Compile Include="Models\ULB\DescribeULBRequest.cs" />
+    <Compile Include="Models\ULB\DescribeULBResponse.cs" />
+    <Compile Include="Models\ULB\ReleaseBackendRequest.cs" />
+    <Compile Include="Models\ULB\ReleaseBackendResponse.cs" />
+    <Compile Include="Models\ULB\UpdateBackendAttributeRequest.cs" />
+    <Compile Include="Models\ULB\UpdateBackendAttributeResponse.cs" />
+    <Compile Include="Models\ULB\UpdatePolicyGroupAttributeRequest.cs" />
+    <Compile Include="Models\ULB\UpdatePolicyGroupAttributeResponse.cs" />
+    <Compile Include="Models\ULB\UpdateULBAttributeRequest.cs" />
+    <Compile Include="Models\ULB\UpdateULBAttributeResponse.cs" />
+    <Compile Include="Models\ULB\UpdateVServerAttributeRequest.cs" />
+    <Compile Include="Models\ULB\UpdateVServerAttributeResponse.cs" />
+    <Compile Include="Models\UMon\GetMetric.DataSet.cs" />
+    <Compile Include="Models\UMon\GetMetricRequest.cs" />
+    <Compile Include="Models\UMon\GetMetricResponse.cs" />
+    <Compile Include="Models\UNet\AllocateEIP.EIPAddr.cs" />
+    <Compile Include="Models\UNet\AllocateEIP.EIPSet.cs" />
+    <Compile Include="Models\UNet\AllocateEIPRequest.cs" />
+    <Compile Include="Models\UNet\AllocateEIPResponse.cs" />
+    <Compile Include="Models\UNet\AllocateVIPRequest.cs" />
+    <Compile Include="Models\UNet\AllocateVIPResponse.cs" />
+    <Compile Include="Models\UNet\BindEIPRequest.cs" />
+    <Compile Include="Models\UNet\BindEIPResponse.cs" />
+    <Compile Include="Models\UNet\CreateSecurityGroup.Rule.n.cs" />
+    <Compile Include="Models\UNet\CreateSecurityGroupRequest.cs" />
+    <Compile Include="Models\UNet\CreateSecurityGroupResponse.cs" />
+    <Compile Include="Models\UNet\DeleteSecurityGroupRequest.cs" />
+    <Compile Include="Models\UNet\DeleteSecurityGroupResponse.cs" />
+    <Compile Include="Models\UNet\DescribeEIP.EIPAddr.cs" />
+    <Compile Include="Models\UNet\DescribeEIP.EIPSet.cs" />
+    <Compile Include="Models\UNet\DescribeEIP.Resource.cs" />
+    <Compile Include="Models\UNet\DescribeEIPRequest.cs" />
+    <Compile Include="Models\UNet\DescribeEIPResponse.cs" />
+    <Compile Include="Models\UNet\DescribeSecurityGroup.DataSet.cs" />
+    <Compile Include="Models\UNet\DescribeSecurityGroup.Rule.cs" />
+    <Compile Include="Models\UNet\DescribeSecurityGroupRequest.cs" />
+    <Compile Include="Models\UNet\DescribeSecurityGroupResourceRequest.cs" />
+    <Compile Include="Models\UNet\DescribeSecurityGroupResourceResponse.cs" />
+    <Compile Include="Models\UNet\DescribeSecurityGroupResponse.cs" />
+    <Compile Include="Models\UNet\DescribeVIPRequest.cs" />
+    <Compile Include="Models\UNet\DescribeVIPResponse.cs" />
+    <Compile Include="Models\UNet\GetEIPPrice.PriceSet.cs" />
+    <Compile Include="Models\UNet\GetEIPPriceRequest.cs" />
+    <Compile Include="Models\UNet\GetEIPPriceResponse.cs" />
+    <Compile Include="Models\UNet\GrantSecurityGroupRequest.cs" />
+    <Compile Include="Models\UNet\GrantSecurityGroupResponse.cs" />
+    <Compile Include="Models\UNet\ModifyEIPBandwidthRequest.cs" />
+    <Compile Include="Models\UNet\ModifyEIPBandwidthResponse.cs" />
+    <Compile Include="Models\UNet\ModifyEIPWeightRequest.cs" />
+    <Compile Include="Models\UNet\ModifyEIPWeightResponse.cs" />
+    <Compile Include="Models\UNet\ReleaseEIPRequest.cs" />
+    <Compile Include="Models\UNet\ReleaseEIPResponse.cs" />
+    <Compile Include="Models\UNet\ReleaseVIPRequest.cs" />
+    <Compile Include="Models\UNet\ReleaseVIPResponse.cs" />
+    <Compile Include="Models\UNet\UnBindEIPRequest.cs" />
+    <Compile Include="Models\UNet\UnBindEIPResponse.cs" />
+    <Compile Include="Models\UNet\UpdateSecurityGroup.Rule.n.cs" />
+    <Compile Include="Models\UNet\UpdateSecurityGroupRequest.cs" />
+    <Compile Include="Models\UNet\UpdateSecurityGroupResponse.cs" />
+    <Compile Include="Models\UResponse.cs" />
+    <Compile Include="NList.cs" />
+    <Compile Include="Helpers\RestRequestHelper.cs" />
+    <Compile Include="Helpers\TypeHelper.cs" />
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCDN.cs" />
+    <Compile Include="UCloud.cs" />
+    <Compile Include="UDB.cs" />
+    <Compile Include="UHost.cs" />
+    <Compile Include="ULB.cs" />
+    <Compile Include="UMon.cs" />
+    <Compile Include="UNet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
