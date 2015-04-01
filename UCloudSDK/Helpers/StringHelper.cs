@@ -28,5 +28,16 @@ namespace UCloudSDK
         {
             return str.Replace("_", "-");
         }
+#if !NET4
+        /// <summary>
+        /// 指示指定的字符串是 null、空还是仅由空白字符组成.
+        /// </summary>
+        /// <param name="str">字符串.</param>
+        /// <returns></returns>
+        public static bool IsNullOrWhiteSpace(this string str)
+        {
+            return String.IsNullOrEmpty(str) || str.Trim().Length == 0;
+        }
+#endif
     }
 }

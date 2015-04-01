@@ -219,15 +219,18 @@ namespace UCloudSDK
         {
 
             var request = new RestRequest(method);
-
+#if NET4
             foreach (var kv in dictionary.Where(d => !string.IsNullOrWhiteSpace(d.Value)))
+#else
+            foreach (var kv in dictionary.Where(d => !d.Value.IsNullOrWhiteSpace()))
+#endif
             {
                 request.AddParameter(kv.Key, kv.Value);
             }
 
             return Execute<T>(request);
         }
-
+#if NET4
         /// <summary>
         /// 执行请求.
         /// </summary>
@@ -250,5 +253,6 @@ namespace UCloudSDK
 
             return Client.ExecuteDynamic(request);
         }
+#endif
     }
 }
