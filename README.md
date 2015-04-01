@@ -12,21 +12,22 @@ ucloud-csharp-sdk是用于请求UCloud API的C# .Net4.5 SDK。现已覆盖：
 SDK使用方法
 -------------
 
-###1.添加类库
-####1.1 将类库添加至项目
+### 1.添加类库
+#### 1.1 将类库添加至项目
+
 **NuGet**
 
 > PM> Install-Package UCloudSDK
 
-####1.2引入命令空间
+#### 1.2引入命令空间
 
     using UCloudSDK;
     using UCloudSDK.Models;
 
-###2.配置
+### 2.配置
 使用API前，需要对PublicKey（用户公钥）  PrivateKey（用户私钥） BaseUrl（API地址 ，可选，默认为https://api.ucloud.cn） 进行设置。设置方法有两种：一种是在config文件中；一种是在程序中初始化对象时进行设置。
 
-####2.1 在config文件中设置
+#### 2.1 在config文件中设置
     <configSections>
         <section name="UcloudSetting" type="System.Configuration.NameValueSectionHandler" />
     </configSections>
@@ -38,12 +39,12 @@ SDK使用方法
         <!--API请求地址-->
         <add key="BaseUrl" value="https://api.ucloud.cn" />
 
-####2.2 程序中初始化
+#### 2.2 程序中初始化
 
 构造函数：
 
-	UCloud(string publicKey, string privateKey)
-	UCloud(string publicKey, string privateKey, string baseUrl)
+    UCloud(string publicKey, string privateKey)
+    UCloud(string publicKey, string privateKey, string baseUrl)
 
 使用方法:
 
@@ -55,7 +56,7 @@ SDK使用方法
     ucloud.BaseUrl="https://api.ucloud.cn";
     
 
-###3.API请求
+### 3.API请求
 为便于区别和使用，SDK采用了以下约定：
 
 >  1. 类名对应于产品名。比如云主机**UHost**产品对应的类名为`UHos`t
@@ -81,15 +82,15 @@ API使用有三种方法：
 > 配置方式采用的config配置。
 
 
-####3.1 强类型请求及返回     （**推荐使用**）
+#### 3.1 强类型请求及返回     （**推荐使用**）
 请求参数及返回值都是强类型。
 按照SDK设置约定，所有的方法都类似下形式： 
 
     public MethodResponse Method(MethodRequest requestParams)
     {
-	     var request = new RestRequest(Method.GET);
-    	 request.AddUObject(requestParams);
-    	 return Execute<MethodResponse>(request);
+         var request = new RestRequest(Method.GET);
+         request.AddUObject(requestParams);
+         return Execute<MethodResponse>(request);
     }
 
 使用方法如下：
@@ -108,14 +109,14 @@ API使用有三种方法：
     entity.Name="UCloudExample01";
     entity.ChargeType="Month";
     entity.Quantity=1;
-	//请求API，返回类型为CreateUHostInstanceResponse
-	var response=uhost.CreateUHostInstance(entity);
-	//获取RetCode
-	var retCode=response.RetCode;
-	//若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
-	var error = response.RetCode!=0 ? response.Message : "";
+    //请求API，返回类型为CreateUHostInstanceResponse
+    var response=uhost.CreateUHostInstance(entity);
+    //获取RetCode
+    var retCode=response.RetCode;
+    //若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
+    var error = response.RetCode!=0 ? response.Message : "";
     
-####3.2 强类型返回
+#### 3.2 强类型返回
 请求参数为字典，返回值为强类型
 
     var ucloud=new UCloud();
@@ -135,14 +136,14 @@ API使用有三种方法：
     dict.Add("Name","UCloudExample01");
     dict.Add("ChargeType","Month");
     dict.Add("Quantity","1");
-	//请求API，返回类型为CreateUHostInstanceResponse
-	var response=ucloud.Execute<CreateUHostInstanceResponse>(dict);
-	//获取RetCode
-	var retCode=response.RetCode;
-	//若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
-	var error = response.RetCode!=0 ? response.Message : "";
-	
-####3.2 动态类型返回
+    //请求API，返回类型为CreateUHostInstanceResponse
+    var response=ucloud.Execute<CreateUHostInstanceResponse>(dict);
+    //获取RetCode
+    var retCode=response.RetCode;
+    //若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
+    var error = response.RetCode!=0 ? response.Message : "";
+    
+#### 3.2 动态类型返回
 请求参数为字典，返回值为动态类型。适用于未覆盖到的API方法。
 
     var ucloud=new UCloud(); 
@@ -162,21 +163,21 @@ API使用有三种方法：
     dict.Add("Name","UCloudExample01");
     dict.Add("ChargeType","Month");
     dict.Add("Quantity","1");
-	//请求API，返回类型为RestResponse<dynamic>
-	var response=ucloud.Execute(dict);
-	//之后可用数组的形式获取数据
-	var entity=response.Data;
-	//获取RetCode
-	var retCode=entity["RetCode"];
+    //请求API，返回类型为RestResponse<dynamic>
+    var response=ucloud.Execute(dict);
+    //之后可用数组的形式获取数据
+    var entity=response.Data;
+    //获取RetCode
+    var retCode=entity["RetCode"];
 
-###4. RestSharp
+### 4. RestSharp
 SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请求进行设置，比如代理、过期时间等，可对UCloud的**Client**属性进行设置。更多RestSharp使用方法请参见其[官方文档](https://github.com/restsharp/RestSharp/wiki)。
 
-	var uhost=new UHost();
-	//设置HTTP代理
-	uhost.Client.Proxy=new WebProxy("http://proxy.com");
+    var uhost=new UHost();
+    //设置HTTP代理
+    uhost.Client.Proxy=new WebProxy("http://proxy.com");
 
-###5. 其它特性
+### 5. 其它特性
 
 1. 根据官方API文档添加了详细的注释，配合Visual Studio使用更加方便。
 2. 添加了大部分枚举值以便于使用。
@@ -185,7 +186,7 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
 > 由于C#命名规则，枚举值不允许使用“-”，部分枚举值（比如Region）需要使用`string.ToHyphen()`来取值。在枚举的注释中有注明需要用此方法的。
 > 由于C#命名规则，枚举值不允许使用数字，部分枚举值（比如Priority）需要使用`(int)Priority.High`来取值。在枚举的注释中有注明需要用此方法的。
 
-3.需要BASE64编码的请使用`string.ToBase64()`	扩展方法
+3.需要BASE64编码的请使用`string.ToBase64()` 扩展方法
 4. NList类型转换后会自动在属性后添加.n，使用时无需再添加。使用方法如下：
 
 > 以更新防火墙规则[UpdateSecurityGroup](http://docs.ucloud.cn/api/unet/update_security_group.html)为例
@@ -210,6 +211,6 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
 其它
 -------------
 
-###链接
+### 链接
 UCloud: http://www.ucloud.cn/
 UCloud API: http://docs.ucloud.cn/api/index.html
