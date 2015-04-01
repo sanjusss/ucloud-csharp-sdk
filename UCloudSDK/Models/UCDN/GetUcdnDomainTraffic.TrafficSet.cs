@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/ucdn/get_ucdn_domain_traffic.html
     ///     </para>
     /// </summary>
-    public partial class GetUcdnDomainTrafficTrafficSet
+    public partial class GetUcdnDomainTrafficSet
     {
         /// <summary>
         /// 流量获取的时间点 

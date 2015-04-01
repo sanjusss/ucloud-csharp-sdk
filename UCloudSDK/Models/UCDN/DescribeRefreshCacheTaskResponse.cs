@@ -29,7 +29,7 @@ namespace UCloudSDK.Models
         ///     具体结构见 TaskSet
         ///     </para>                 
         /// </summary>
-        public List<DescribeRefreshCacheTaskTaskSet> TaskSet { get; set; }
+        public List<DescribeRefreshCacheTaskSet> TaskSet { get; set; }
 
     }
 }

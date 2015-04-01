@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/unet/allocate_eip.html
     ///     </para>
     /// </summary>
-    public partial class AllocateEIPEIPAddr
+    public partial class AllocateEIPAddr
     {
         /// <summary>
         /// 运营商信息                

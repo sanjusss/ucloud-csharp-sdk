@@ -24,7 +24,7 @@ namespace UCloudSDK.Models
         ///     具体结构见 LogSet
         ///     </para>                 
         /// </summary>
-        public List<GetUcdnDomainLogLogSet> LogSet { get; set; }
+        public List<GetUcdnDomainLogSet> LogSet { get; set; }
 
     }
 }

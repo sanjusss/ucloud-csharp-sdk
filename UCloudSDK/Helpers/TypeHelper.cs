@@ -2,6 +2,9 @@
 
 namespace UCloudSDK
 {
+    /// <summary>
+    /// Type扩展方法
+    /// </summary>
     public static class TypeHelper
     {
         /// <summary>

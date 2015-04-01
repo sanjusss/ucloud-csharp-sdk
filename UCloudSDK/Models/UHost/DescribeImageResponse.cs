@@ -26,7 +26,7 @@ namespace UCloudSDK.Models
         /// <summary>
         /// JSON格式的镜像列表                
         /// </summary>
-        public List<DescribeImageImageSet> ImageSet { get; set; }
+        public List<DescribeImageSet> ImageSet { get; set; }
 
     }
 }

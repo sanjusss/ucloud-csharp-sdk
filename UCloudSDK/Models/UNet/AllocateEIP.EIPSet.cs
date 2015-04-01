@@ -8,7 +8,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/unet/allocate_eip.html
     ///     </para>
     /// </summary>
-    public partial class AllocateEIPEIPSet
+    public partial class AllocateEIPSet
     {
         /// <summary>
         /// 申请到的EIP资源ID                
@@ -21,7 +21,7 @@ namespace UCloudSDK.Models
         ///     双线拥有两个IP地址）
         ///     </para>                 
         /// </summary>
-        public List<AllocateEIPEIPAddr> EIPAddr { get; set; }
+        public List<AllocateEIPAddr> EIPAddr { get; set; }
 
     }
 }

@@ -21,7 +21,7 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 申请到的EIP资源详情                
         /// </summary>
-        public List<AllocateEIPEIPSet> EIPSet { get; set; }
+        public List<AllocateEIPSet> EIPSet { get; set; }
 
     }
 }

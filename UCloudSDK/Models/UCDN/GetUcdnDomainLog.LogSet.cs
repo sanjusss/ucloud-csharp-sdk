@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/ucdn/get_ucdn_domain_log.html
     ///     </para>
     /// </summary>
-    public partial class GetUcdnDomainLogLogSet
+    public partial class GetUcdnDomainLogSet
     {
         /// <summary>
         /// 流量获取的时间点 

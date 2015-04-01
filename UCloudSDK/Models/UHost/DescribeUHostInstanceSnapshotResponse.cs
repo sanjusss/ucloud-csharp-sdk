@@ -29,7 +29,7 @@ namespace UCloudSDK.Models
         ///     详细参数可见下面SnapshotSet
         ///     </para>                 
         /// </summary>
-        public List<DescribeUHostInstanceSnapshotSnapshotSet> SnapshotSet { get; set; }
+        public List<DescribeUHostInstanceSnapshotSet> SnapshotSet { get; set; }
 
     }
 }

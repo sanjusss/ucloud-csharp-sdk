@@ -8,7 +8,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/ucdn/describe_prefetch_cache_task.html
     ///     </para>
     /// </summary>
-    public partial class DescribePrefetchCacheTaskTaskSet
+    public partial class DescribePrefetchCacheTaskSet
     {
         /// <summary>
         /// 预取域名                

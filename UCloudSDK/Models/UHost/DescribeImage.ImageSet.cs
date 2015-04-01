@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/uhost/describe_image.html
     ///     </para>
     /// </summary>
-    public partial class DescribeImageImageSet
+    public partial class DescribeImageSet
     {
         /// <summary>
         /// 镜像ID                

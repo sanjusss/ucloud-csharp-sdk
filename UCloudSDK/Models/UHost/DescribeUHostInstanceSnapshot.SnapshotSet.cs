@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/uhost/describe_uhost_instance_snapshot.html
     ///     </para>
     /// </summary>
-    public partial class DescribeUHostInstanceSnapshotSnapshotSet
+    public partial class DescribeUHostInstanceSnapshotSet
     {
         /// <summary>
         /// 快照名称                

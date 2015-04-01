@@ -29,7 +29,7 @@ namespace UCloudSDK.Models
         ///     具体结构见 DomainSet
         ///     </para>                 
         /// </summary>
-        public List<DescribeUcdnDomainDomainSet> DomainSet { get; set; }
+        public List<DescribeUcdnDomainSet> DomainSet { get; set; }
 
     }
 }

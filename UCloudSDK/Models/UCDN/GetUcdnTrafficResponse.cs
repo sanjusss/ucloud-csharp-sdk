@@ -24,7 +24,7 @@ namespace UCloudSDK.Models
         ///      具体结构参见TrafficSet部分
         ///     </para>                 
         /// </summary>
-        public List<GetUcdnTrafficTrafficSet> TrafficSet { get; set; }
+        public List<GetUcdnTrafficSet> TrafficSet { get; set; }
 
     }
 }

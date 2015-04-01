@@ -29,7 +29,7 @@ namespace UCloudSDK.Models
         ///     每项参数详见DataSet
         ///     </para>                 
         /// </summary>
-        public List<DescribeEIPEIPSet> EIPSet { get; set; }
+        public List<DescribeEIPSet> EIPSet { get; set; }
 
     }
 }

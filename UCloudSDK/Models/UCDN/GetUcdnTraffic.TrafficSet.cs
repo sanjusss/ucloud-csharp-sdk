@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/ucdn/get_ucdn_traffic.html
     ///     </para>
     /// </summary>
-    public partial class GetUcdnTrafficTrafficSet
+    public partial class GetUcdnTrafficSet
     {
         /// <summary>
         /// 购买流量的区域 

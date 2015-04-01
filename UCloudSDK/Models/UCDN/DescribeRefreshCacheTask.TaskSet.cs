@@ -8,7 +8,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/ucdn/describe_refresh_cache_task.html
     ///     </para>
     /// </summary>
-    public partial class DescribeRefreshCacheTaskTaskSet
+    public partial class DescribeRefreshCacheTaskSet
     {
         /// <summary>
         /// 刷新域名                

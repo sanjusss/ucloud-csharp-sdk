@@ -21,7 +21,7 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 弹性IP价格详情                
         /// </summary>
-        public List<GetEIPPricePriceSet> PriceSet { get; set; }
+        public List<GetEIPPriceSet> PriceSet { get; set; }
 
     }
 }

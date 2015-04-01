@@ -4,6 +4,9 @@ using RestSharp;
 
 namespace UCloudSDK
 {
+    /// <summary>
+    /// RestRequest扩展方法
+    /// </summary>
     public static class RestRequestHelper
     {
 

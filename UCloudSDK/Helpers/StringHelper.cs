@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using UCloudSDK.Models;
 
 namespace UCloudSDK
 {
+    /// <summary>
+    /// string扩展方法
+    /// </summary>
     public static class StringHelper
     {
         /// <summary>

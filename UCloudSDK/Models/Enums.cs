@@ -136,7 +136,13 @@
     /// </summary>
     public enum OsType
     {
+        /// <summary>
+        /// The linux
+        /// </summary>
         Linux,
+        /// <summary>
+        /// The windows
+        /// </summary>
         Windows
     }
 
@@ -197,9 +203,21 @@
     /// </summary>
     public enum Proto
     {
+        /// <summary>
+        /// The TCP
+        /// </summary>
         TCP,
+        /// <summary>
+        /// The UDP
+        /// </summary>
         UDP,
+        /// <summary>
+        /// The icmp
+        /// </summary>
         ICMP,
+        /// <summary>
+        /// The gre
+        /// </summary>
         GRE
     }
 
@@ -230,8 +248,17 @@
     /// </summary>
     public enum Protocol
     {
+        /// <summary>
+        /// The HTTP
+        /// </summary>
         HTTP,
+        /// <summary>
+        /// The TCP
+        /// </summary>
         TCP,
+        /// <summary>
+        /// The UDP
+        /// </summary>
         UDP
     }
 
@@ -337,8 +364,17 @@
     /// </summary>
     public enum LiveSrcType
     {
+        /// <summary>
+        /// The rtmppush
+        /// </summary>
         rtmppush,
+        /// <summary>
+        /// The rtmppull
+        /// </summary>
         rtmppull,
+        /// <summary>
+        /// The HLS
+        /// </summary>
         hls
     }
 
@@ -396,19 +432,61 @@
     /// </summary>
     public enum UHostMetric
     {
+        /// <summary>
+        /// The network in
+        /// </summary>
         NetworkIn,
+        /// <summary>
+        /// The network out
+        /// </summary>
         NetworkOut,
+        /// <summary>
+        /// The cpu utilization
+        /// </summary>
         CPUUtilization,
+        /// <summary>
+        /// The io read
+        /// </summary>
         IORead,
+        /// <summary>
+        /// The io write
+        /// </summary>
         IOWrite,
+        /// <summary>
+        /// The disk read ops
+        /// </summary>
         DiskReadOps,
+        /// <summary>
+        /// The nic in
+        /// </summary>
         NICIn,
+        /// <summary>
+        /// The nic out
+        /// </summary>
         NICOut,
+        /// <summary>
+        /// The memory usage
+        /// </summary>
         MemUsage,
+        /// <summary>
+        /// The data space usage
+        /// </summary>
         DataSpaceUsage,
+        /// <summary>
+        /// The root space usage
+        /// </summary>
         RootSpaceUsage,
+        /// <summary>
+        /// The readonly disk count
+        /// </summary>
         ReadonlyDiskCount,
+        /// <summary>
+        /// The runnable process count
+        /// </summary>
         RunnableProcessCount,
+        /// <summary>
+        /// The block process count
+        /// </summary>
         BlockProcessCount
     }
 
@@ -417,9 +495,21 @@
     /// </summary>
     public enum UdbMetric
     {
+        /// <summary>
+        /// The cpu utilization
+        /// </summary>
         CPUUtilization,
+        /// <summary>
+        /// The memory usage
+        /// </summary>
         MemUsage,
+        /// <summary>
+        /// The QPS
+        /// </summary>
         QPS,
+        /// <summary>
+        /// The expensive query
+        /// </summary>
         ExpensiveQuery
     }
 
@@ -428,8 +518,17 @@
     /// </summary>
     public enum UlbMetric
     {
+        /// <summary>
+        /// The network out
+        /// </summary>
         NetworkOut,
+        /// <summary>
+        /// The total network out
+        /// </summary>
         TotalNetworkOut,
+        /// <summary>
+        /// The current connections
+        /// </summary>
         CurrentConnections
     }
 
@@ -438,8 +537,17 @@
     /// </summary>
     public enum UmemMetric
     {
+        /// <summary>
+        /// The usage
+        /// </summary>
         Usage,
+        /// <summary>
+        /// The QPS
+        /// </summary>
         QPS,
+        /// <summary>
+        /// The instance count
+        /// </summary>
         InstanceCount
     }
 

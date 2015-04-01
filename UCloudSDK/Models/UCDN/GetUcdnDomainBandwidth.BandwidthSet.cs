@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/ucdn/get_ucdn_domain_bandwidth.html
     ///     </para>
     /// </summary>
-    public partial class GetUcdnDomainBandwidthBandwidthSet
+    public partial class GetUcdnDomainBandwidthSet
     {
         /// <summary>
         /// 带宽获取的时间点 

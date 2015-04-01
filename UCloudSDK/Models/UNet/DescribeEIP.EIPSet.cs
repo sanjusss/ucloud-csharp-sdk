@@ -8,7 +8,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/unet/describe_eip.html
     ///     </para>
     /// </summary>
-    public partial class DescribeEIPEIPSet
+    public partial class DescribeEIPSet
     {
         /// <summary>
         /// 弹性IP的资源ID                
@@ -85,7 +85,7 @@ namespace UCloudSDK.Models
         ///     具体结构见下方EIPAddr
         ///     </para>                 
         /// </summary>
-        public List<DescribeEIPEIPAddr> EIPAddr { get; set; }
+        public List<DescribeEIPAddr> EIPAddr { get; set; }
 
     }
 }

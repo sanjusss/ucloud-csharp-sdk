@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/unet/get_eip_price.html
     ///     </para>
     /// </summary>
-    public partial class GetEIPPricePriceSet
+    public partial class GetEIPPriceSet
     {
         /// <summary>
         /// 弹性IP计费类型                

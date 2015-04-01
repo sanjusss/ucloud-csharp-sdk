@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/uhost/get_uhost_instance_price.html
     ///     </para>
     /// </summary>
-    public partial class GetUHostInstancePricePriceSet
+    public partial class GetUHostInstancePriceSet
     {
         /// <summary>
         /// Year 

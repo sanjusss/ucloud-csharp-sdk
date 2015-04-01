@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/unet/describe_eip.html
     ///     </para>
     /// </summary>
-    public partial class DescribeEIPEIPAddr
+    public partial class DescribeEIPAddr
     {
         /// <summary>
         /// 弹性IP的运营商信息 

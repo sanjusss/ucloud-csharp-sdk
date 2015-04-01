@@ -32,7 +32,7 @@ namespace UCloudSDK.Models
         ///     具体结构见 BandwidthSet
         ///     </para>                 
         /// </summary>
-        public List<GetUcdnDomainBandwidthBandwidthSet> BandWidthSet { get; set; }
+        public List<GetUcdnDomainBandwidthSet> BandWidthSet { get; set; }
 
     }
 }

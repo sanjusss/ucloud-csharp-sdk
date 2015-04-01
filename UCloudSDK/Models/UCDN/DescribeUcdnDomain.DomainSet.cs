@@ -8,7 +8,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/ucdn/describe_ucdn_domain.html
     ///     </para>
     /// </summary>
-    public partial class DescribeUcdnDomainDomainSet
+    public partial class DescribeUcdnDomainSet
     {
         /// <summary>
         /// 加速域名                

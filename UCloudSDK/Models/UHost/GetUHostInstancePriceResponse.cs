@@ -21,7 +21,7 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 价格列表                
         /// </summary>
-        public List<GetUHostInstancePricePriceSet> PriceSet { get; set; }
+        public List<GetUHostInstancePriceSet> PriceSet { get; set; }
 
     }
 }
