@@ -1,6 +1,6 @@
 ucloud-csharp-sdk
 ===================
-ucloud-csharp-sdk是用于请求UCloud API的C# .Net4.5 SDK。现已覆盖：
+ucloud-csharp-sdk是使用C#开发，用于请求UCloud API的.Net SDK。现已覆盖：
 
 >  1. 云主机 UHost
 >  2. 网络 UNet
@@ -75,7 +75,7 @@ API使用有三种方法：
     T Execute<T>(IRestRequest request)
     //强类型返回，使用UCloud基类
     T Execute<T>(Dictionary<string, string> dictionary, Method method = Method.GET)
-    //动态内容返回，使用UCloud基类
+    //动态内容返回，使用UCloud基类 只支持.Net4及以上
     RestResponse<dynamic> Execute(Dictionary<string, string> dictionary, Method method = Method.GET)
 
 > **注意：**以下以云主机创建UHost实例[CreateUHostInstance](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)为例，其它API类似。
@@ -143,7 +143,7 @@ API使用有三种方法：
     //若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
     var error = response.RetCode!=0 ? response.Message : "";
     
-#### 3.2 动态类型返回
+#### 3.2 动态类型返回（**.Net4**及以上支持）
 请求参数为字典，返回值为动态类型。适用于未覆盖到的API方法。
 
     var ucloud=new UCloud(); 

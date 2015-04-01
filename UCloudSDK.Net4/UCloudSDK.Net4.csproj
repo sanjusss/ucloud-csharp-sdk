@@ -7,10 +7,11 @@
     <ProjectGuid>{FE52A1A1-3863-4182-AF5C-C71C71E3469C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UCloudSDK.Net4</RootNamespace>
-    <AssemblyName>UCloudSDK.Net4</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>UCloudSDK</RootNamespace>
+    <AssemblyName>UCloudSDK</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,7 +29,7 @@
     <DefineConstants>TRACE;FRAMEWORK, NET4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\UCloudSDK.Net4.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\UCloudSDK.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RestSharp">
