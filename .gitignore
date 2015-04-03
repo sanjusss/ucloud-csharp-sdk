@@ -7,7 +7,6 @@
 *.sln.docstates
 
 CodeGen/
-UCloudSDK.Test/
 *.GhostDoc.xml
 # Build results
 [Dd]ebug/
