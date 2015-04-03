@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace UCloudSDK
@@ -8,6 +11,33 @@ namespace UCloudSDK
     /// </summary>
     public static class StringHelper
     {
+        /// <summary>
+        /// 获取文件的MD5值.
+        /// </summary>
+        /// <param name="file">The file.</param>
+        /// <returns></returns>
+        public static string GetMd5(this string file)
+        {
+            using (var md5 = MD5.Create())
+            {
+                using (var stream = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    return BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", String.Empty);
+                }
+            }
+        }
+
+        /// <summary>
+        /// CanonicalizedResource.
+        /// </summary>
+        /// <param name="bucket">Bucket.</param>
+        /// <param name="key">Key.</param>
+        /// <returns></returns>
+        public static string CanonicalizedResource(string bucket, string key)
+        {
+            return "/" + bucket + "/" + key;
+        }
+
         /// <summary>
         /// 获取base64编码.
         /// </summary>
@@ -28,7 +58,29 @@ namespace UCloudSDK
         {
             return str.Replace("_", "-");
         }
-#if !NET4
+
+        /// <summary>
+        /// 计算SHA1.
+        /// </summary>
+        /// <param name="str">字符串.</param>
+        /// <returns>签名值</returns>
+        public static string ToSHA1(this string str)
+        {
+            using (SHA1Managed sha1 = new SHA1Managed())
+            {
+                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(str));
+                var sb = new StringBuilder(hash.Length * 2);
+
+                foreach (byte b in hash)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+
+                return sb.ToString();
+            }
+        }
+
+
         /// <summary>
         /// 指示指定的字符串是 null、空还是仅由空白字符组成.
         /// </summary>
@@ -36,8 +88,23 @@ namespace UCloudSDK
         /// <returns></returns>
         public static bool IsNullOrWhiteSpace(this string str)
         {
+#if NET4
+            return string.IsNullOrWhiteSpace(str);
+#else
             return String.IsNullOrEmpty(str) || str.Trim().Length == 0;
-        }
 #endif
+
+        }
+
+
+        /// <summary>
+        /// 获取文件MIME类型.
+        /// </summary>
+        /// <param name="file">文件路径.</param>
+        /// <returns></returns>
+        public static string GetMimeType(this string file)
+        {
+            return MimeHelper.GetType(Path.GetExtension(file));
+        }
     }
 }

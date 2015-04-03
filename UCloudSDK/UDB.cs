@@ -4,9 +4,9 @@ using UCloudSDK.Models;
 namespace UCloudSDK
 {
     /// <summary>
-    /// 云主机
+    /// 云数据库
     /// </summary>
-    public class UDB : UCloud
+    public partial class UDB : UCloud
     {
         /// <summary>
         /// 初始化 <see cref="UDB"/> 类.

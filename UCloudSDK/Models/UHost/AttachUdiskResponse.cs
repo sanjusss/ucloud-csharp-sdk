@@ -8,23 +8,5 @@ namespace UCloudSDK.Models
     /// </summary>
     public partial class AttachUdiskResponse : UResponse
     {
-        /// <summary>
-        /// 响应动作 
-        ///     <para>
-        ///     AttachUdiskResposne
-        ///     </para>                 
-        /// </summary>
-        public string Action { get; set; }
-
-        /// <summary>
-        /// 挂载的UHost实例ID                
-        /// </summary>
-        public string UhostId { get; set; }
-
-        /// <summary>
-        /// 挂载的UDisk实例ID                
-        /// </summary>
-        public string UDiskId { get; set; }
-
     }
 }

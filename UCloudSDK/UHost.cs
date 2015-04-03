@@ -6,7 +6,7 @@ namespace UCloudSDK
     /// <summary>
     /// 云主机
     /// </summary>
-    public class UHost : UCloud
+    public partial class UHost : UCloud
     {
         /// <summary>
         /// 初始化 <see cref="UHost"/> 类.

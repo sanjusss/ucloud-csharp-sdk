@@ -1,14 +1,63 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using RestSharp;
 
 namespace UCloudSDK
 {
     /// <summary>
-    /// RestRequest扩展方法
+    /// RRestSharp扩展方法
     /// </summary>
-    public static class RestRequestHelper
+    public static class RestSharpHelper
     {
+        /// <summary>
+        /// 获取Header值.
+        /// </summary>
+        /// <param name="parameters">参数.</param>
+        /// <param name="key">Header名称.</param>
+        /// <returns>Header值</returns>
+        public static string GetHeader(this IList<Parameter> parameters, string key)
+        {
+            var param = parameters.FirstOrDefault(p => p.Type == ParameterType.HttpHeader && p.Name == key);
+            return param != null ? param.Value.ToString() : string.Empty;
+        }
+
+        /// <summary>
+        /// 生成标准化UCloud Header.
+        /// </summary>
+        /// <param name="parameters">参数.</param>
+        /// <returns></returns>
+        public static string CanonicalizedUCloudHeaders(this List<Parameter> parameters)
+        {
+            var header = parameters.Where(p => p.Type == ParameterType.HttpHeader);
+
+            string canoncializedUCloudHeaders = string.Empty;
+
+            var headerMap = new SortedDictionary<string, string>();
+
+            foreach (var param in header.Where(p => p.Name.ToLower().StartsWith("x-ucloud-")))
+            {
+                string headerKey = param.Name;
+
+                headerKey = headerKey.ToLower();
+                if (headerMap.ContainsKey(headerKey))
+                {
+                    headerMap[headerKey] += @",";
+                    headerMap[headerKey] += param.Value;
+                }
+                else
+                {
+                    headerMap.Add(headerKey, param.Value.ToString());
+                }
+            }
+
+            foreach (var item in headerMap)
+            {
+                canoncializedUCloudHeaders += (item.Key + @":" + item.Value + @"\n");
+            }
+            return canoncializedUCloudHeaders;
+        }
 
         /// <summary>
         /// 添加Ucloud对象.
@@ -88,7 +137,14 @@ namespace UCloudSDK
                     continue;
                 }
 
-                request.AddParameter(prop.Name, val);
+                var propName = prop.Name;
+
+                if (propName.Contains("__"))
+                {
+                    propName = propName.Replace("__", "-");
+                }
+
+                request.AddParameter(propName, val);
             }
 
             return request;

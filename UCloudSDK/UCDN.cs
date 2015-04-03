@@ -4,9 +4,9 @@ using UCloudSDK.Models;
 namespace UCloudSDK
 {
     /// <summary>
-    /// 云主机
+    /// 云分发
     /// </summary>
-    public class UCDN : UCloud
+    public partial class UCDN : UCloud
     {
         /// <summary>
         /// 初始化 <see cref="UCDN"/> 类.

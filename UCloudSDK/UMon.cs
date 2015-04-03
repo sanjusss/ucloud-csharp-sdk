@@ -4,9 +4,9 @@ using UCloudSDK.Models;
 namespace UCloudSDK
 {
     /// <summary>
-    /// 云主机
+    /// 云监控
     /// </summary>
-    public class UMon : UCloud
+    public partial class UMon : UCloud
     {
         /// <summary>
         /// 初始化 <see cref="UMon"/> 类.

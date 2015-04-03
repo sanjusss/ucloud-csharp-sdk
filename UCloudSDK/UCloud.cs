@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
-using System.Net;
-using System.Security.Cryptography;
 using System.Text;
 using RestSharp;
 using RestSharp.Extensions;
-using UCloudSDK.Models;
 
 namespace UCloudSDK
 {
     /// <summary>
     ///     UCloud对象
     /// </summary>
-    public class UCloud
+    public partial class UCloud
     {
         /// <summary>
         ///     默认API请求地址
-        /// <para>可被App.Setting的BaseUrl覆盖</para>
+        ///     <para>可被App.Setting的BaseUrl覆盖</para>
         /// </summary>
         private const string Url = "http://api.ucloud.cn";
 
@@ -72,7 +68,7 @@ namespace UCloudSDK
                 PrivateKey = section["PrivateKey"];
                 BaseUrl = section["BaseUrl"];
                 BaseUrl = string.IsNullOrEmpty(BaseUrl) ? Url : BaseUrl;
-                Client = new RestClient(BaseUrl);
+                Client = new RestClient(BaseUrl) {UserAgent = "UCloudSDK"};
             }
             else
             {
@@ -81,7 +77,7 @@ namespace UCloudSDK
         }
 
         /// <summary>
-        /// 初始化 <see cref="UCloud" /> 类.
+        ///     初始化 <see cref="UCloud" /> 类.
         /// </summary>
         /// <param name="publicKey">用户公钥.</param>
         /// <param name="privateKey">用户私钥.</param>
@@ -95,11 +91,11 @@ namespace UCloudSDK
             BaseUrl = string.IsNullOrEmpty(BaseUrl) ? Url : BaseUrl;
             PublicKey = publicKey;
             PrivateKey = privateKey;
-            Client = new RestClient(BaseUrl);
+            Client = new RestClient(BaseUrl) {UserAgent = "UCloudSDK"};
         }
 
         /// <summary>
-        /// 初始化 <see cref="UCloud" /> 类.
+        ///     初始化 <see cref="UCloud" /> 类.
         /// </summary>
         /// <param name="publicKey">用户公钥.</param>
         /// <param name="privateKey">用户私钥.</param>
@@ -109,11 +105,11 @@ namespace UCloudSDK
             PublicKey = publicKey;
             PrivateKey = privateKey;
             BaseUrl = baseUrl;
-            Client = new RestClient(BaseUrl);
+            Client = new RestClient(BaseUrl) {UserAgent = "UCloudSDK"};
         }
 
         /// <summary>
-        /// 计算签名.
+        ///     计算签名.
         /// </summary>
         /// <param name="parameters">参数键值对.</param>
         /// <returns>签名值</returns>
@@ -123,7 +119,7 @@ namespace UCloudSDK
         }
 
         /// <summary>
-        /// 计算签名.
+        ///     计算签名.
         /// </summary>
         /// <param name="parameters">参数键值对.</param>
         /// <param name="privateKey">私钥.</param>
@@ -138,7 +134,7 @@ namespace UCloudSDK
                 return String.Compare(x.Name, y.Name, StringComparison.Ordinal);
             });
 
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             foreach (var parm in parameters)
             {
                 sb.Append(parm.Name);
@@ -146,43 +142,11 @@ namespace UCloudSDK
             }
             sb.Append(privateKey);
 
-            return VerfyAc(sb.ToString(), privateKey);
+            return sb.ToString().ToSHA1();
         }
 
         /// <summary>
-        /// 计算签名.
-        /// </summary>
-        /// <param name="str">参数字符串.</param>
-        /// <returns>签名值</returns>
-        public string VerfyAc(string str)
-        {
-            return VerfyAc(str, PrivateKey);
-        }
-
-        /// <summary>
-        /// 计算签名.
-        /// </summary>
-        /// <param name="str">参数字符串.</param>
-        /// <param name="privateKey">私钥.</param>
-        /// <returns>签名值</returns>
-        public string VerfyAc(string str, string privateKey)
-        {
-            using (SHA1Managed sha1 = new SHA1Managed())
-            {
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(str));
-                var sb = new StringBuilder(hash.Length * 2);
-
-                foreach (byte b in hash)
-                {
-                    sb.Append(b.ToString("x2"));
-                }
-
-                return sb.ToString();
-            }
-        }
-
-        /// <summary>
-        /// 执行请求.
+        ///     执行请求.
         /// </summary>
         /// <typeparam name="T">返回值类型</typeparam>
         /// <param name="request">请求对象.</param>
@@ -208,7 +172,7 @@ namespace UCloudSDK
         }
 
         /// <summary>
-        /// 执行请求.
+        ///     执行请求.
         /// </summary>
         /// <typeparam name="T">返回值类型</typeparam>
         /// <param name="dictionary">请求对象.</param>
@@ -217,26 +181,23 @@ namespace UCloudSDK
         /// <exception cref="System.ApplicationException">异常</exception>
         public T Execute<T>(Dictionary<string, string> dictionary, Method method = Method.GET) where T : new()
         {
-
             var request = new RestRequest(method);
-#if NET4
-            foreach (var kv in dictionary.Where(d => !string.IsNullOrWhiteSpace(d.Value)))
-#else
+
             foreach (var kv in dictionary.Where(d => !d.Value.IsNullOrWhiteSpace()))
-#endif
             {
                 request.AddParameter(kv.Key, kv.Value);
             }
 
             return Execute<T>(request);
         }
+
 #if NET4
-        /// <summary>
-        /// 执行请求.
-        /// </summary>
-        /// <param name="dictionary">请求对象.</param>
-        /// <param name="method">HTTP请求方法类型.</param>
-        /// <returns>动态类型</returns>
+    /// <summary>
+    /// 执行请求.
+    /// </summary>
+    /// <param name="dictionary">请求对象.</param>
+    /// <param name="method">HTTP请求方法类型.</param>
+    /// <returns>动态类型</returns>
         public RestResponse<dynamic> Execute(Dictionary<string, string> dictionary, Method method = Method.GET)
         {
 

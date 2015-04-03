@@ -4,9 +4,9 @@ using UCloudSDK.Models;
 namespace UCloudSDK
 {
     /// <summary>
-    /// 云主机
+    /// 负载均衡
     /// </summary>
-    public class ULB : UCloud
+    public partial class ULB : UCloud
     {
         /// <summary>
         /// 初始化 <see cref="ULB"/> 类.

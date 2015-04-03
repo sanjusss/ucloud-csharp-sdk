@@ -45,8 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\UCloudSDK\Helpers\RestRequestHelper.cs">
-      <Link>Helpers\RestRequestHelper.cs</Link>
+    <Compile Include="..\UCloudSDK\Helpers\FileHelper.cs">
+      <Link>Helpers\FileHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Helpers\MimeHelper.cs">
+      <Link>Helpers\MimeHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Helpers\RestSharpHelper.cs">
+      <Link>Helpers\RestSharpHelper.cs</Link>
     </Compile>
     <Compile Include="..\UCloudSDK\Helpers\StringHelper.cs">
       <Link>Helpers\StringHelper.cs</Link>
@@ -326,6 +332,177 @@
     </Compile>
     <Compile Include="..\UCloudSDK\Models\UDB\UploadUDBParamGroupResponse.cs">
       <Link>Models\UDB\UploadUDBParamGroupResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\AttachUdiskRequest.cs">
+      <Link>Models\UDisk\AttachUdiskRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\AttachUdiskResponse.cs">
+      <Link>Models\UDisk\AttachUdiskResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskRequest.cs">
+      <Link>Models\UDisk\CloneUDiskRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskResponse.cs">
+      <Link>Models\UDisk\CloneUDiskResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskSnapshotRequest.cs">
+      <Link>Models\UDisk\CloneUDiskSnapshotRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskSnapshotResponse.cs">
+      <Link>Models\UDisk\CloneUDiskSnapshotResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskRequest.cs">
+      <Link>Models\UDisk\CreateUDiskRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskResponse.cs">
+      <Link>Models\UDisk\CreateUDiskResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskSnapshotRequest.cs">
+      <Link>Models\UDisk\CreateUDiskSnapshotRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskSnapshotResponse.cs">
+      <Link>Models\UDisk\CreateUDiskSnapshotResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskRequest.cs">
+      <Link>Models\UDisk\DeleteUDiskRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskResponse.cs">
+      <Link>Models\UDisk\DeleteUDiskResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskSnapshotRequest.cs">
+      <Link>Models\UDisk\DeleteUDiskSnapshotRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskSnapshotResponse.cs">
+      <Link>Models\UDisk\DeleteUDiskSnapshotResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDisk.DataSet.cs">
+      <Link>Models\UDisk\DescribeUDisk.DataSet.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskPrice.DataSet.cs">
+      <Link>Models\UDisk\DescribeUDiskPrice.DataSet.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskPriceRequest.cs">
+      <Link>Models\UDisk\DescribeUDiskPriceRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskPriceResponse.cs">
+      <Link>Models\UDisk\DescribeUDiskPriceResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskRequest.cs">
+      <Link>Models\UDisk\DescribeUDiskRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskResponse.cs">
+      <Link>Models\UDisk\DescribeUDiskResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskSnapshot.Response.cs">
+      <Link>Models\UDisk\DescribeUDiskSnapshot.Response.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskSnapshotRequest.cs">
+      <Link>Models\UDisk\DescribeUDiskSnapshotRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskSnapshotResponse.cs">
+      <Link>Models\UDisk\DescribeUDiskSnapshotResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskUpgradePriceRequest.cs">
+      <Link>Models\UDisk\DescribeUDiskUpgradePriceRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskUpgradePriceResponse.cs">
+      <Link>Models\UDisk\DescribeUDiskUpgradePriceResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DetachUDiskRequest.cs">
+      <Link>Models\UDisk\DetachUDiskRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\DetachUDiskResponse.cs">
+      <Link>Models\UDisk\DetachUDiskResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\RenameUDiskRequest.cs">
+      <Link>Models\UDisk\RenameUDiskRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\RenameUDiskResponse.cs">
+      <Link>Models\UDisk\RenameUDiskResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\ResizeUDiskRequest.cs">
+      <Link>Models\UDisk\ResizeUDiskRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UDisk\ResizeUDiskResponse.cs">
+      <Link>Models\UDisk\ResizeUDiskResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\CreateBucketRequest.cs">
+      <Link>Models\UFile\CreateBucketRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\CreateBucketResponse.cs">
+      <Link>Models\UFile\CreateBucketResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\DeleteBucketRequest.cs">
+      <Link>Models\UFile\DeleteBucketRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\DeleteBucketResponse.cs">
+      <Link>Models\UFile\DeleteBucketResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\DeleteFileResponse.cs">
+      <Link>Models\UFile\DeleteFileResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucket.DataSet.cs">
+      <Link>Models\UFile\DescribeBucket.DataSet.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucket.Domain.cs">
+      <Link>Models\UFile\DescribeBucket.Domain.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucketRequest.cs">
+      <Link>Models\UFile\DescribeBucketRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucketResponse.cs">
+      <Link>Models\UFile\DescribeBucketResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\FileResponse.cs">
+      <Link>Models\UFile\FileResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\FinishMultipartUploadResponse.cs">
+      <Link>Models\UFile\FinishMultipartUploadResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\GetFileList.DataSet.cs">
+      <Link>Models\UFile\GetFileList.DataSet.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\GetFileListRequest.cs">
+      <Link>Models\UFile\GetFileListRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\GetFileListResponse.cs">
+      <Link>Models\UFile\GetFileListResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\GetFileResponse.cs">
+      <Link>Models\UFile\GetFileResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\InitiateMultipartUploadResponse.cs">
+      <Link>Models\UFile\InitiateMultipartUploadResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\PartFile.cs">
+      <Link>Models\UFile\PartFile.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\PostFileRequest.cs">
+      <Link>Models\UFile\PostFileRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\PostFileResponse.cs">
+      <Link>Models\UFile\PostFileResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\PutFileResponse.cs">
+      <Link>Models\UFile\PutFileResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\ResponseHeader.cs">
+      <Link>Models\UFile\ResponseHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\UpdateBucketRequest.cs">
+      <Link>Models\UFile\UpdateBucketRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\UpdateBucketResponse.cs">
+      <Link>Models\UFile\UpdateBucketResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\UploadHitRequest.cs">
+      <Link>Models\UFile\UploadHitRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\UploadHitResponse.cs">
+      <Link>Models\UFile\UploadHitResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UFile\UploadPartResponse.cs">
+      <Link>Models\UFile\UploadPartResponse.cs</Link>
     </Compile>
     <Compile Include="..\UCloudSDK\Models\UHost\AttachUdiskRequest.cs">
       <Link>Models\UHost\AttachUdiskRequest.cs</Link>
@@ -762,9 +939,6 @@
     <Compile Include="..\UCloudSDK\Models\UResponse.cs">
       <Link>Models\UResponse.cs</Link>
     </Compile>
-    <Compile Include="..\UCloudSDK\NList.cs">
-      <Link>NList.cs</Link>
-    </Compile>
     <Compile Include="..\UCloudSDK\UCDN.cs">
       <Link>UCDN.cs</Link>
     </Compile>
@@ -773,6 +947,9 @@
     </Compile>
     <Compile Include="..\UCloudSDK\UDB.cs">
       <Link>UDB.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\UDisk.cs">
+      <Link>UDisk.cs</Link>
     </Compile>
     <Compile Include="..\UCloudSDK\UHost.cs">
       <Link>UHost.cs</Link>
@@ -791,6 +968,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

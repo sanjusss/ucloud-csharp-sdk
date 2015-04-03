@@ -6,8 +6,9 @@ ucloud-csharp-sdk是使用C#开发，用于请求UCloud API的.Net SDK。现已�
 >  2. 网络 UNet
 >  3. 负载均衡 ULB
 >  4. 云数据库 UDB
->  5. 接入云 UCDN
->  6. 云监控 UMon
+>  5. 对象存储 UFile
+>  6. 接入云 UCDN
+>  7. 云监控 UMon
 
 SDK使用方法
 -------------
@@ -170,14 +171,54 @@ API使用有三种方法：
     //获取RetCode
     var retCode=entity["RetCode"];
 
-### 4. RestSharp
+### 4. 对象存储UFile文件操作使用方法
+
+> **注意**
+> 这里是假设Bucket已创建，名称为bucketName，未创建的话，请先创建Bucket [CreateBucket](http://docs.ucloud.cn/api/ufile/create_bucket.html)
+
+    // 初始化UFile对象
+    UFile ufile=new UFile(){Bucket="bucketName"};  
+    // 小文件本地路径（小于4M）
+    string filePath = @"";
+    // 大文件本地路径（大于4M）
+    private string bigfilePath = @"";  
+    /// 下载文件保存路径
+    private string savePath = @"";
+    
+    // 普通上传文件
+    ufile.PutFile(filePath);
+    
+    // 表单上传文件
+    uflie.PostFile(filePath);
+
+    // 分片上传
+    // 初始化分片上传
+    var entity = ufile.InitiateMultipartUpload(bigfilePath);
+    for (int i = 0; i < 100000; i++)
+    {
+        if (ufile.PartFile.IsLast)
+        {
+            break;
+        }
+    // 上传文件分片
+        ufile.UploadPart(i);
+    }
+    // 完成分片上传
+    var response = ufile.FinishMultipartUpload("newKey");
+    
+    // 下载文件 key为文件在Bucket中的名称
+    ufile.GetFile("key", savePath);
+    
+    
+
+### 5. RestSharp
 SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请求进行设置，比如代理、过期时间等，可对UCloud的**Client**属性进行设置。更多RestSharp使用方法请参见其[官方文档](https://github.com/restsharp/RestSharp/wiki)。
 
     var uhost=new UHost();
     //设置HTTP代理
     uhost.Client.Proxy=new WebProxy("http://proxy.com");
 
-### 5. 其它特性
+### 6. 其它特性
 
 1. 根据官方API文档添加了详细的注释，配合Visual Studio使用更加方便。
 2. 添加了大部分枚举值以便于使用。
@@ -210,6 +251,8 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
     
 其它
 -------------
+
+> ucloud-csharp-sdk 根据官方API文档制作完成。因为官方文档有些疏漏的地方，且SDK单元测试暂未完全覆盖所有的方法。如果在使用过程中遇到任何问题，请及时反馈。
 
 ### 链接
 UCloud: http://www.ucloud.cn/

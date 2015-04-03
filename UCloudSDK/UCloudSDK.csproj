@@ -41,6 +41,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\MimeHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Models\SecurityGroupRule.cs" />
     <Compile Include="Models\UCDN\BuyUcdnTrafficRequest.cs" />
@@ -132,6 +134,63 @@
     <Compile Include="Models\UDB\UpdateUDBParamGroupResponse.cs" />
     <Compile Include="Models\UDB\UploadUDBParamGroupRequest.cs" />
     <Compile Include="Models\UDB\UploadUDBParamGroupResponse.cs" />
+    <Compile Include="Models\UDisk\AttachUdiskRequest.cs" />
+    <Compile Include="Models\UDisk\AttachUdiskResponse.cs" />
+    <Compile Include="Models\UDisk\CloneUDiskRequest.cs" />
+    <Compile Include="Models\UDisk\CloneUDiskResponse.cs" />
+    <Compile Include="Models\UDisk\CloneUDiskSnapshotRequest.cs" />
+    <Compile Include="Models\UDisk\CloneUDiskSnapshotResponse.cs" />
+    <Compile Include="Models\UDisk\CreateUDiskRequest.cs" />
+    <Compile Include="Models\UDisk\CreateUDiskResponse.cs" />
+    <Compile Include="Models\UDisk\CreateUDiskSnapshotRequest.cs" />
+    <Compile Include="Models\UDisk\CreateUDiskSnapshotResponse.cs" />
+    <Compile Include="Models\UDisk\DeleteUDiskRequest.cs" />
+    <Compile Include="Models\UDisk\DeleteUDiskResponse.cs" />
+    <Compile Include="Models\UDisk\DeleteUDiskSnapshotRequest.cs" />
+    <Compile Include="Models\UDisk\DeleteUDiskSnapshotResponse.cs" />
+    <Compile Include="Models\UDisk\DescribeUDisk.DataSet.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskPrice.DataSet.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskPriceRequest.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskPriceResponse.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskRequest.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskResponse.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskSnapshot.Response.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskSnapshotRequest.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskSnapshotResponse.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskUpgradePriceRequest.cs" />
+    <Compile Include="Models\UDisk\DescribeUDiskUpgradePriceResponse.cs" />
+    <Compile Include="Models\UDisk\DetachUDiskRequest.cs" />
+    <Compile Include="Models\UDisk\DetachUDiskResponse.cs" />
+    <Compile Include="Models\UDisk\RenameUDiskRequest.cs" />
+    <Compile Include="Models\UDisk\RenameUDiskResponse.cs" />
+    <Compile Include="Models\UDisk\ResizeUDiskRequest.cs" />
+    <Compile Include="Models\UDisk\ResizeUDiskResponse.cs" />
+    <Compile Include="Models\UFile\CreateBucketRequest.cs" />
+    <Compile Include="Models\UFile\CreateBucketResponse.cs" />
+    <Compile Include="Models\UFile\DeleteBucketRequest.cs" />
+    <Compile Include="Models\UFile\DeleteBucketResponse.cs" />
+    <Compile Include="Models\UFile\DeleteFileResponse.cs" />
+    <Compile Include="Models\UFile\DescribeBucket.DataSet.cs" />
+    <Compile Include="Models\UFile\DescribeBucket.Domain.cs" />
+    <Compile Include="Models\UFile\DescribeBucketRequest.cs" />
+    <Compile Include="Models\UFile\DescribeBucketResponse.cs" />
+    <Compile Include="Models\UFile\FileResponse.cs" />
+    <Compile Include="Models\UFile\PartFile.cs" />
+    <Compile Include="Models\UFile\ResponseHeader.cs" />
+    <Compile Include="Models\UFile\FinishMultipartUploadResponse.cs" />
+    <Compile Include="Models\UFile\GetFileList.DataSet.cs" />
+    <Compile Include="Models\UFile\GetFileListRequest.cs" />
+    <Compile Include="Models\UFile\GetFileListResponse.cs" />
+    <Compile Include="Models\UFile\GetFileResponse.cs" />
+    <Compile Include="Models\UFile\InitiateMultipartUploadResponse.cs" />
+    <Compile Include="Models\UFile\PostFileRequest.cs" />
+    <Compile Include="Models\UFile\PostFileResponse.cs" />
+    <Compile Include="Models\UFile\PutFileResponse.cs" />
+    <Compile Include="Models\UFile\UpdateBucketRequest.cs" />
+    <Compile Include="Models\UFile\UpdateBucketResponse.cs" />
+    <Compile Include="Models\UFile\UploadHitRequest.cs" />
+    <Compile Include="Models\UFile\UploadHitResponse.cs" />
+    <Compile Include="Models\UFile\UploadPartResponse.cs" />
     <Compile Include="Models\UHost\AttachUdiskRequest.cs" />
     <Compile Include="Models\UHost\AttachUdiskResponse.cs" />
     <Compile Include="Models\UHost\CreateCustomImageRequest.cs" />
@@ -277,14 +336,15 @@
     <Compile Include="Models\UNet\UpdateSecurityGroupRequest.cs" />
     <Compile Include="Models\UNet\UpdateSecurityGroupResponse.cs" />
     <Compile Include="Models\UResponse.cs" />
-    <Compile Include="NList.cs" />
-    <Compile Include="Helpers\RestRequestHelper.cs" />
+    <Compile Include="Helpers\RestSharpHelper.cs" />
     <Compile Include="Helpers\TypeHelper.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UCDN.cs" />
     <Compile Include="UCloud.cs" />
     <Compile Include="UDB.cs" />
+    <Compile Include="UDisk.cs" />
+    <Compile Include="UFile.cs" />
     <Compile Include="UHost.cs" />
     <Compile Include="ULB.cs" />
     <Compile Include="UMon.cs" />
@@ -292,6 +352,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

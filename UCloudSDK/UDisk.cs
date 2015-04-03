@@ -4,228 +4,204 @@ using UCloudSDK.Models;
 namespace UCloudSDK
 {
     /// <summary>
-    /// 网络
+    /// 云硬盘
     /// </summary>
-    public partial class UNet : UCloud
+    public partial class UDisk : UCloud
     {
         /// <summary>
-        /// 初始化 <see cref="UNet"/> 类.
+        /// 初始化 <see cref="UDisk"/> 类.
         /// </summary>
-        public UNet()
+        public UDisk()
         {
         }
 
         /// <summary>
-        /// 初始化 <see cref="UNet"/> 类.
+        /// 初始化 <see cref="UDisk"/> 类.
         /// </summary>
         /// <param name="publicKey">用户公钥.</param>
         /// <param name="privateKey">用户私钥.</param>
-        public UNet(string publicKey, string privateKey)
+        public UDisk(string publicKey, string privateKey)
             : base(publicKey, privateKey)
         {
         }
 
         /// <summary>
-        /// 初始化 <see cref="UNet"/> 类.
+        /// 初始化 <see cref="UDisk"/> 类.
         /// </summary>
         /// <param name="publicKey">用户公钥.</param>
         /// <param name="privateKey">用户私钥.</param>
         /// <param name="baseUrl">API请求地址.</param>
-        public UNet(string publicKey, string privateKey, string baseUrl)
+        public UDisk(string publicKey, string privateKey, string baseUrl)
             : base(publicKey, privateKey, baseUrl)
         {
         }
 
         /// <summary>
-        /// 根据提供信息，分配弹性IP
+        /// 将一个可用的UDisk挂载到某台主机上，当UDisk挂载成功后，还需要在主机内部进行文件系统操作
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public AllocateEIPResponse AllocateEIP(AllocateEIPRequest requestParams)
+        public AttachUdiskResponse AttachUdisk(AttachUdiskRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<AllocateEIPResponse>(request);
+            return Execute<AttachUdiskResponse>(request);
         }
 
         /// <summary>
-        /// 根据提供信息，分配内网VIP(Virtual IP，多用于高可用程序作为漂移IP。)
+        /// 从UDisk创建UDisk克隆
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public AllocateVIPResponse AllocateVIP(AllocateVIPRequest requestParams)
+        public CloneUDiskResponse CloneUDisk(CloneUDiskRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<AllocateVIPResponse>(request);
+            return Execute<CloneUDiskResponse>(request);
         }
 
         /// <summary>
-        /// 将弹性IP绑定到资源上
+        /// 从快照创建UDisk克隆
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public BindEIPResponse BindEIP(BindEIPRequest requestParams)
+        public CloneUDiskSnapshotResponse CloneUDiskSnapshot(CloneUDiskSnapshotRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<BindEIPResponse>(request);
+            return Execute<CloneUDiskSnapshotResponse>(request);
         }
 
         /// <summary>
-        /// 创建防火墙组
+        /// 创建UDisk磁盘
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public CreateSecurityGroupResponse CreateSecurityGroup(CreateSecurityGroupRequest requestParams)
+        public CreateUDiskResponse CreateUDisk(CreateUDiskRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<CreateSecurityGroupResponse>(request);
+            return Execute<CreateUDiskResponse>(request);
         }
 
         /// <summary>
-        /// 删除防火墙
+        /// 创建snapshot快照
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public DeleteSecurityGroupResponse DeleteSecurityGroup(DeleteSecurityGroupRequest requestParams)
+        public CreateUDiskSnapshotResponse CreateUDiskSnapshot(CreateUDiskSnapshotRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<DeleteSecurityGroupResponse>(request);
+            return Execute<CreateUDiskSnapshotResponse>(request);
         }
 
         /// <summary>
-        /// 获取弹性IP详细信息
+        /// 删除UDisk
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public DescribeEIPResponse DescribeEIP(DescribeEIPRequest requestParams)
+        public DeleteUDiskResponse DeleteUDisk(DeleteUDiskRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<DescribeEIPResponse>(request);
+            return Execute<DeleteUDiskResponse>(request);
         }
 
         /// <summary>
-        /// 获取防火墙组信息
+        /// 销毁Snapshot
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public DescribeSecurityGroupResponse DescribeSecurityGroup(DescribeSecurityGroupRequest requestParams)
+        public DeleteUDiskSnapshotResponse DeleteUDiskSnapshot(DeleteUDiskSnapshotRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<DescribeSecurityGroupResponse>(request);
+            return Execute<DeleteUDiskSnapshotResponse>(request);
         }
 
         /// <summary>
-        /// 获取防火墙组所绑定资源的外网IP
+        /// 获取UDisk实例
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public DescribeSecurityGroupResourceResponse DescribeSecurityGroupResource(DescribeSecurityGroupResourceRequest requestParams)
+        public DescribeUDiskResponse DescribeUDisk(DescribeUDiskRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<DescribeSecurityGroupResourceResponse>(request);
+            return Execute<DescribeUDiskResponse>(request);
         }
 
         /// <summary>
-        /// 获取内网VIP详细信息
+        /// 获取udisk实例价格信息
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public DescribeVIPResponse DescribeVIP(DescribeVIPRequest requestParams)
+        public DescribeUDiskPriceResponse DescribeUDiskPrice(DescribeUDiskPriceRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<DescribeVIPResponse>(request);
+            return Execute<DescribeUDiskPriceResponse>(request);
         }
 
         /// <summary>
-        /// 获取弹性IP价格
+        /// 获取UDisk快照
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public GetEIPPriceResponse GetEIPPrice(GetEIPPriceRequest requestParams)
+        public DescribeUDiskSnapshotResponse DescribeUDiskSnapshot(DescribeUDiskSnapshotRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<GetEIPPriceResponse>(request);
+            return Execute<DescribeUDiskSnapshotResponse>(request);
         }
 
         /// <summary>
-        /// 将防火墙应用到资源上
+        /// 获取udisk升级价格信息
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public GrantSecurityGroupResponse GrantSecurityGroup(GrantSecurityGroupRequest requestParams)
+        public DescribeUDiskUpgradePriceResponse DescribeUDiskUpgradePrice(DescribeUDiskUpgradePriceRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<GrantSecurityGroupResponse>(request);
+            return Execute<DescribeUDiskUpgradePriceResponse>(request);
         }
 
         /// <summary>
-        /// 修改弹性IP的外网带宽
+        /// 卸载某个已经挂载在指定UHost实例上的UDisk
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public ModifyEIPBandwidthResponse ModifyEIPBandwidth(ModifyEIPBandwidthRequest requestParams)
+        public DetachUDiskResponse DetachUDisk(DetachUDiskRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<ModifyEIPBandwidthResponse>(request);
+            return Execute<DetachUDiskResponse>(request);
         }
 
         /// <summary>
-        /// 修改弹性IP的外网出口权重
+        /// 重命名UDisk
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public ModifyEIPWeightResponse ModifyEIPWeight(ModifyEIPWeightRequest requestParams)
+        public RenameUDiskResponse RenameUDisk(RenameUDiskRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<ModifyEIPWeightResponse>(request);
+            return Execute<RenameUDiskResponse>(request);
         }
 
         /// <summary>
-        /// 释放EIP资源
+        /// 调整UDisk容量
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public ReleaseEIPResponse ReleaseEIP(ReleaseEIPRequest requestParams)
+        public ResizeUDiskResponse ResizeUDisk(ResizeUDiskRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);
-            return Execute<ReleaseEIPResponse>(request);
-        }
-
-        /// <summary>
-        /// 释放VIP资源
-        /// </summary>
-        /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
-        public ReleaseVIPResponse ReleaseVIP(ReleaseVIPRequest requestParams)
-        {
-            var request = new RestRequest(Method.GET);
-            request.AddUObject(requestParams);
-            return Execute<ReleaseVIPResponse>(request);
-        }
-
-        /// <summary>
-        /// 将弹性IP从资源上解绑
-        /// </summary>
-        /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
-        public UnBindEIPResponse UnBindEIP(UnBindEIPRequest requestParams)
-        {
-            var request = new RestRequest(Method.GET);
-            request.AddUObject(requestParams);
-            return Execute<UnBindEIPResponse>(request);
+            return Execute<ResizeUDiskResponse>(request);
         }
 
     }
