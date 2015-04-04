@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class StartUHostInstanceRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "StartUHostInstance";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     StartUHostInstance
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "StartUHostInstance";
-            }
+            get { return _action; }
+            set { _action = value; }
         }  
                
         /// <summary>

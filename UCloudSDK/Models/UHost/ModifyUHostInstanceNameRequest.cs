@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class ModifyUHostInstanceNameRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "ModifyUHostInstanceName";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     ModifyUHostInstanceName
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "ModifyUHostInstanceName";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 数据中心 

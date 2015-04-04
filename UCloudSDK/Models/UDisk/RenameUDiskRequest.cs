@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class RenameUDiskRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "RenameUDisk";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     RenameUDisk
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "RenameUDisk";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 数据中心 

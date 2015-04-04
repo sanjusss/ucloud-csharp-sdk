@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class ReleaseEIPRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "ReleaseEIP";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     ReleaseEIP
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "ReleaseEIP";
-            }
+            get { return _action; }
+            set { _action = value; }
         }  
                
         /// <summary>

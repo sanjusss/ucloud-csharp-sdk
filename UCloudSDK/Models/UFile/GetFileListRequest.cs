@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class GetFileListRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "GetFileList";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     GetFileList
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "GetFileList";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// Bucket名称                

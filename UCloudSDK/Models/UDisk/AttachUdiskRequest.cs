@@ -9,18 +9,21 @@ namespace UCloudSDK.Models
     public partial class AttachUDiskRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "AttachUDisk";
+
+        /// <summary>
         /// API名称
         ///     <para>
-        ///     AttachUdisk
+        ///     AttachUDisk
         ///     </para>
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "AttachUDisk";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 数据中心 

@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class GetUcdnTrafficRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "GetUcdnTraffic";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     GetUcdnTraffic
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "GetUcdnTraffic";
-            }
+            get { return _action; }
+            set { _action = value; }
         }  
                
         /// <summary>

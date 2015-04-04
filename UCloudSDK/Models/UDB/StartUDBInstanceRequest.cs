@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class StartUDBInstanceRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "StartUDBInstance";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     StartUDBInstance
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "StartUDBInstance";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 数据中心 

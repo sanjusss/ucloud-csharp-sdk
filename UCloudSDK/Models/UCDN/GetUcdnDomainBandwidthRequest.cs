@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class GetUcdnDomainBandwidthRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "GetUcdnDomainBandwidth";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     GetUcdnDomainBandwidth
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "GetUcdnDomainBandwidth";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 域名ID 

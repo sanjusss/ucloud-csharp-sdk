@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class GetUcdnDomainPrefetchEnableRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "GetUcdnDomainPrefetchEnable";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     GetUcdnDomainPrefetchEnable
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "GetUcdnDomainPrefetchEnable";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 域名ID 

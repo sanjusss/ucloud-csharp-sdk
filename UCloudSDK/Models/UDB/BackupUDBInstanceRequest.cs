@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class BackupUDBInstanceRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "BackupUDBInstance";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     BackupUDBInstance
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "BackupUDBInstance";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 数据中心 

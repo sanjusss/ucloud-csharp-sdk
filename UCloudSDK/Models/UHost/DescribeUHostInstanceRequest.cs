@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DescribeUHostInstanceRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DescribeUHostInstance";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DescribeUHostInstance
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DescribeUHostInstance";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 数据中心 

@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class CreateUcdnDomainRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "CreateUcdnDomain";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     CreateUcdnDomain
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "CreateUcdnDomain";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 用于加速的域名                

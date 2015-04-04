@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class GetUcdnDomainTrafficRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "GetUcdnDomainTraffic";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     GetUcdnDomainTraffic
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "GetUcdnDomainTraffic";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 域名ID 

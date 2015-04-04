@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DescribeUDBBackupBlacklistRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DescribeUDBBackupBlacklist";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DescribeUDBBackupBlacklist
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DescribeUDBBackupBlacklist";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 数据中心 

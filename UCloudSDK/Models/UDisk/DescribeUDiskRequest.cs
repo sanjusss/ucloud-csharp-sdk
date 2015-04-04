@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DescribeUDiskRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DescribeUDisk";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DescribeUDisk
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DescribeUDisk";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 数据中心 

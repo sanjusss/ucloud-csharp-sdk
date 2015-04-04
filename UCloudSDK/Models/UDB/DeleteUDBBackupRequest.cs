@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DeleteUDBBackupRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DeleteUDBBackup";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DeleteUDBBackup
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DeleteUDBBackup";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 数据中心 

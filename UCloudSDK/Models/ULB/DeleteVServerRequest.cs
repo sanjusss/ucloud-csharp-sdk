@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DeleteVServerRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DeleteVServer";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DeleteVServer
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DeleteVServer";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 数据中心 

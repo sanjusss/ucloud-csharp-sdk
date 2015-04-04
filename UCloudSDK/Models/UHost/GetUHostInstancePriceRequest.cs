@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class GetUHostInstancePriceRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "GetUHostInstancePrice";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     GetUHostInstancePrice
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "GetUHostInstancePrice";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 数据中心 

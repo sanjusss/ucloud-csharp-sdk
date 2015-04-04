@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class CreateUDiskRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "CreateUDisk";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     CreateUDisk
@@ -16,12 +21,10 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "CreateUDisk";
-            }
-        }  
-               
+            get { return _action; }
+            set { _action = value; }
+        }
+
         /// <summary>
         /// 数数据中心 
         ///     <para>
@@ -75,9 +78,9 @@ namespace UCloudSDK.Models
         /// <param name="region">数数据中心</param>                    
         /// <param name="size">磁盘大小</param>                    
         public CreateUDiskRequest(string region, int size)
-        {               
+        {
             Region = region;
             Size = size;
-        }                
+        }
     }
 }

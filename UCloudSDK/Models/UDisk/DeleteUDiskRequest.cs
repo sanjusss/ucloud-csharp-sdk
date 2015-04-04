@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DeleteUDiskRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DeleteUDisk";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DeleteUDisk
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DeleteUDisk";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 数据中心 

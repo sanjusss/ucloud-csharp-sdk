@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class GetEIPPriceRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "GetEIPPrice";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     GetEIPPrice
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "GetEIPPrice";
-            }
+            get { return _action; }
+            set { _action = value; }
         }  
                
         /// <summary>

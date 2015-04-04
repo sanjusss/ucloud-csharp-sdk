@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class TerminateUHostInstanceRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "TerminateUHostInstance";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     TerminateUHostInstance
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "TerminateUHostInstance";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 数据中心 

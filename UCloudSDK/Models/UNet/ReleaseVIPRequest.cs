@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class ReleaseVIPRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "ReleaseVIP";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     ReleaseVIP
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "ReleaseVIP";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 数据中心 

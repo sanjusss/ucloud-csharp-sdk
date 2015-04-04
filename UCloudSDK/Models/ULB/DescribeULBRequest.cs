@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DescribeULBRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DescribeULB";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DescribeULB
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DescribeULB";
-            }
+            get { return _action; }
+            set { _action = value; }
         }  
                
         /// <summary>

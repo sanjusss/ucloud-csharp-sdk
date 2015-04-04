@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DescribeRefreshCacheTaskRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DescribeRefreshCacheTask";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DescribeRefreshCacheTask
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DescribeRefreshCacheTask";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 域名ID 

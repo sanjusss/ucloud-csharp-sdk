@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class CloneUDiskSnapshotRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "CloneUDiskSnapshot";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     CloneUDiskSnapshot
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "CloneUDiskSnapshot";
-            }
+            get { return _action; }
+            set { _action = value; }
         }  
                
         /// <summary>

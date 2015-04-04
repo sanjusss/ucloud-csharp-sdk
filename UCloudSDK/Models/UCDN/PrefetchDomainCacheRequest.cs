@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class PrefetchDomainCacheRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "PrefetchDomainCache";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     PrefetchDomainCache
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "PrefetchDomainCache";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 域名ID 

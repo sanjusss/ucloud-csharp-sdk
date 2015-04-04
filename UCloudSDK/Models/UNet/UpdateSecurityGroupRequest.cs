@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class UpdateSecurityGroupRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "UpdateSecurityGroup";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     UpdateSecurityGroup
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "UpdateSecurityGroup";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 数据中心 

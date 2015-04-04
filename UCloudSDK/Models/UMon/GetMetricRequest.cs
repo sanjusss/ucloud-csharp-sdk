@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class GetMetricRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "GetMetric";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     GetMetric
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "GetMetric";
-            }
+            get { return _action; }
+            set { _action = value; }
         }  
                
         /// <summary>

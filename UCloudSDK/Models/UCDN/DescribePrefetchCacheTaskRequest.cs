@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DescribePrefetchCacheTaskRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DescribePrefetchCacheTask";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DescribePrefetchCacheTask
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DescribePrefetchCacheTask";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        }
                
         /// <summary>
         /// 域名ID 

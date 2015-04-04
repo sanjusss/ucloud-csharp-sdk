@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class UpdateUcdnDomainStatusRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "UpdateUcdnDomainStatus";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     UpdateUcdnDomainStatus
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "UpdateUcdnDomainStatus";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 域名ID 

@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DescribeUDBInstanceStateRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DescribeUDBInstanceState";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DescribeUDBInstanceState
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DescribeUDBInstanceState";
-            }
+            get { return _action; }
+            set { _action = value; }
         }  
                
         /// <summary>

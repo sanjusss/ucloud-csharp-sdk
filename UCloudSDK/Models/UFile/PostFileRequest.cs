@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class PostFileRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "PostFile";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     PostFile
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "PostFile";
-            }
+            get { return _action; }
+            set { _action = value; }
         }
 
         /// <summary>

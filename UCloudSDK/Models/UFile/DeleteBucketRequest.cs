@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class DeleteBucketRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "DeleteBucket";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     DeleteBucket
@@ -16,11 +21,9 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "DeleteBucket";
-            }
-        }  
+            get { return _action; }
+            set { _action = value; }
+        } 
                
         /// <summary>
         /// 待删除Bucket的名称                

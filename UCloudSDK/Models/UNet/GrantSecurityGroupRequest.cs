@@ -9,6 +9,11 @@ namespace UCloudSDK.Models
     public partial class GrantSecurityGroupRequest
     {
         /// <summary>
+        /// 默认Action名称
+        /// </summary>
+        private string _action = "GrantSecurityGroup";
+
+        /// <summary>
         /// API名称
         ///     <para>
         ///     GrantSecurityGroup
@@ -16,10 +21,8 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Action
         {
-            get
-            {
-                return "GrantSecurityGroup";
-            }
+            get { return _action; }
+            set { _action = value; }
         }  
                
         /// <summary>
