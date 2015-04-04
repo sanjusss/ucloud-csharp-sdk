@@ -9,6 +9,7 @@ ucloud-csharp-sdk是使用C#开发，用于请求UCloud API的.Net SDK。现已�
 >  5. 对象存储 UFile
 >  6. 接入云 UCDN
 >  7. 云监控 UMon
+>  8. 短信包
 
 SDK使用方法
 -------------
@@ -44,8 +45,8 @@ SDK使用方法
 
 构造函数：
 
-    UCloud(string publicKey, string privateKey)
-    UCloud(string publicKey, string privateKey, string baseUrl)
+	UCloud(string publicKey, string privateKey)
+	UCloud(string publicKey, string privateKey, string baseUrl)
 
 使用方法:
 
@@ -89,9 +90,9 @@ API使用有三种方法：
 
     public MethodResponse Method(MethodRequest requestParams)
     {
-         var request = new RestRequest(Method.GET);
-         request.AddUObject(requestParams);
-         return Execute<MethodResponse>(request);
+	     var request = new RestRequest(Method.GET);
+    	 request.AddUObject(requestParams);
+    	 return Execute<MethodResponse>(request);
     }
 
 使用方法如下：
@@ -110,12 +111,12 @@ API使用有三种方法：
     entity.Name="UCloudExample01";
     entity.ChargeType="Month";
     entity.Quantity=1;
-    //请求API，返回类型为CreateUHostInstanceResponse
-    var response=uhost.CreateUHostInstance(entity);
-    //获取RetCode
-    var retCode=response.RetCode;
-    //若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
-    var error = response.RetCode!=0 ? response.Message : "";
+	//请求API，返回类型为CreateUHostInstanceResponse
+	var response=uhost.CreateUHostInstance(entity);
+	//获取RetCode
+	var retCode=response.RetCode;
+	//若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
+	var error = response.RetCode!=0 ? response.Message : "";
     
 #### 3.2 强类型返回
 请求参数为字典，返回值为强类型
@@ -137,13 +138,13 @@ API使用有三种方法：
     dict.Add("Name","UCloudExample01");
     dict.Add("ChargeType","Month");
     dict.Add("Quantity","1");
-    //请求API，返回类型为CreateUHostInstanceResponse
-    var response=ucloud.Execute<CreateUHostInstanceResponse>(dict);
-    //获取RetCode
-    var retCode=response.RetCode;
-    //若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
-    var error = response.RetCode!=0 ? response.Message : "";
-    
+	//请求API，返回类型为CreateUHostInstanceResponse
+	var response=ucloud.Execute<CreateUHostInstanceResponse>(dict);
+	//获取RetCode
+	var retCode=response.RetCode;
+	//若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
+	var error = response.RetCode!=0 ? response.Message : "";
+	
 #### 3.2 动态类型返回（**.Net4**及以上支持）
 请求参数为字典，返回值为动态类型。适用于未覆盖到的API方法。
 
@@ -164,12 +165,12 @@ API使用有三种方法：
     dict.Add("Name","UCloudExample01");
     dict.Add("ChargeType","Month");
     dict.Add("Quantity","1");
-    //请求API，返回类型为RestResponse<dynamic>
-    var response=ucloud.Execute(dict);
-    //之后可用数组的形式获取数据
-    var entity=response.Data;
-    //获取RetCode
-    var retCode=entity["RetCode"];
+	//请求API，返回类型为RestResponse<dynamic>
+	var response=ucloud.Execute(dict);
+	//之后可用数组的形式获取数据
+	var entity=response.Data;
+	//获取RetCode
+	var retCode=entity["RetCode"];
 
 ### 4. 对象存储UFile文件操作使用方法
 
@@ -187,38 +188,54 @@ API使用有三种方法：
     
     // 普通上传文件
     ufile.PutFile(filePath);
-    
-    // 表单上传文件
-    uflie.PostFile(filePath);
+	
+	// 表单上传文件
+	uflie.PostFile(filePath);
 
-    // 分片上传
-    // 初始化分片上传
-    var entity = ufile.InitiateMultipartUpload(bigfilePath);
+	// 分片上传
+	// 初始化分片上传
+	var entity = ufile.InitiateMultipartUpload(bigfilePath);
     for (int i = 0; i < 100000; i++)
     {
         if (ufile.PartFile.IsLast)
         {
             break;
         }
-    // 上传文件分片
+        // 上传文件分片
         ufile.UploadPart(i);
     }
     // 完成分片上传
     var response = ufile.FinishMultipartUpload("newKey");
+	
+	// 下载文件 key为文件在Bucket中的名称
+	ufile.GetFile("key", savePath);
     
-    // 下载文件 key为文件在Bucket中的名称
-    ufile.GetFile("key", savePath);
     
-    
+### 5. 发送短信
 
-### 5. RestSharp
+    SMSResponse SendSms(SMSRequest requestParams)
+
+> **注意**
+> 1. 发送短信前请先[在此](https://console.ucloud.cn/apps#message/list)设置短信签名，并购买短信包。
+> 2. 该方法作为`UCloud`基类方法，在其子类如`UHost`, `UDB`等类中均可直接调用。
+
+	UCloud ucloud = new UCloud();
+	//号码以Phone.0=xxxx&Phone.1=xxxx的形式发送，所以使用NList
+	var phone = new NList();
+    phone.Add("138xxxxxxxx");
+    phone.Add("189xxxxxxxx");
+    var content = "你好，Ucloud";
+    var entity = new SMSRequest(phone, content);
+    var response = ucloud.SendSms(entity);
+
+### 6. RestSharp
 SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请求进行设置，比如代理、过期时间等，可对UCloud的**Client**属性进行设置。更多RestSharp使用方法请参见其[官方文档](https://github.com/restsharp/RestSharp/wiki)。
 
-    var uhost=new UHost();
-    //设置HTTP代理
-    uhost.Client.Proxy=new WebProxy("http://proxy.com");
+	var uhost=new UHost();
+	//设置HTTP代理
+	uhost.Client.Proxy=new WebProxy("http://proxy.com");
 
-### 6. 其它特性
+### 7. 其它特性
 
 1. 根据官方API文档添加了详细的注释，配合Visual Studio使用更加方便。
 2. 添加了大部分枚举值以便于使用。
@@ -227,7 +244,7 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
 > 由于C#命名规则，枚举值不允许使用“-”，部分枚举值（比如Region）需要使用`string.ToHyphen()`来取值。在枚举的注释中有注明需要用此方法的。
 > 由于C#命名规则，枚举值不允许使用数字，部分枚举值（比如Priority）需要使用`(int)Priority.High`来取值。在枚举的注释中有注明需要用此方法的。
 
-3.需要BASE64编码的请使用`string.ToBase64()` 扩展方法
+3. 需要BASE64编码的请使用`string.ToBase64()`	扩展方法
 4. NList类型转换后会自动在属性后添加.n，使用时无需再添加。使用方法如下：
 
 > 以更新防火墙规则[UpdateSecurityGroup](http://docs.ucloud.cn/api/unet/update_security_group.html)为例
@@ -248,6 +265,7 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
     //ToString() 直接生成“Proto|Dst_port|Src_ip|Action|Priority”
     rules.Add(rule.ToString());
     var entity = new UpdateSecurityGroupRequest("cn-north-03", "6583",rules);
+5. 更多使用方法请查看`UCloud.Test`
     
 其它
 -------------

@@ -23,8 +23,8 @@ namespace UCloudSDK.Models
         {
             get { return _action; }
             set { _action = value; }
-        } 
-               
+        }
+
         /// <summary>
         /// 数据中心 
         ///     <para>
@@ -48,10 +48,11 @@ namespace UCloudSDK.Models
         /// </summary>
         /// <param name="region">数据中心</param>                    
         /// <param name="uhostid">UHost实例ID</param>                    
-        public ModifyUHostInstanceTagRequest(string region, string uhostid)
-        {               
+        public ModifyUHostInstanceTagRequest(string region, string uhostid, string tag)
+        {
             Region = region;
             UHostId = uhostid;
-        }                
+            Tag = tag;
+        }
     }
 }

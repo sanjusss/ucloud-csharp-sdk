@@ -48,10 +48,11 @@ namespace UCloudSDK.Models
         /// </summary>
         /// <param name="region">数据中心</param>                    
         /// <param name="uhostid">UHost实例ID</param>                    
-        public ModifyUHostInstanceRemarkRequest(string region, string uhostid)
+        public ModifyUHostInstanceRemarkRequest(string region, string uhostid, string remark)
         {               
             Region = region;
             UHostId = uhostid;
+            Remark = remark;
         }                
     }
 }

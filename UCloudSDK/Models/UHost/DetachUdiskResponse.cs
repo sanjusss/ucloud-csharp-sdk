@@ -6,25 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/uhost/detach_udisk.html
     ///     </para>
     /// </summary>
-    public partial class DetachUdiskResponse : UResponse
+    public partial class DetachUDiskResponse : UResponse
     {
-        /// <summary>
-        /// 响应动作 
-        ///     <para>
-        ///     DetachUdiskResposne
-        ///     </para>                 
-        /// </summary>
-        public string Action { get; set; }
-
-        /// <summary>
-        /// 卸载的UHost实例ID                
-        /// </summary>
-        public string UhostId { get; set; }
-
-        /// <summary>
-        /// 卸载的UDisk实例ID                
-        /// </summary>
-        public string UDiskId { get; set; }
-
     }
 }

@@ -36,7 +36,7 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 监控指标名称 
         ///     <para>
-        ///     监控指标名称，[1, 255]
+        ///     监控指标名称
         ///     </para>                 
         /// </summary>
         public NList MetricName { get; set; }
@@ -44,7 +44,7 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 与监控指标相关的资源ID 
         ///     <para>
-        ///     如主机，或其他产品，[1, 255]
+        ///     如主机，或其他产品，长度[1, 255]
         ///     </para>                 
         /// </summary>
         public string ResourceId { get; set; }
@@ -52,7 +52,7 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 资源类型 
         ///     <para>
-        ///     资源类型，[1, 255]
+        ///     资源类型，长度[1, 255]
         ///     </para>                 
         /// </summary>
         public string ResourceType { get; set; }
@@ -74,6 +74,21 @@ namespace UCloudSDK.Models
         /// unix timestamp                
         /// </summary>
         public int? EndTime { get; set; }
+
+        /// <summary>
+        /// 实例化 <see cref="GetMetricRequest"/> 对象.
+        /// </summary>
+        /// <param name="region">数据中心.</param>
+        /// <param name="metricName">监控指标名称.</param>
+        /// <param name="resourceId">与监控指标相关的资源ID.</param>
+        /// <param name="resourceType">资源类型.</param>
+        public GetMetricRequest(string region, NList metricName, string resourceId, string resourceType)
+        {
+            Region = region;
+            MetricName = metricName;
+            ResourceId = resourceId;
+            ResourceType = resourceType;
+        }
 
     }
 }

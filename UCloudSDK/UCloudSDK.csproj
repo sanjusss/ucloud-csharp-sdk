@@ -45,6 +45,8 @@
     <Compile Include="Helpers\MimeHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Models\SecurityGroupRule.cs" />
+    <Compile Include="Models\SMS\SMSRequest.cs" />
+    <Compile Include="Models\SMS\SMSResponse.cs" />
     <Compile Include="Models\UCDN\BuyUcdnTrafficRequest.cs" />
     <Compile Include="Models\UCDN\BuyUcdnTrafficResponse.cs" />
     <Compile Include="Models\UCDN\CreateUcdnDomainRequest.cs" />
@@ -191,8 +193,8 @@
     <Compile Include="Models\UFile\UploadHitRequest.cs" />
     <Compile Include="Models\UFile\UploadHitResponse.cs" />
     <Compile Include="Models\UFile\UploadPartResponse.cs" />
-    <Compile Include="Models\UHost\AttachUdiskRequest.cs" />
-    <Compile Include="Models\UHost\AttachUdiskResponse.cs" />
+    <Compile Include="Models\UHost\AttachUDiskRequest.cs" />
+    <Compile Include="Models\UHost\AttachUDiskResponse.cs" />
     <Compile Include="Models\UHost\CreateCustomImageRequest.cs" />
     <Compile Include="Models\UHost\CreateCustomImageResponse.cs" />
     <Compile Include="Models\UHost\CreateUHostInstanceRequest.cs" />
@@ -210,8 +212,8 @@
     <Compile Include="Models\UHost\DescribeUHostInstanceSnapshot.SnapshotSet.cs" />
     <Compile Include="Models\UHost\DescribeUHostInstanceSnapshotRequest.cs" />
     <Compile Include="Models\UHost\DescribeUHostInstanceSnapshotResponse.cs" />
-    <Compile Include="Models\UHost\DetachUdiskRequest.cs" />
-    <Compile Include="Models\UHost\DetachUdiskResponse.cs" />
+    <Compile Include="Models\UHost\DetachUDiskRequest.cs" />
+    <Compile Include="Models\UHost\DetachUDiskResponse.cs" />
     <Compile Include="Models\UHost\GetUHostInstancePrice.PriceSet.cs" />
     <Compile Include="Models\UHost\GetUHostInstancePriceRequest.cs" />
     <Compile Include="Models\UHost\GetUHostInstancePriceResponse.cs" />
@@ -340,6 +342,7 @@
     <Compile Include="Helpers\TypeHelper.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SMS.cs" />
     <Compile Include="UCDN.cs" />
     <Compile Include="UCloud.cs" />
     <Compile Include="UDB.cs" />

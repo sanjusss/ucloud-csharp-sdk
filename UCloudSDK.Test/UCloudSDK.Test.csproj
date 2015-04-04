@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SMSTests.cs" />
     <Compile Include="UCDNTests.cs" />
     <Compile Include="UDBTests.cs" />
     <Compile Include="UDiskTests.cs" />

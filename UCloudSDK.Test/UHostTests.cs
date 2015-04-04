@@ -37,10 +37,10 @@ namespace UCloudSDK.Tests
         private string uDiskId = "u0TD9595816accc04fc3a7cf34791a2c46dd";
 
         [TestMethod()]
-        public void AttachUdiskTest()
+        public void AttachUDiskTest()
         {
             var entity = new AttachUDiskRequest(Config.region, uhostid,uDiskId);
-            var response = uhost.AttachUdisk(entity);
+            var response = uhost.AttachUDisk(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
 
@@ -110,9 +110,11 @@ namespace UCloudSDK.Tests
         }
 
         [TestMethod()]
-        public void DetachUdiskTest()
+        public void DetachUDiskTest()
         {
-            Assert.Fail();
+            var entity = new DetachUDiskRequest(Config.region, uhostid, uDiskId);
+            var response = uhost.DetachUDisk(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
@@ -134,43 +136,65 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void ModifyUHostInstanceNameTest()
         {
-            Assert.Fail();
+            var entity = new ModifyUHostInstanceNameRequest(Config.region, uhostid,"icyhost");
+            var response = uhost.ModifyUHostInstanceName(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void ModifyUHostInstanceRemarkTest()
         {
-            Assert.Fail();
+            var entity = new ModifyUHostInstanceRemarkRequest(Config.region, uhostid,"IcyUHost");
+            var response = uhost.ModifyUHostInstanceRemark(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void ModifyUHostInstanceTagTest()
         {
-            Assert.Fail();
+            var entity = new ModifyUHostInstanceTagRequest(Config.region, uhostid, "Icy");
+            var response = uhost.ModifyUHostInstanceTag(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void RebootUHostInstanceTest()
         {
-            Assert.Fail();
+            var entity = new RebootUHostInstanceRequest(Config.region, uhostid);
+            var response = uhost.RebootUHostInstance(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void ReinstallUHostInstanceTest()
         {
-            Assert.Fail();
+            //先关闭UHost再进行些测试
+            var entity = new ReinstallUHostInstanceRequest(Config.region, uhostid);
+            var password = "Ucloud123";
+            //使用string.ToBase64()进行编码
+            entity.Password = password.ToBase64();
+            var response = uhost.ReinstallUHostInstance(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void ResetUHostInstancePasswordTest()
         {
-            Assert.Fail();
+            //先关闭UHost再进行些测试
+            var entity = new ResetUHostInstancePasswordRequest(Config.region, uhostid);
+            var password = "Ucloud321";
+            //使用string.ToBase64()进行编码
+            entity.Password = password.ToBase64();
+            var response = uhost.ResetUHostInstancePassword(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void ResizeUHostInstanceTest()
         {
-            Assert.Fail();
+            var entity = new ResizeUHostInstanceRequest(Config.region, uhostid);
+            var response = uhost.ResizeUHostInstance(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]

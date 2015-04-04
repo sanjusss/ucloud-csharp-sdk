@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using RestSharp;
+using RestSharp.Contrib;
 using RestSharp.Extensions;
 
 namespace UCloudSDK
@@ -126,7 +127,10 @@ namespace UCloudSDK
         /// <returns>签名值</returns>
         public string VerfyAc(List<Parameter> parameters, string privateKey)
         {
-            parameters.Sort(delegate(Parameter x, Parameter y)
+            var param=
+            parameters.Where(t => t.Type == ParameterType.GetOrPost).ToList();
+
+            param.Sort(delegate(Parameter x, Parameter y)
             {
                 if (x.Name == null && y.Name == null) return 0;
                 if (x.Name == null) return -1;
@@ -135,7 +139,7 @@ namespace UCloudSDK
             });
 
             var sb = new StringBuilder();
-            foreach (var parm in parameters)
+            foreach (var parm in param)
             {
                 sb.Append(parm.Name);
                 sb.Append(parm.Value);

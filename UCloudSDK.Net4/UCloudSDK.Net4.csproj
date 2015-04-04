@@ -38,11 +38,6 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\UCloudSDK\Helpers\FileHelper.cs">
@@ -65,6 +60,12 @@
     </Compile>
     <Compile Include="..\UCloudSDK\Models\SecurityGroupRule.cs">
       <Link>Models\SecurityGroupRule.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\SMS\SMSRequest.cs">
+      <Link>Models\SMS\SMSRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\SMS\SMSResponse.cs">
+      <Link>Models\SMS\SMSResponse.cs</Link>
     </Compile>
     <Compile Include="..\UCloudSDK\Models\UCDN\BuyUcdnTrafficRequest.cs">
       <Link>Models\UCDN\BuyUcdnTrafficRequest.cs</Link>
@@ -938,6 +939,9 @@
     </Compile>
     <Compile Include="..\UCloudSDK\Models\UResponse.cs">
       <Link>Models\UResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\SMS.cs">
+      <Link>SMS.cs</Link>
     </Compile>
     <Compile Include="..\UCloudSDK\UCDN.cs">
       <Link>UCDN.cs</Link>
