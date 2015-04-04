@@ -11,104 +11,92 @@ using UCloudSDK.Test;
 namespace UCloudSDK.Tests
 {
     [TestClass()]
-    public class UNetTests
+    public class UDiskTests
     {
-        private UNet unet = new UNet(Config.PublicKey, Config.PrivateKey);
+        UDisk udisk=new UDisk(Config.PublicKey,Config.PrivateKey);
 
         [TestMethod()]
-        public void AllocateEIPTest()
+        public void AttachUdiskTest()
         {
-            var entity = new AllocateEIPRequest(Config.region, OperatorName.Bgp.ToString(), 1);
-            var response = unet.AllocateEIP(entity);
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void CloneUDiskTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void CloneUDiskSnapshotTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void CreateUDiskTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void CreateUDiskSnapshotTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void DeleteUDiskTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void DeleteUDiskSnapshotTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void DescribeUDiskTest()
+        {
+            var entity = new DescribeUDiskRequest(Config.region);
+            var response = udisk.DescribeUDisk(entity);
             Assert.AreEqual(response.RetCode,0);
         }
 
         [TestMethod()]
-        public void AllocateVIPTest()
+        public void DescribeUDiskPriceTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void BindEIPTest()
+        public void DescribeUDiskSnapshotTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void CreateSecurityGroupTest()
+        public void DescribeUDiskUpgradePriceTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void DeleteSecurityGroupTest()
+        public void DetachUDiskTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void DescribeEIPTest()
+        public void RenameUDiskTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void DescribeSecurityGroupTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void DescribeSecurityGroupResourceTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void DescribeVIPTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void GetEIPPriceTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void GrantSecurityGroupTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void ModifyEIPBandwidthTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void ModifyEIPWeightTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void ReleaseEIPTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void ReleaseVIPTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void UnBindEIPTest()
+        public void ResizeUDiskTest()
         {
             Assert.Fail();
         }

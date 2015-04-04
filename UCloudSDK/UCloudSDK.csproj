@@ -134,8 +134,8 @@
     <Compile Include="Models\UDB\UpdateUDBParamGroupResponse.cs" />
     <Compile Include="Models\UDB\UploadUDBParamGroupRequest.cs" />
     <Compile Include="Models\UDB\UploadUDBParamGroupResponse.cs" />
-    <Compile Include="Models\UDisk\AttachUdiskRequest.cs" />
-    <Compile Include="Models\UDisk\AttachUdiskResponse.cs" />
+    <Compile Include="Models\UDisk\AttachUDiskRequest.cs" />
+    <Compile Include="Models\UDisk\AttachUDiskResponse.cs" />
     <Compile Include="Models\UDisk\CloneUDiskRequest.cs" />
     <Compile Include="Models\UDisk\CloneUDiskResponse.cs" />
     <Compile Include="Models\UDisk\CloneUDiskSnapshotRequest.cs" />

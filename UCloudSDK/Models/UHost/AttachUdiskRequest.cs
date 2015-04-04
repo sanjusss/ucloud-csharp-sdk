@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/uhost/attach_udisk.html
     ///     </para>
     /// </summary>
-    public partial class AttachUdiskRequest
+    public partial class AttachUDiskRequest
     {
                         
     }

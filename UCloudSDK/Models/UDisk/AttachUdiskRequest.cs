@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/udisk/attach_udisk.html
     ///     </para>
     /// </summary>
-    public partial class AttachUdiskRequest
+    public partial class AttachUDiskRequest
     {
         /// <summary>
         /// API名称
@@ -18,7 +18,7 @@ namespace UCloudSDK.Models
         {
             get
             {
-                return "AttachUdisk";
+                return "AttachUDisk";
             }
         }  
                
@@ -46,12 +46,12 @@ namespace UCloudSDK.Models
         public string ProjectId { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="AttachUdiskRequest"/> 类.
+        /// 实例化 <see cref="AttachUDiskRequest"/> 类.
         /// </summary>
         /// <param name="region">数据中心</param>                    
         /// <param name="uhostid">UHost实例ID</param>                    
         /// <param name="udiskid">需要挂载的UDisk实例ID</param>                    
-        public AttachUdiskRequest(string region, string uhostid, string udiskid)
+        public AttachUDiskRequest(string region, string uhostid, string udiskid)
         {               
             Region = region;
             UHostId = uhostid;

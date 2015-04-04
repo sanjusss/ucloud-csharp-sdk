@@ -6,7 +6,7 @@ namespace UCloudSDK.Models
     ///     http://docs.ucloud.cn/api/udisk/attach_udisk.html
     ///     </para>
     /// </summary>
-    public partial class AttachUdiskResponse : UResponse
+    public partial class AttachUDiskResponse : UResponse
     {
         /// <summary>
         /// 响应动作 

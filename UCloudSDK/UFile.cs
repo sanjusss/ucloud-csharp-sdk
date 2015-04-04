@@ -536,7 +536,7 @@ namespace UCloudSDK
         }
 
         /// <summary>
-        /// TODO:秒传
+        /// 秒传
         /// </summary>
         /// <param name="filePath">文件位置.</param>
         /// <param name="key">Bucket中文件的名称.</param>

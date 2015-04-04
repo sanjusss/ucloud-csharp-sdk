@@ -22,25 +22,34 @@ namespace UCloudSDK.Tests
         /// 创建UHost实例后得到
         /// </para>
         /// </summary>
-        private string uhostid = "uhost-m2r3xt";
+        private string uhostid = "uhost-oeuax1";
         /// <summary>
         /// 镜像名称
         /// <para>
         /// 通过DescribeImage得到
         /// </para>
         /// </summary>
-        private string uimageid = "uimage-3wrk30";
+        private string uimageid = "uimage-34emui";
+
+        /// <summary>
+        /// 云硬盘ID，通过UDisk.DescribeUDisk获得
+        /// </summary>
+        private string uDiskId = "u0TD9595816accc04fc3a7cf34791a2c46dd";
 
         [TestMethod()]
         public void AttachUdiskTest()
         {
-            Assert.Fail();
+            var entity = new AttachUDiskRequest(Config.region, uhostid,uDiskId);
+            var response = uhost.AttachUdisk(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void CreateCustomImageTest()
         {
-            Assert.Fail();
+            var entity = new CreateCustomImageRequest(Config.region, uhostid,"testimage");
+            var response = uhost.CreateCustomImage(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
@@ -55,7 +64,7 @@ namespace UCloudSDK.Tests
             var password = "Ucloud123";
             //使用string.ToBase64()进行编码
             entity.Password = password.ToBase64();
-            entity.Name = "UCloudExample01";
+            entity.Name = "UCloudExample00";
             entity.ChargeType = "Month";
             entity.Quantity = 1;
             //请求API，返回类型为CreateUHostInstanceResponse
@@ -66,7 +75,9 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void CreateUHostInstanceSnapshotTest()
         {
-            Assert.Fail();
+            var entity = new CreateUHostInstanceSnapshotRequest(Config.region, uhostid);
+            var response = uhost.CreateUHostInstanceSnapshot(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
@@ -93,7 +104,9 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void DescribeUHostInstanceSnapshotTest()
         {
-            Assert.Fail();
+            var entity = new DescribeUHostInstanceSnapshotRequest(Config.region,uhostid);
+            var response = uhost.DescribeUHostInstanceSnapshot(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
@@ -105,13 +118,17 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void GetUHostInstancePriceTest()
         {
-            Assert.Fail();
+            var entity = new GetUHostInstancePriceRequest(Config.region, uimageid, 2, 4096, 1);
+            var response = uhost.GetUHostInstancePrice(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void GetUHostInstanceVncInfoTest()
         {
-            Assert.Fail();
+            var entity = new GetUHostInstanceVncInfoRequest(Config.region,uhostid);
+            var response = uhost.GetUHostInstanceVncInfo(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
@@ -175,7 +192,11 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void TerminateCustomImageTest()
         {
-            Assert.Fail();
+            //镜像ID从创建镜像的返回值获得
+            var uimage = "uimage-11al2d";
+            var entity = new TerminateCustomImageRequest(Config.region, uimage);
+            var response = uhost.TerminateCustomImage(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
