@@ -33,5 +33,15 @@ namespace UCloudSDK.Models
         /// </summary>
         public string DomainId { get; set; }
 
+
+        /// <summary>
+        /// 实例化 <see cref="GetUcdnDomainPrefetchEnableRequest"/> 类.
+        /// </summary>
+        /// <param name="domainId">域名ID.</param>
+        public  GetUcdnDomainPrefetchEnableRequest(string domainId)
+        {
+            DomainId = domainId;
+        }
+
     }
 }

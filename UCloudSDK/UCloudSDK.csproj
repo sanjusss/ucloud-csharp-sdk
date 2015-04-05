@@ -60,9 +60,9 @@
     <Compile Include="Models\UCDN\DescribeUcdnDomain.DomainSet.cs" />
     <Compile Include="Models\UCDN\DescribeUcdnDomainRequest.cs" />
     <Compile Include="Models\UCDN\DescribeUcdnDomainResponse.cs" />
-    <Compile Include="Models\UCDN\GetUcdnDomainBandwidth.BandwidthSet.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainBandwidthSet.Set.cs" />
     <Compile Include="Models\UCDN\GetUcdnDomainBandwidthRequest.cs" />
-    <Compile Include="Models\UCDN\GetUcdnDomainBandwidthResponse.cs" />
+    <Compile Include="Models\UCDN\GetUcdnDomainBandwidthsResponse.cs" />
     <Compile Include="Models\UCDN\GetUcdnDomainLog.LogSet.cs" />
     <Compile Include="Models\UCDN\GetUcdnDomainLogRequest.cs" />
     <Compile Include="Models\UCDN\GetUcdnDomainLogResponse.cs" />

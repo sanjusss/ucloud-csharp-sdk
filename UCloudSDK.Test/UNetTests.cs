@@ -15,6 +15,11 @@ namespace UCloudSDK.Tests
     {
         private UNet unet = new UNet(Config.PublicKey, Config.PrivateKey);
 
+        /// <summary>
+        /// EIP Id,通过DescribeEIP()获得
+        /// </summary>
+        private string eipId = "eip-zyitmx";
+
         [TestMethod()]
         public void AllocateEIPTest()
         {
@@ -26,91 +31,149 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void AllocateVIPTest()
         {
-            Assert.Fail();
+            var entity = new AllocateVIPRequest(Config.region);
+            var response = unet.AllocateVIP(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void BindEIPTest()
         {
-            Assert.Fail();
+            var entity = new BindEIPRequest(Config.region, eipId,MetricResourceType.uhost.ToString(),Config.UhostId);
+            var response = unet.BindEIP(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void CreateSecurityGroupTest()
         {
-            Assert.Fail();
+            NList rules=new NList();
+            var rule = new SecurityGroupRule
+            {
+                Proto=Proto.TCP.ToString(),
+                Action=RuleAction.ACCEPT.ToString(),
+                Src_ip = "0.0.0.0/0",
+                Dst_port = "3389",
+                Priority = (int)Priority.Low
+            };
+            rules.Add(rule.ToString());
+            var entity = new CreateSecurityGroupRequest(Config.region, "icyfre","ICCY", rules);
+            var response = unet.CreateSecurityGroup(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void DeleteSecurityGroupTest()
         {
-            Assert.Fail();
+            var entity = new DeleteSecurityGroupRequest(Config.region, "15031");
+            var response = unet.DeleteSecurityGroup(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void DescribeEIPTest()
         {
-            Assert.Fail();
+            var entity = new DescribeEIPRequest(Config.region);
+            var response = unet.DescribeEIP(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void DescribeSecurityGroupTest()
         {
-            Assert.Fail();
+            var entity = new DescribeSecurityGroupRequest(Config.region);
+            var response = unet.DescribeSecurityGroup(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void DescribeSecurityGroupResourceTest()
         {
-            Assert.Fail();
+            var entity = new DescribeSecurityGroupResourceRequest(Config.region, "15031");
+            var response = unet.DescribeSecurityGroupResource(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void DescribeVIPTest()
         {
-            Assert.Fail();
+            var entity = new DescribeVIPRequest(Config.region);
+            var response = unet.DescribeVIP(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void GetEIPPriceTest()
         {
-            Assert.Fail();
+            var entity = new GetEIPPriceRequest(Config.region, OperatorName.Bgp.ToString(), 1);
+            var response = unet.GetEIPPrice(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void GrantSecurityGroupTest()
         {
-            Assert.Fail();
+            var entity = new GrantSecurityGroupRequest(Config.region, "15032","UHost",Config.UhostId);
+            var response = unet.GrantSecurityGroup(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void ModifyEIPBandwidthTest()
         {
-            Assert.Fail();
+            var entity = new ModifyEIPBandwidthRequest(Config.region, eipId, 1);
+            var response = unet.ModifyEIPBandwidth(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void ModifyEIPWeightTest()
         {
-            Assert.Fail();
+            var entity = new ModifyEIPWeightRequest(Config.region, eipId, 2);
+            var response = unet.ModifyEIPWeight(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void ReleaseEIPTest()
         {
-            Assert.Fail();
+            var entity = new ReleaseEIPRequest(Config.region, eipId);
+            var response = unet.ReleaseEIP(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void ReleaseVIPTest()
         {
-            Assert.Fail();
+            var entity = new ReleaseVIPRequest(Config.region, "10.10.58.83");
+            var response = unet.ReleaseVIP(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void UnBindEIPTest()
         {
-            Assert.Fail();
+            var entity = new UnBindEIPRequest(Config.region, eipId, MetricResourceType.uhost.ToString(), Config.UhostId);
+            var response = unet.UnBindEIP(entity);
+            Assert.AreEqual(response.RetCode, 0);
+        }
+
+        [TestMethod()]
+        public void UpdateSecurityGroupTest()
+        {
+            NList rules = new NList();
+            var rule = new SecurityGroupRule
+            {
+                Proto = Proto.TCP.ToString(),
+                Action = RuleAction.ACCEPT.ToString(),
+                Src_ip = "0.0.0.0/0",
+                Dst_port = "3389",
+                Priority = (int)Priority.Low
+            };
+            rules.Add(rule.ToString());
+            var entity = new UpdateSecurityGroupRequest(Config.region, "15031", rules);
+            var response = unet.UpdateSecurityGroup(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
     }
 }

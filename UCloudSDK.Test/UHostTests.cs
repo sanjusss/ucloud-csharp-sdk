@@ -17,13 +17,6 @@ namespace UCloudSDK.Tests
         UHost uhost = new UHost(Config.PublicKey, Config.PrivateKey);
 
         /// <summary>
-        /// UHost Id
-        /// <para>
-        /// 创建UHost实例后得到
-        /// </para>
-        /// </summary>
-        private string uhostid = "uhost-oeuax1";
-        /// <summary>
         /// 镜像名称
         /// <para>
         /// 通过DescribeImage得到
@@ -39,7 +32,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void AttachUDiskTest()
         {
-            var entity = new AttachUDiskRequest(Config.region, uhostid,uDiskId);
+            var entity = new AttachUDiskRequest(Config.region, Config.UhostId,uDiskId);
             var response = uhost.AttachUDisk(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -47,7 +40,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void CreateCustomImageTest()
         {
-            var entity = new CreateCustomImageRequest(Config.region, uhostid,"testimage");
+            var entity = new CreateCustomImageRequest(Config.region, Config.UhostId,"testimage");
             var response = uhost.CreateCustomImage(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -75,7 +68,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void CreateUHostInstanceSnapshotTest()
         {
-            var entity = new CreateUHostInstanceSnapshotRequest(Config.region, uhostid);
+            var entity = new CreateUHostInstanceSnapshotRequest(Config.region, Config.UhostId);
             var response = uhost.CreateUHostInstanceSnapshot(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -104,7 +97,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void DescribeUHostInstanceSnapshotTest()
         {
-            var entity = new DescribeUHostInstanceSnapshotRequest(Config.region,uhostid);
+            var entity = new DescribeUHostInstanceSnapshotRequest(Config.region,Config.UhostId);
             var response = uhost.DescribeUHostInstanceSnapshot(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -112,7 +105,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void DetachUDiskTest()
         {
-            var entity = new DetachUDiskRequest(Config.region, uhostid, uDiskId);
+            var entity = new DetachUDiskRequest(Config.region, Config.UhostId, uDiskId);
             var response = uhost.DetachUDisk(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -128,7 +121,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void GetUHostInstanceVncInfoTest()
         {
-            var entity = new GetUHostInstanceVncInfoRequest(Config.region,uhostid);
+            var entity = new GetUHostInstanceVncInfoRequest(Config.region,Config.UhostId);
             var response = uhost.GetUHostInstanceVncInfo(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -136,7 +129,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void ModifyUHostInstanceNameTest()
         {
-            var entity = new ModifyUHostInstanceNameRequest(Config.region, uhostid,"icyhost");
+            var entity = new ModifyUHostInstanceNameRequest(Config.region, Config.UhostId,"icyhost");
             var response = uhost.ModifyUHostInstanceName(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -144,7 +137,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void ModifyUHostInstanceRemarkTest()
         {
-            var entity = new ModifyUHostInstanceRemarkRequest(Config.region, uhostid,"IcyUHost");
+            var entity = new ModifyUHostInstanceRemarkRequest(Config.region, Config.UhostId,"IcyUHost");
             var response = uhost.ModifyUHostInstanceRemark(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -152,7 +145,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void ModifyUHostInstanceTagTest()
         {
-            var entity = new ModifyUHostInstanceTagRequest(Config.region, uhostid, "Icy");
+            var entity = new ModifyUHostInstanceTagRequest(Config.region, Config.UhostId, "Icy");
             var response = uhost.ModifyUHostInstanceTag(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -160,7 +153,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void RebootUHostInstanceTest()
         {
-            var entity = new RebootUHostInstanceRequest(Config.region, uhostid);
+            var entity = new RebootUHostInstanceRequest(Config.region, Config.UhostId);
             var response = uhost.RebootUHostInstance(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -169,7 +162,7 @@ namespace UCloudSDK.Tests
         public void ReinstallUHostInstanceTest()
         {
             //先关闭UHost再进行些测试
-            var entity = new ReinstallUHostInstanceRequest(Config.region, uhostid);
+            var entity = new ReinstallUHostInstanceRequest(Config.region, Config.UhostId);
             var password = "Ucloud123";
             //使用string.ToBase64()进行编码
             entity.Password = password.ToBase64();
@@ -181,7 +174,7 @@ namespace UCloudSDK.Tests
         public void ResetUHostInstancePasswordTest()
         {
             //先关闭UHost再进行些测试
-            var entity = new ResetUHostInstancePasswordRequest(Config.region, uhostid);
+            var entity = new ResetUHostInstancePasswordRequest(Config.region, Config.UhostId);
             var password = "Ucloud321";
             //使用string.ToBase64()进行编码
             entity.Password = password.ToBase64();
@@ -192,7 +185,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void ResizeUHostInstanceTest()
         {
-            var entity = new ResizeUHostInstanceRequest(Config.region, uhostid);
+            var entity = new ResizeUHostInstanceRequest(Config.region, Config.UhostId);
             var response = uhost.ResizeUHostInstance(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -200,7 +193,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void StartUHostInstanceTest()
         {
-            var entity = new StartUHostInstanceRequest(Config.region, uhostid);
+            var entity = new StartUHostInstanceRequest(Config.region, Config.UhostId);
             var response = uhost.StartUHostInstance(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -208,7 +201,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void StopUHostInstanceTest()
         {
-            var entity = new StopUHostInstanceRequest(Config.region, uhostid);
+            var entity = new StopUHostInstanceRequest(Config.region, Config.UhostId);
             var response = uhost.StopUHostInstance(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -226,7 +219,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void TerminateUHostInstanceTest()
         {
-            var entity = new TerminateUHostInstanceRequest(Config.region, uhostid);
+            var entity = new TerminateUHostInstanceRequest(Config.region, Config.UhostId);
             var response = uhost.TerminateUHostInstance(entity);
             Assert.AreEqual(response.RetCode, 0);
         }

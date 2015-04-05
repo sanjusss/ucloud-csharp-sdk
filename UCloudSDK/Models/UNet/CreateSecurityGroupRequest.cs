@@ -52,15 +52,17 @@ namespace UCloudSDK.Models
         public NList Rule { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="CreateSecurityGroupRequest"/> 类.
+        /// 实例化 <see cref="CreateSecurityGroupRequest" /> 类.
         /// </summary>
-        /// <param name="region">数据中心</param>                    
-        /// <param name="groupname">防火墙组名称</param>                    
-        /// <param name="rule">防火墙规则</param>                    
-        public CreateSecurityGroupRequest(string region, string groupname, NList rule)
+        /// <param name="region">数据中心</param>
+        /// <param name="groupname">防火墙组名称</param>
+        /// <param name="description">防火墙组描述.</param>
+        /// <param name="rule">防火墙规则</param>
+        public CreateSecurityGroupRequest(string region, string groupname, string description, NList rule)
         {               
             Region = region;
             GroupName = groupname;
+            Description = description;
             Rule = rule;
         }                
     }

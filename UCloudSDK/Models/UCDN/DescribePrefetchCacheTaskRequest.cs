@@ -73,5 +73,13 @@ namespace UCloudSDK.Models
         /// </summary>
         public int? Limit { get; set; }
 
+        /// <summary>
+        /// 实例化 <see cref="DescribePrefetchCacheTaskRequest"/> 类.
+        /// </summary>
+        /// <param name="domainId">域名ID.</param>
+        public DescribePrefetchCacheTaskRequest(string domainId)
+        {
+            DomainId = domainId;
+        }
     }
 }

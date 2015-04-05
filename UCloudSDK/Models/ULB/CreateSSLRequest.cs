@@ -55,13 +55,15 @@ namespace UCloudSDK.Models
         public int? SSLType { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="CreateSSLRequest"/> 类.
+        /// 实例化 <see cref="CreateSSLRequest" /> 类.
         /// </summary>
-        /// <param name="region">数据中心</param>                    
-        /// <param name="sslcontent">SSL证书的内容</param>                    
-        public CreateSSLRequest(string region, string sslcontent)
+        /// <param name="region">数据中心</param>
+        /// <param name="sslName">SSL证书的名字.</param>
+        /// <param name="sslcontent">SSL证书的内容</param>
+        public CreateSSLRequest(string region,string sslName, string sslcontent)
         {               
             Region = region;
+            SSLName = sslName;
             SSLContent = sslcontent;
         }                
     }

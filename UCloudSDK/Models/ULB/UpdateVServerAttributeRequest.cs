@@ -96,6 +96,19 @@ namespace UCloudSDK.Models
         /// </summary>
         /// <param name="region">数据中心</param>                    
         /// <param name="ulbid">负载均衡实例ID</param>                    
+        /// <param name="vserverid">VServer实例ID</param>                           
+        public UpdateVServerAttributeRequest(string region, string ulbid, string vserverid)
+        {
+            Region = region;
+            ULBId = ulbid;
+            VServerId = vserverid;
+        }
+
+        /// <summary>
+        /// 实例化 <see cref="UpdateVServerAttributeRequest"/> 类.
+        /// </summary>
+        /// <param name="region">数据中心</param>                    
+        /// <param name="ulbid">负载均衡实例ID</param>                    
         /// <param name="vserverid">VServer实例ID</param>                    
         /// <param name="vservername">VServer实例名称</param>                    
         /// <param name="protocol">VServer协议</param>                    

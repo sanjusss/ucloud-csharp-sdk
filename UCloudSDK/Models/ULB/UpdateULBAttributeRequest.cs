@@ -39,15 +39,32 @@ namespace UCloudSDK.Models
         public string ULBId { get; set; }
 
         /// <summary>
-        /// 负载均衡的名字 
+        /// 名字 
         ///     <para>
-        ///     若无此字段则不做修改
+        ///     Name Tag Remark都为空则报错
         ///     </para>                 
         /// </summary>
-        public string ULBName { get; set; }
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 业务 
+        ///     <para>
+        ///     Name Tag Remark都为空则报错
+        ///     </para>                 
+        /// </summary>
+        public string Tag { get; set; }
+
+        /// <summary>
+        /// 备注 
+        ///     <para>
+        ///     Name Tag Remark都为空则报错
+        ///     </para>                 
+        /// </summary>
+        public string Remark { get; set; }
 
         /// <summary>
         /// 实例化 <see cref="UpdateULBAttributeRequest"/> 类.
+        /// <para>实例化后需要指定Name Tag Remark中的一个</para>
         /// </summary>
         /// <param name="region">数据中心</param>                    
         /// <param name="ulbid">负载均衡实例ID</param>                    

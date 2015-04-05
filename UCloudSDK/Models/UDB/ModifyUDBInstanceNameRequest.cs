@@ -23,7 +23,7 @@ namespace UCloudSDK.Models
         {
             get { return _action; }
             set { _action = value; }
-        }
+        } 
                
         /// <summary>
         /// 数据中心 
@@ -32,6 +32,11 @@ namespace UCloudSDK.Models
         ///     </para>                 
         /// </summary>
         public string Region { get; set; }
+
+        /// <summary>
+        /// 项目编号                
+        /// </summary>
+        public int? ProjectId { get; set; }
 
         /// <summary>
         /// 实例的Id                

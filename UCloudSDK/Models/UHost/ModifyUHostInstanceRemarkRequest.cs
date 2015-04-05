@@ -44,10 +44,11 @@ namespace UCloudSDK.Models
         public string Remark { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="ModifyUHostInstanceRemarkRequest"/> 类.
+        /// 实例化 <see cref="ModifyUHostInstanceRemarkRequest" /> 类.
         /// </summary>
-        /// <param name="region">数据中心</param>                    
-        /// <param name="uhostid">UHost实例ID</param>                    
+        /// <param name="region">数据中心</param>
+        /// <param name="uhostid">UHost实例ID</param>
+        /// <param name="remark">备注.</param>
         public ModifyUHostInstanceRemarkRequest(string region, string uhostid, string remark)
         {               
             Region = region;

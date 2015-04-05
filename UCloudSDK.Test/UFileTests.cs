@@ -39,31 +39,41 @@ namespace UCloudSDK.Tests
         private string key = "SSHHEE.pdf";
 
         [TestMethod()]
-        public void PutFileTest()
+        public void AbortMultipartUploadTest()
         {
-            var response = ufile.PutFile(filePath);
+            var entity = ufile.InitiateMultipartUpload(bigfilePath);
+            FileResponse response = new FileResponse();
+            List<string> etags = new List<string>();
+
+            for (int i = 0; i < 100000; i++)
+            {
+                if (i == 1)
+                {
+                    response = ufile.AbortMultipartUpload(entity);
+                    break;
+                }
+
+                var result = ufile.UploadPart(bigfilePath, i, entity);
+                etags.Add(result.ETag);
+            }
+
             Assert.AreEqual(response.RetCode, 0);
+        }
+        
+        [TestMethod()]
+        public void CreateBucketTest()
+        {
+            var entity = new CreateBucketRequest("icyufile");
+            var response = ufile.CreateBucket(entity);
+            Assert.AreEqual(response.RetCode, 0);
+
         }
 
         [TestMethod()]
-        public void PostFileTest()
+        public void DeleteBucketTest()
         {
-            var response = ufile.PostFile(filePath, key, Config.Bucket);
-            Assert.AreEqual(response.RetCode, 0);
-        }
-
-        [TestMethod()]
-        public void GetFileListTest()
-        {
-            GetFileListRequest entity = new GetFileListRequest(Config.Bucket);
-            var response = ufile.GetFileList(entity);
-            Assert.AreEqual(response.RetCode, 0);
-        }
-
-        [TestMethod()]
-        public void GetFileTest()
-        {
-            var response = ufile.GetFile(key, savePath);
+            var entity = new DeleteBucketRequest("icyufile");
+            var response = ufile.DeleteBucket(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
 
@@ -75,16 +85,10 @@ namespace UCloudSDK.Tests
         }
 
         [TestMethod()]
-        public void UploadHitTest()
+        public void DescribeBucketTest()
         {
-            var response = ufile.UploadHit(filePath, key);
-            Assert.AreEqual(response.RetCode, 0);
-        }
-
-        [TestMethod()]
-        public void InitiateMultipartUploadTest()
-        {
-            var response = ufile.InitiateMultipartUpload(bigfilePath);
+            var entity = new DescribeBucketRequest();
+            var response = ufile.DescribeBucket(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
 
@@ -108,25 +112,56 @@ namespace UCloudSDK.Tests
             Assert.AreEqual(response.RetCode, 0);
         }
 
+
         [TestMethod()]
-        public void AbortMultipartUploadTest()
+        public void InitiateMultipartUploadTest()
         {
-            var entity = ufile.InitiateMultipartUpload(bigfilePath);
-            FileResponse response = new FileResponse();
-            List<string> etags = new List<string>();
+            var response = ufile.InitiateMultipartUpload(bigfilePath);
+            Assert.AreEqual(response.RetCode, 0);
+        }
 
-            for (int i = 0; i < 100000; i++)
-            {
-                if (i == 1)
-                {
-                    response = ufile.AbortMultipartUpload(entity);
-                    break;
-                }
+        [TestMethod()]
+        public void GetFileTest()
+        {
+            var response = ufile.GetFile(key, savePath);
+            Assert.AreEqual(response.RetCode, 0);
+        }
 
-                var result = ufile.UploadPart(bigfilePath, i, entity);
-                etags.Add(result.ETag);
-            }
+        [TestMethod()]
+        public void GetFileListTest()
+        {
+            var entity = new GetFileListRequest(Config.Bucket);
+            var response = ufile.GetFileList(entity);
+            Assert.AreEqual(response.RetCode, 0);
+        }
 
+        [TestMethod()]
+        public void PostFileTest()
+        {
+            var response = ufile.PostFile(filePath, key, Config.Bucket);
+            Assert.AreEqual(response.RetCode, 0);
+        }
+
+        [TestMethod()]
+        public void PutFileTest()
+        {
+            var response = ufile.PutFile(filePath);
+            Assert.AreEqual(response.RetCode, 0);
+        }
+
+        [TestMethod()]
+        public void UpdateBucketTest()
+        {
+            var entity = new UpdateBucketRequest(Config.Bucket);
+            entity.Type = "public";
+            var response = ufile.UpdateBucket(entity);
+            Assert.AreEqual(response.RetCode, 0);
+        }
+
+        [TestMethod()]
+        public void UploadHitTest()
+        {
+            var response = ufile.UploadHit(filePath, key);
             Assert.AreEqual(response.RetCode, 0);
         }
     }

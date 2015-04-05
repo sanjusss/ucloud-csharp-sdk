@@ -3,7 +3,7 @@ namespace UCloudSDK.Models
     /// <summary>
     /// 获取监控数据
     ///     <para>
-    ///     http://docs.ucloud.cn/api/umonitor/get_metric.html
+    ///     http://docs.ucloud.cn/api/umon/get_metric.html
     ///     </para>
     /// </summary>
     public partial class GetMetricDataSet

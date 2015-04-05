@@ -23,7 +23,7 @@ namespace UCloudSDK.Models
         {
             get { return _action; }
             set { _action = value; }
-        }
+        } 
                
         /// <summary>
         /// 数据中心 
@@ -32,6 +32,11 @@ namespace UCloudSDK.Models
         ///     </para>                 
         /// </summary>
         public string Region { get; set; }
+
+        /// <summary>
+        /// 项目编号                
+        /// </summary>
+        public int? ProjectId { get; set; }
 
         /// <summary>
         /// DB类型id 
@@ -89,7 +94,7 @@ namespace UCloudSDK.Models
         ///     mysql默认3306，mongodb默认27017
         ///     </para>                 
         /// </summary>
-        public int? Port { get; set; }
+        public int Port { get; set; }
 
         /// <summary>
         /// DB实例使用的配置参数组id                
@@ -159,15 +164,17 @@ namespace UCloudSDK.Models
         /// <param name="dbtypeid">DB类型id</param>                    
         /// <param name="name">实例名称</param>                    
         /// <param name="adminpassword">管理员密码</param>                    
+        /// <param name="port">端口号</param>                    
         /// <param name="paramgroupid">DB实例使用的配置参数组id</param>                    
         /// <param name="memorylimit">内存限制(MB)</param>                    
         /// <param name="diskspace">磁盘空间(GB)</param>                    
-        public CreateUDBInstanceRequest(string region, string dbtypeid, string name, string adminpassword, int paramgroupid, int memorylimit, int diskspace)
+        public CreateUDBInstanceRequest(string region, string dbtypeid, string name, string adminpassword, int port, int paramgroupid, int memorylimit, int diskspace)
         {               
             Region = region;
             DBTypeId = dbtypeid;
             Name = name;
             AdminPassword = adminpassword;
+            Port = port;
             ParamGroupId = paramgroupid;
             MemoryLimit = memorylimit;
             DiskSpace = diskspace;

@@ -24,7 +24,7 @@ namespace UCloudSDK.Models
             get { return _action; }
             set { _action = value; }
         }
-               
+
         /// <summary>
         /// 数据中心 
         ///     <para>
@@ -36,15 +36,17 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 防火墙ID                
         /// </summary>
-        public int? GroupId { get; set; }
+        public string GroupId { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="DescribeSecurityGroupResourceRequest"/> 类.
+        /// 实例化 <see cref="DescribeSecurityGroupResourceRequest" /> 类.
         /// </summary>
-        /// <param name="region">数据中心</param>                    
-        public DescribeSecurityGroupResourceRequest(string region)
+        /// <param name="region">数据中心</param>
+        /// <param name="groupid">防火墙ID.</param>
+        public DescribeSecurityGroupResourceRequest(string region, string groupid)
         {               
             Region = region;
-        }                
+            GroupId = groupid;
+        }
     }
 }

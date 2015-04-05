@@ -199,6 +199,21 @@
     }
 
     /// <summary>
+    /// 刷新类型
+    /// </summary>
+    public enum CDNRefreshType
+    {
+        /// <summary>
+        /// 文件刷新
+        /// </summary>
+        file,
+        /// <summary>
+        /// 路径刷新
+        /// </summary>
+        dir
+    }
+
+    /// <summary>
     /// 网络协议
     /// </summary>
     public enum Proto
@@ -232,15 +247,15 @@
         /// <summary>
         /// 高
         /// </summary>
-        High = 0,
+        High = 50,
         /// <summary>
         /// 中
         /// </summary>
-        Medium = 50,
+        Medium = 100,
         /// <summary>
         /// 低
         /// </summary>
-        Low = 100
+        Low = 150
     }
 
     /// <summary>
@@ -360,6 +375,29 @@
     }
 
     /// <summary>
+    /// 加速域名的业务类型
+    /// </summary>
+    public enum CdnType
+    {
+        /// <summary>
+        /// 网站
+        /// </summary>
+        web,
+        /// <summary>
+        /// 视频
+        /// </summary>
+        stream,
+        /// <summary>
+        /// 下载
+        /// </summary>
+        download,
+        /// <summary>
+        /// 直播
+        /// </summary>
+        Live
+    }
+
+    /// <summary>
     /// 直播类型
     /// </summary>
     public enum LiveSrcType
@@ -411,7 +449,7 @@
     /// <summary>
     /// 域名状态
     /// </summary>
-    public enum DomainStatus
+    public enum UcdnDomainStatus
     {
         /// <summary>
         /// 加速中
@@ -423,6 +461,7 @@
         disable,
         /// <summary>
         /// 删除加速
+        /// <para>目前仅支持删除审核失败的域名</para>
         /// </summary>
         delete
     }
@@ -575,5 +614,56 @@
         /// 云内存存储
         /// </summary>
         umem
+    }
+
+    /// <summary>
+    /// 防火墙动作
+    /// </summary>
+    public enum RuleAction
+    {
+        /// <summary>
+        /// 允许通过防火墙
+        /// </summary>
+        ACCEPT,
+        /// <summary>
+        /// 禁止通过防火墙并不给任何返回信息
+        /// </summary>
+        DROP
+    }
+
+    /// <summary>
+    /// 日志类型
+    /// </summary>
+    public enum UDBLogType
+    {
+        /// <summary>
+        /// The error
+        /// <para>暂不支持</para>
+        /// </summary>
+        error=10,
+        /// <summary>
+        /// The slow
+        /// <para>暂不支持</para>
+        /// </summary>
+        slow=20,
+        /// <summary>
+        /// The binlog
+        /// </summary>
+        binlog=30
+    }
+
+    /// <summary>
+    /// DB种类
+    /// </summary>
+    public enum UDBClassType
+    {
+        /// <summary>
+        /// The SQL
+        /// </summary>
+        SQL,
+        /// <summary>
+        /// The nosql
+        /// </summary>
+        NOSQL
     }
 }

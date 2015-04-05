@@ -34,6 +34,11 @@ namespace UCloudSDK.Models
         public string Region { get; set; }
 
         /// <summary>
+        /// 项目编号                
+        /// </summary>
+        public int? ProjectId { get; set; }
+
+        /// <summary>
         /// 配置参数组id 
         ///     <para>
         ///     使用DescribeUDBParamGroup获得

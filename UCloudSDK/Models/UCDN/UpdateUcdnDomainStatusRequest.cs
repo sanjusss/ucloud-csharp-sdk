@@ -41,5 +41,16 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Status { get; set; }
 
+        /// <summary>
+        /// 实例化 <see cref="UpdateUcdnDomainStatusRequest" /> 类.
+        /// </summary>
+        /// <param name="domainId">域名ID.</param>
+        /// <param name="status">域名状态.</param>
+        public UpdateUcdnDomainStatusRequest(string domainId, string status)
+        {
+            DomainId = domainId;
+            Status = status;
+        }
+
     }
 }

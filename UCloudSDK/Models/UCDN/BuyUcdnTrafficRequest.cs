@@ -42,12 +42,14 @@ namespace UCloudSDK.Models
         public string Areacode { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="BuyUcdnTrafficRequest"/> 类.
+        /// 实例化 <see cref="BuyUcdnTrafficRequest" /> 类.
         /// </summary>
-        /// <param name="traffic">所购买的流量</param>                    
-        public BuyUcdnTrafficRequest(int traffic)
+        /// <param name="traffic">所购买的流量</param>
+        /// <param name="areacode">购买流量的区域.</param>
+        public BuyUcdnTrafficRequest(int traffic, string areacode)
         {
             Traffic = traffic;
+            Areacode = areacode;
         }
     }
 }

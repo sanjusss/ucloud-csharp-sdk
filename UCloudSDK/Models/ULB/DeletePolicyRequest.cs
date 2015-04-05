@@ -44,14 +44,16 @@ namespace UCloudSDK.Models
         public string PolicyId { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="DeletePolicyRequest"/> 类.
+        /// 实例化 <see cref="DeletePolicyRequest" /> 类.
         /// </summary>
-        /// <param name="region">数据中心</param>                    
-        /// <param name="groupid">内容转发策略组ID</param>                    
-        public DeletePolicyRequest(string region, string groupid)
+        /// <param name="region">数据中心</param>
+        /// <param name="groupid">内容转发策略组ID</param>
+        /// <param name="policyid">内容转发策略ID.</param>
+        public DeletePolicyRequest(string region, string groupid, string policyid)
         {               
             Region = region;
             GroupId = groupid;
+            PolicyId = policyid;
         }                
     }
 }

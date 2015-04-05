@@ -34,7 +34,7 @@ namespace UCloudSDK.Models
         public string DomainId { get; set; }
 
         /// <summary>
-        /// 需要刷新的多个URL列表 
+        /// URL列表 
         ///     <para>
         ///     一次最多提交10个，必须以”http://域名/”开始。目录要以”/”结尾，如刷新目录a下所有文件，格式为：http://abc.ucloud.cn/a/；如刷新文件目录a下面所有img.png文件，格式为http://abc.ucloud.cn/a/img.png。请正确提交需要刷新的域名（点播，下载只支持每次预取一个）
         ///     </para>                 
@@ -46,5 +46,15 @@ namespace UCloudSDK.Models
         /// </summary>
         public string Md5 { get; set; }
 
+        /// <summary>
+        /// 实例化 <see cref="PrefetchDomainCacheRequest"/> 类.
+        /// </summary>
+        /// <param name="domainId">域名ID.</param>
+        /// <param name="urlList">URL列表.</param>
+        public PrefetchDomainCacheRequest(string domainId, NList urlList)
+        {
+            DomainId = domainId;
+            UrlList = urlList;
+        }
     }
 }

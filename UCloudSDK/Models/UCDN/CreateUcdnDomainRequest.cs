@@ -36,7 +36,7 @@ namespace UCloudSDK.Models
         ///     即cdn服务器回源访问的IP地址。支持多个源站IP。多个源站IP可以表述为：SourceIps.0=1.1.1.1，SourceIps.1=2.2.2.2（如果CdnType为live，则该字段非必须，否则该字段为必须字段）
         ///     </para>                 
         /// </summary>
-        public NList SourceIps { get; set; }
+        public NList SourceIp { get; set; }
 
         /// <summary>
         /// 测试url 
@@ -52,7 +52,7 @@ namespace UCloudSDK.Models
         ///     目前区域代表有：cn：国内；abroad：国外。可选择多个区域，表述为：Areacodes.0=cn, Areacodes.1=aboard。表示同时使用国内和海外节点
         ///     </para>                 
         /// </summary>
-        public NList Areacodes { get; set; }
+        public NList Areacode { get; set; }
 
         /// <summary>
         /// 加速域名的业务类型 
@@ -94,5 +94,17 @@ namespace UCloudSDK.Models
         /// </summary>
         public string LifeSrcUrl { get; set; }
 
+        /// <summary>
+        /// 实例化 <see cref="CreateUcdnDomainRequest"/> 对象.
+        /// </summary>
+        /// <param name="domain">用于加速的域名.</param>
+        /// <param name="areacodes">CDN加速区域.</param>
+        /// <param name="cdnType">加速域名的业务类型.</param>
+        public CreateUcdnDomainRequest(string domain, NList areacodes, string cdnType)
+        {
+            Domain = domain;
+            Areacode = areacodes;
+            CdnType = cdnType;
+        } 
     }
 }

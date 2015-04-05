@@ -44,10 +44,11 @@ namespace UCloudSDK.Models
         public string Tag { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="ModifyUHostInstanceTagRequest"/> 类.
+        /// 实例化 <see cref="ModifyUHostInstanceTagRequest" /> 类.
         /// </summary>
-        /// <param name="region">数据中心</param>                    
-        /// <param name="uhostid">UHost实例ID</param>                    
+        /// <param name="region">数据中心</param>
+        /// <param name="uhostid">UHost实例ID</param>
+        /// <param name="tag">业务组名称.</param>
         public ModifyUHostInstanceTagRequest(string region, string uhostid, string tag)
         {
             Region = region;

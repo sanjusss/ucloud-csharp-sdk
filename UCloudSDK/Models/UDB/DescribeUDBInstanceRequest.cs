@@ -34,6 +34,11 @@ namespace UCloudSDK.Models
         public string Region { get; set; }
 
         /// <summary>
+        /// 项目编号                
+        /// </summary>
+        public int? ProjectId { get; set; }
+
+        /// <summary>
         /// DB实例id 
         ///     <para>
         ///     如果指定则获取描述，否则为列表操作，指定Offset/Limit

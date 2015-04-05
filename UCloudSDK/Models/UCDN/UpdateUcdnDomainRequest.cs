@@ -39,7 +39,7 @@ namespace UCloudSDK.Models
         ///     即cdn服务器回源访问的IP地址。支持多个源站IP。多个源站IP可以表述为：SourceIps.0=1.1.1.1，SourceIps.1=2.2.2.2
         ///     </para>                 
         /// </summary>
-        public NList SourceIps { get; set; }
+        public NList SourceIp { get; set; }
 
         /// <summary>
         /// 测试url 
@@ -55,7 +55,7 @@ namespace UCloudSDK.Models
         ///     目前区域代表有：cn：国内；abroad：国外。可选择多个区域，表述为：”Areacodes.0=cn, Areacodes.1=aboard”，表示同时使用国内和海外节点
         ///     </para>                 
         /// </summary>
-        public NList Areacodes { get; set; }
+        public NList Areacode { get; set; }
 
         /// <summary>
         /// 加速成功后需要缓存在节点服务器的静态文件类型 
@@ -63,7 +63,7 @@ namespace UCloudSDK.Models
         ///     动态文件不支持缓存。多个文件类型，请使用：”CacheFileTypes.0=zip, CacheFileTypes.1=txt”，依赖于CacheTel参数
         ///     </para>                 
         /// </summary>
-        public NList CacheFileTypes { get; set; }
+        public NList CacheFileType { get; set; }
 
         /// <summary>
         /// 需要缓存的文件或路径的URL 
@@ -71,7 +71,7 @@ namespace UCloudSDK.Models
         ///     URL支持模糊匹配，不支持正则表达式。
         ///     </para>                 
         /// </summary>
-        public NList CacheUrls { get; set; }
+        public NList CacheUrl { get; set; }
 
         /// <summary>
         /// 缓存文件或路径需要缓存的时间 
@@ -88,6 +88,15 @@ namespace UCloudSDK.Models
         ///     </para>                 
         /// </summary>
         public NList NoCacheUrl { get; set; }
+
+        /// <summary>
+        /// 实例化 <see cref="UpdateUcdnDomainRequest"/> 对象.
+        /// </summary>
+        /// <param name="domainId">用于加速的域名.</param>
+        public UpdateUcdnDomainRequest(string domainId)
+        {
+            DomainId = domainId;
+        } 
 
     }
 }

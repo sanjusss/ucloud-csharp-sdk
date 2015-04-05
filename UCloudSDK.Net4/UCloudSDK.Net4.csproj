@@ -106,14 +106,14 @@
     <Compile Include="..\UCloudSDK\Models\UCDN\DescribeUcdnDomainResponse.cs">
       <Link>Models\UCDN\DescribeUcdnDomainResponse.cs</Link>
     </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidth.BandwidthSet.cs">
-      <Link>Models\UCDN\GetUcdnDomainBandwidth.BandwidthSet.cs</Link>
-    </Compile>
     <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthRequest.cs">
       <Link>Models\UCDN\GetUcdnDomainBandwidthRequest.cs</Link>
     </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthResponse.cs">
-      <Link>Models\UCDN\GetUcdnDomainBandwidthResponse.cs</Link>
+    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthSet.Set.cs">
+      <Link>Models\UCDN\GetUcdnDomainBandwidthSet.Set.cs</Link>
+    </Compile>
+    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthsResponse.cs">
+      <Link>Models\UCDN\GetUcdnDomainBandwidthsResponse.cs</Link>
     </Compile>
     <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainLog.LogSet.cs">
       <Link>Models\UCDN\GetUcdnDomainLog.LogSet.cs</Link>

@@ -34,6 +34,11 @@ namespace UCloudSDK.Models
         public string Region { get; set; }
 
         /// <summary>
+        /// 项目编号                
+        /// </summary>
+        public int? ProjectId { get; set; }
+
+        /// <summary>
         /// 实例的Id                
         /// </summary>
         public string DBId { get; set; }
