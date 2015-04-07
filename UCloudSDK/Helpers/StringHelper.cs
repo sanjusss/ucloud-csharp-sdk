@@ -50,6 +50,17 @@ namespace UCloudSDK
         }
 
         /// <summary>
+        /// base64解码.
+        /// </summary>
+        /// <param name="text">BASE64编码字符串.</param>
+        /// <returns>字符串</returns>
+        public static string DecodeBase64(this string text)
+        {
+            var plainTextBytes = Convert.FromBase64String(text);
+            return Encoding.UTF8.GetString(plainTextBytes);
+        }
+
+        /// <summary>
         /// 将_替换为-.
         /// </summary>
         /// <param name="str">字符串.</param>

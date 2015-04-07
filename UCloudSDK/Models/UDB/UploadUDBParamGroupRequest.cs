@@ -57,12 +57,20 @@ namespace UCloudSDK.Models
         public string Description { get; set; }
 
         /// <summary>
+        /// 配置内容
+        /// </summary>
+        private string _content;
+        /// <summary>
         /// 配置内容 
         ///     <para>
         ///     导入的配置内容采用base64编码。mysql只支持[mysqld]段，如：[mysqld]back_log=102character_set_server=utf8......mongodb则不需要带段，如：auth=truemaxConns=2000......
         ///     </para>                 
         /// </summary>
-        public string Content { get; set; }
+        public string Content
+        {
+            get { return _content; }
+            set { _content = value.ToBase64(); }
+        }
 
         /// <summary>
         /// 实例化 <see cref="UploadUDBParamGroupRequest"/> 类.

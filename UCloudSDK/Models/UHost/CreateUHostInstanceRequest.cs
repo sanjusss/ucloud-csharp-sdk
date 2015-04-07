@@ -51,11 +51,20 @@ namespace UCloudSDK.Models
 
         /// <summary>
         /// UHost密码 
+        /// </summary>
+        private string _password;
+
+        /// <summary>
+        /// UHost密码 
         ///     <para>
-        ///     LoginMode为Password时此项必须（密码需使用base64进行编码）
+        ///     LoginMode为Password时此项必须
         ///     </para>                 
         /// </summary>
-        public string Password { get; set; }
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value.ToBase64(); }
+        }
 
         /// <summary>
         /// Keyname 

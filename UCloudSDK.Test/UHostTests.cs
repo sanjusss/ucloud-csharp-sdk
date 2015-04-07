@@ -53,12 +53,10 @@ namespace UCloudSDK.Tests
             entity.CPU = 2;
             entity.Memory = 2048;
             entity.DiskSpace = 10;
-            //密码需要进行BASE64编码
-            var password = "Ucloud123";
-            //使用string.ToBase64()进行编码
-            entity.Password = password.ToBase64();
+            entity.Password = "Ucloud123";
             entity.Name = "UCloudExample00";
-            entity.ChargeType = "Month";
+            //entity.ChargeType = "Month";
+            entity.ChargeType = UHostChargeType.Month.ToString();
             entity.Quantity = 1;
             //请求API，返回类型为CreateUHostInstanceResponse
             var response = uhost.CreateUHostInstance(entity);
@@ -163,9 +161,7 @@ namespace UCloudSDK.Tests
         {
             //先关闭UHost再进行些测试
             var entity = new ReinstallUHostInstanceRequest(Config.region, Config.UhostId);
-            var password = "Ucloud123";
-            //使用string.ToBase64()进行编码
-            entity.Password = password.ToBase64();
+            entity.Password = "Ucloud123";
             var response = uhost.ReinstallUHostInstance(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
@@ -175,9 +171,7 @@ namespace UCloudSDK.Tests
         {
             //先关闭UHost再进行些测试
             var entity = new ResetUHostInstancePasswordRequest(Config.region, Config.UhostId);
-            var password = "Ucloud321";
-            //使用string.ToBase64()进行编码
-            entity.Password = password.ToBase64();
+            entity.Password = "Ucloud321";
             var response = uhost.ResetUHostInstancePassword(entity);
             Assert.AreEqual(response.RetCode, 0);
         }

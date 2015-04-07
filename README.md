@@ -107,10 +107,8 @@ API使用有三种方法：
     entity.CPU=2;
     entity.Memory=2048;
     entity.DiskSpace=10;
-    //密码需要进行BASE64编码
-    var password="Password1";
-    //使用string.ToBase64()进行编码
-    entity.Password=password.ToBase64();
+    //密码需要进行BASE64编码，SDK自动编码
+    entity.Password="Password1";
     entity.Name="UCloudExample01";
     entity.ChargeType="Month";
     entity.Quantity=1;

@@ -318,9 +318,7 @@ log_bin_trust_function_creators = 1
  interactive-timeout
  /opt/udb/instance/mysq";
             #endregion
-            //配置要进行BASE64编码 
-            var content = config.ToBase64();
-            var entity = new UploadUDBParamGroupRequest(Config.region, "mysql-5.1", "ICYGMA", "icyuup", content);
+            var entity = new UploadUDBParamGroupRequest(Config.region, "mysql-5.1", "ICYGMA", "icyuup", config);
             var response = udb.UploadUDBParamGroup(entity);
             Assert.AreEqual(response.RetCode, 0);
         }

@@ -39,12 +39,21 @@ namespace UCloudSDK.Models
         public string UHostId { get; set; }
 
         /// <summary>
+        /// 如果创建UHost实例时LoginMode为Password
+        /// </summary>
+        private string _password;
+
+        /// <summary>
         /// 如果创建UHost实例时LoginMode为Password 
         ///     <para>
         ///     则必须填写，如果LoginMode为KeyPair，不需要填写（密码格式使用BASE64编码）
         ///     </para>                 
         /// </summary>
-        public string Password { get; set; }
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value.ToBase64(); }
+        }
 
         /// <summary>
         /// 镜像Id 

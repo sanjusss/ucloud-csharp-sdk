@@ -39,12 +39,18 @@ namespace UCloudSDK.Models
         public string UHostId { get; set; }
 
         /// <summary>
-        /// UHost新密码 
-        ///     <para>
-        ///     密码格式使用BASE64编码）
-        ///     </para>                 
+        /// UHost新密码
         /// </summary>
-        public string Password { get; set; }
+        private string _password;
+
+        /// <summary>
+        /// UHost新密码               
+        /// </summary>
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value.ToBase64(); }
+        }
 
         /// <summary>
         /// 实例化 <see cref="ResetUHostInstancePasswordRequest"/> 类.
