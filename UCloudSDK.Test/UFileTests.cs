@@ -161,7 +161,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void UploadHitTest()
         {
-            var response = ufile.UploadHit(filePath, key);
+            var response = ufile.UploadHit(filePath,"ictestkey");
             Assert.AreEqual(response.RetCode, 0);
         }
     }

@@ -586,7 +586,7 @@ namespace UCloudSDK
         ///     获取文件MIME类型.
         /// </summary>
         /// <param name="extension">文件扩展名.</param>
-        /// <returns></returns>
+        /// <returns>文件MIME类型</returns>
         /// <exception cref="System.ArgumentNullException">extension</exception>
         public static string GetType(string extension)
         {

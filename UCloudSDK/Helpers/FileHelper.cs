@@ -21,7 +21,7 @@ namespace UCloudSDK
         /// 获取文件Etag.
         /// </summary>
         /// <param name="filePath">文件路径.</param>
-        /// <returns></returns>
+        /// <returns>ETag</returns>
         public static string GetEtag(this string filePath)
         {
             if (!File.Exists(filePath))
@@ -70,7 +70,7 @@ namespace UCloudSDK
         /// 获取sha1 byte[].
         /// </summary>
         /// <param name="bytes">The bytes.</param>
-        /// <returns></returns>
+        /// <returns>SHA1 byte[]</returns>
         public static byte[] GetSha1(this byte[] bytes)
         {
             using (SHA1Managed sha1 = new SHA1Managed())
@@ -83,7 +83,7 @@ namespace UCloudSDK
         /// 获取Url Safe的BASE64编码.
         /// </summary>
         /// <param name="bytes">The bytes.</param>
-        /// <returns></returns>
+        /// <returns>BASE64编码</returns>
         public static string ToUrlSafeBase64(this byte[] bytes)
         {
             return Convert.ToBase64String(bytes).TrimEnd('=').Replace('+', '-').Replace('/', '_');
@@ -92,9 +92,9 @@ namespace UCloudSDK
         /// <summary>
         /// 把两个byte[]合并为一个.
         /// </summary>
-        /// <param name="bytes">The bytes.</param>
-        /// <param name="add">The add.</param>
-        /// <returns></returns>
+        /// <param name="bytes">byte[].</param>
+        /// <param name="add">byte[].</param>
+        /// <returns>byte[]</returns>
         public static byte[] Concat(this byte[] bytes, byte[] add)
         {
             if (bytes.Length == 0)

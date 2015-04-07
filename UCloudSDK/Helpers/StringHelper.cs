@@ -14,8 +14,8 @@ namespace UCloudSDK
         /// <summary>
         /// 获取文件的MD5值.
         /// </summary>
-        /// <param name="file">The file.</param>
-        /// <returns></returns>
+        /// <param name="file">文件路径.</param>
+        /// <returns>文件MD5</returns>
         public static string GetMd5(this string file)
         {
             using (var md5 = MD5.Create())
@@ -32,7 +32,7 @@ namespace UCloudSDK
         /// </summary>
         /// <param name="bucket">Bucket.</param>
         /// <param name="key">Key.</param>
-        /// <returns></returns>
+        /// <returns>CanonicalizedResource</returns>
         public static string CanonicalizedResource(string bucket, string key)
         {
             return "/" + bucket + "/" + key;
@@ -85,7 +85,7 @@ namespace UCloudSDK
         /// 指示指定的字符串是 null、空还是仅由空白字符组成.
         /// </summary>
         /// <param name="str">字符串.</param>
-        /// <returns></returns>
+        /// <returns>Bool</returns>
         public static bool IsNullOrWhiteSpace(this string str)
         {
 #if NET4
@@ -101,7 +101,7 @@ namespace UCloudSDK
         /// 获取文件MIME类型.
         /// </summary>
         /// <param name="file">文件路径.</param>
-        /// <returns></returns>
+        /// <returns>文件MIME</returns>
         public static string GetMimeType(this string file)
         {
             return MimeHelper.GetType(Path.GetExtension(file));

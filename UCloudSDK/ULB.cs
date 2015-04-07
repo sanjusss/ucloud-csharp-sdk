@@ -40,7 +40,7 @@ namespace UCloudSDK
         /// 添加ULB后端资源实例
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.AllocateBackendResponse"/></returns>
         public AllocateBackendResponse AllocateBackend(AllocateBackendRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -52,7 +52,7 @@ namespace UCloudSDK
         /// 将SSL证书绑定到VServer
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.BindSSLResponse"/></returns>
         public BindSSLResponse BindSSL(BindSSLRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -64,7 +64,7 @@ namespace UCloudSDK
         /// 创建内容转发策略
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.CreatePolicyResponse"/></returns>
         public CreatePolicyResponse CreatePolicy(CreatePolicyRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -76,7 +76,7 @@ namespace UCloudSDK
         /// 创建内容转发策略组
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.CreatePolicyGroupResponse"/></returns>
         public CreatePolicyGroupResponse CreatePolicyGroup(CreatePolicyGroupRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -88,7 +88,7 @@ namespace UCloudSDK
         /// 添加SSL证书
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.CreateSSLResponse"/></returns>
         public CreateSSLResponse CreateSSL(CreateSSLRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -100,7 +100,7 @@ namespace UCloudSDK
         /// 创建负载均衡实例
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.CreateULBResponse"/></returns>
         public CreateULBResponse CreateULB(CreateULBRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -112,7 +112,7 @@ namespace UCloudSDK
         /// 创建VServer实例
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.CreateVServerResponse"/></returns>
         public CreateVServerResponse CreateVServer(CreateVServerRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -124,7 +124,7 @@ namespace UCloudSDK
         /// 删除内容转发策略
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DeletePolicyResponse"/></returns>
         public DeletePolicyResponse DeletePolicy(DeletePolicyRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -136,7 +136,7 @@ namespace UCloudSDK
         /// 删除内容转发策略组
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DeletePolicyGroupResponse"/></returns>
         public DeletePolicyGroupResponse DeletePolicyGroup(DeletePolicyGroupRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -148,7 +148,7 @@ namespace UCloudSDK
         /// 删除SSL证书
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DeleteSSLResponse"/></returns>
         public DeleteSSLResponse DeleteSSL(DeleteSSLRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -160,7 +160,7 @@ namespace UCloudSDK
         /// 删除负载均衡实例
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DeleteULBResponse"/></returns>
         public DeleteULBResponse DeleteULB(DeleteULBRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -172,7 +172,7 @@ namespace UCloudSDK
         /// 删除VServer实例
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DeleteVServerResponse"/></returns>
         public DeleteVServerResponse DeleteVServer(DeleteVServerRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -184,7 +184,7 @@ namespace UCloudSDK
         /// 显示内容转发策略组详情
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DescribePolicyGroupResponse"/></returns>
         public DescribePolicyGroupResponse DescribePolicyGroup(DescribePolicyGroupRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -196,7 +196,7 @@ namespace UCloudSDK
         /// 显示SSL证书信息
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DescribeSSLResponse"/></returns>
         public DescribeSSLResponse DescribeSSL(DescribeSSLRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -208,7 +208,7 @@ namespace UCloudSDK
         /// 显示负载均衡实例信息
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DescribeULBResponse"/></returns>
         public DescribeULBResponse DescribeULB(DescribeULBRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -220,7 +220,7 @@ namespace UCloudSDK
         /// 释放ULB后端资源实例
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.ReleaseBackendResponse"/></returns>
         public ReleaseBackendResponse ReleaseBackend(ReleaseBackendRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -232,7 +232,7 @@ namespace UCloudSDK
         /// 修改ULB后端资源实例(主机池)属性
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.UpdateBackendAttributeResponse"/></returns>
         public UpdateBackendAttributeResponse UpdateBackendAttribute(UpdateBackendAttributeRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -244,7 +244,7 @@ namespace UCloudSDK
         /// 修改内容转发策略组配置信息
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.UpdatePolicyGroupAttributeResponse"/></returns>
         public UpdatePolicyGroupAttributeResponse UpdatePolicyGroupAttribute(UpdatePolicyGroupAttributeRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -256,7 +256,7 @@ namespace UCloudSDK
         /// 修改负载均衡实例属性
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.UpdateULBAttributeResponse"/></returns>
         public UpdateULBAttributeResponse UpdateULBAttribute(UpdateULBAttributeRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -268,7 +268,7 @@ namespace UCloudSDK
         /// 修改VServer实例属性
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.UpdateVServerAttributeResponse"/></returns>
         public UpdateVServerAttributeResponse UpdateVServerAttribute(UpdateVServerAttributeRequest requestParams)
         {
             var request = new RestRequest(Method.GET);

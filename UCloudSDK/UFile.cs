@@ -78,7 +78,7 @@ namespace UCloudSDK
         /// 放弃分片上传.
         /// </summary>
         /// <param name="response">初始化分片上传的返回对象.</param>
-        /// <returns></returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.FileResponse"/></returns>
         public FileResponse AbortMultipartUpload(InitiateMultipartUploadResponse response)
         {
             return AbortMultipartUpload(response.Key, response.UploadId, response.Bucket);
@@ -87,7 +87,7 @@ namespace UCloudSDK
         /// <summary>
         /// 放弃分片上传.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.FileResponse"/></returns>
         public FileResponse AbortMultipartUpload()
         {
             return AbortMultipartUpload(PartFile.Key, PartFile.UploadId, PartFile.Bucket);
@@ -98,10 +98,8 @@ namespace UCloudSDK
         /// </summary>
         /// <param name="key">Bucket中文件名.</param>
         /// <param name="uploadId">本次分片上传的上传Id.</param>
-        /// <param name="bucket">The bucket.</param>
-        /// <returns>
-        /// 返回对象
-        /// </returns>
+        /// <param name="bucket">Bucket.</param>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.FileResponse"/></returns>
         /// <exception cref="System.Exception"></exception>
         public FileResponse AbortMultipartUpload(string key, string uploadId, string bucket = "")
         {
@@ -127,7 +125,7 @@ namespace UCloudSDK
         /// 创建Bucket
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.CreateBucketResponse"/></returns>
         public CreateBucketResponse CreateBucket(CreateBucketRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -139,7 +137,7 @@ namespace UCloudSDK
         /// 删除Bucket
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DeleteBucketResponse"/></returns>
         public DeleteBucketResponse DeleteBucket(DeleteBucketRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -152,9 +150,7 @@ namespace UCloudSDK
         /// </summary>
         /// <param name="key">要获取的文件名.</param>
         /// <param name="bucket">Bucket.</param>
-        /// <returns>
-        /// 返回对象
-        /// </returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DeleteFileResponse"/></returns>
         public DeleteFileResponse DeleteFile(string key, string bucket = "")
         {
             if (key.IsNullOrWhiteSpace())
@@ -201,7 +197,7 @@ namespace UCloudSDK
         /// 获取Bucket的描述信息
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.DescribeBucketResponse"/></returns>
         public DescribeBucketResponse DescribeBucket(DescribeBucketRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -213,7 +209,7 @@ namespace UCloudSDK
         /// 完成分片上传.
         /// </summary>
         /// <param name="newkey">在Bucket中的新名称.</param>
-        /// <returns></returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.FinishMultipartUploadResponse"/></returns>
         public FinishMultipartUploadResponse FinishMultipartUpload(string newkey)
         {
 
@@ -244,12 +240,10 @@ namespace UCloudSDK
         /// </summary>
         /// <param name="newKey">新文件名.</param>
         /// <param name="eTags">分片ETags使用,连接后的字符串.</param>
-        /// <param name="key">The key.</param>
+        /// <param name="key">在Bucket中名称.</param>
         /// <param name="uploadId">本次分片上传的ID.</param>
         /// <param name="bucket">Bucket.</param>
-        /// <returns>
-        /// 返回对象
-        /// </returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.FinishMultipartUploadResponse"/></returns>
         /// <exception cref="System.ApplicationException"></exception>
         /// <exception cref="System.Exception"></exception>
         public FinishMultipartUploadResponse FinishMultipartUpload(string newKey, string eTags, string key, string uploadId, string bucket = "")
@@ -301,9 +295,7 @@ namespace UCloudSDK
         /// <param name="key">要获取的文件名.</param>
         /// <param name="path">文件保存路径.</param>
         /// <param name="bucket">Bucket.</param>
-        /// <returns>
-        /// 返回对象
-        /// </returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.GetFileResponse"/></returns>
         /// <exception cref="System.Exception">文件名不能为空</exception>
         public GetFileResponse GetFile(string key, string path = "", string bucket = "")
         {
@@ -363,7 +355,7 @@ namespace UCloudSDK
         /// 获取Bucket的文件列表
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.GetFileListResponse"/></returns>
         public GetFileListResponse GetFileList(GetFileListRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -377,9 +369,7 @@ namespace UCloudSDK
         /// <param name="key">上传至Bucket后的文件名.</param>
         /// <param name="filePath">文件路径.</param>
         /// <param name="bucket">Bucket.</param>
-        /// <returns>
-        /// 返回对象
-        /// </returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.InitiateMultipartUploadResponse"/></returns>
         /// <exception cref="System.ApplicationException"></exception>
         public InitiateMultipartUploadResponse InitiateMultipartUpload(string filePath, string key = "", string bucket = "")
         {
@@ -434,10 +424,8 @@ namespace UCloudSDK
         /// <param name="filePath">文件路径.</param>
         /// <param name="key">上件后的文件名.默认为文件名称</param>
         /// <param name="bucket">Bucket名称.</param>
-        /// <param name="md5">The MD5.</param>
-        /// <returns>
-        /// 返回对象
-        /// </returns>
+        /// <param name="md5">文件MD5.</param>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.FileResponse"/></returns>
         /// <exception cref="System.Exception"></exception>
         public FileResponse PostFile(string filePath, string key = "", string bucket = "", string md5 = "")
         {
@@ -484,9 +472,7 @@ namespace UCloudSDK
         /// <param name="key">上件后的文件名.默认为文件名称</param>
         /// <param name="bucket">Bucket名称.</param>
         /// <param name="md5">文件MD5.</param>
-        /// <returns>
-        /// 返回对象
-        /// </returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.FileResponse"/></returns>
         /// <exception cref="System.Exception"></exception>
         public FileResponse PutFile(string filePath, string key = "", string bucket = "", string md5 = "")
         {
@@ -527,7 +513,7 @@ namespace UCloudSDK
         /// 设置Bucket的属性
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.UpdateBucketResponse"/></returns>
         public UpdateBucketResponse UpdateBucket(UpdateBucketRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
@@ -541,9 +527,7 @@ namespace UCloudSDK
         /// <param name="filePath">文件位置.</param>
         /// <param name="key">Bucket中文件的名称.</param>
         /// <param name="bucket">Bucket.</param>
-        /// <returns>
-        /// 返回对象
-        /// </returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.FileResponse"/></returns>
         /// <exception cref="System.Exception">文件名不能为空</exception>
         /// <exception cref="System.ApplicationException"></exception>
         public FileResponse UploadHit(string filePath, string key = "", string bucket = "")
@@ -577,7 +561,7 @@ namespace UCloudSDK
         /// <summary>
         /// 上传文件分片.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.UploadPartResponse"/></returns>
         public UploadPartResponse UploadPart()
         {
             return UploadPart(PartFile.PartNumber);
@@ -586,7 +570,7 @@ namespace UCloudSDK
         /// 上传文件分片.
         /// </summary>
         /// <param name="partNum">分片号码.</param>
-        /// <returns></returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.UploadPartResponse"/></returns>
         public UploadPartResponse UploadPart(int partNum)
         {
             return UploadPart(PartFile.FilePath, partNum, PartFile.BlkSize, PartFile.UploadId, PartFile.Key,
@@ -599,7 +583,7 @@ namespace UCloudSDK
         /// <param name="filePath">文件路径.</param>
         /// <param name="part">分片编号.</param>
         /// <param name="response">初始化分片上传的返回值.</param>
-        /// <returns></returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.UploadPartResponse"/></returns>
         public UploadPartResponse UploadPart(string filePath, int part, InitiateMultipartUploadResponse response)
         {
             return UploadPart(filePath, part, response.BlkSize, response.UploadId, response.Key, response.Bucket);
@@ -609,12 +593,12 @@ namespace UCloudSDK
         /// 上传文件分片
         /// </summary>
         /// <param name="filePath">文件位置.</param>
-        /// <param name="part">The part.</param>
-        /// <param name="blkSize">Size of the BLK.</param>
-        /// <param name="uploadId">The upload identifier.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="bucket">The bucket.</param>
-        /// <returns></returns>
+        /// <param name="part">分片序号.</param>
+        /// <param name="blkSize">分片大小.</param>
+        /// <param name="uploadId">分片上传ID.</param>
+        /// <param name="key">在Bucket中名称.</param>
+        /// <param name="bucket">Bucket.</param>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.UploadPartResponse"/></returns>
         /// <exception cref="System.Exception"></exception>
         /// <exception cref="System.ApplicationException"></exception>
         public UploadPartResponse UploadPart(string filePath, int part, int blkSize, string uploadId, string key = "", string bucket = "")
@@ -719,7 +703,7 @@ namespace UCloudSDK
         /// 执行Filer操作.
         /// </summary>
         /// <param name="request">The request.</param>
-        /// <returns></returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.FileResponse"/></returns>
         /// <exception cref="System.ApplicationException"></exception>
         public FileResponse FileExecute(IRestRequest request)
         {
@@ -754,7 +738,7 @@ namespace UCloudSDK
         /// <param name="request">The request.</param>
         /// <param name="bucket">Bucket.</param>
         /// <param name="key">Key.</param>
-        /// <returns></returns>
+        /// <returns>签名</returns>
         public string SignRequest(IRestRequest request, string bucket, string key)
         {
             string Authorization = string.Empty;

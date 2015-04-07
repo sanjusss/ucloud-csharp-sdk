@@ -15,7 +15,7 @@ namespace UCloudSDK
         ///     </para>
         /// </summary>
         /// <param name="type">The type.</param>
-        /// <returns></returns>
+        /// <returns>Bool</returns>
         public static bool IsNlist(this Type type)
         {
             return type == typeof(NList);

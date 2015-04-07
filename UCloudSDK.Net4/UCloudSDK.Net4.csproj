@@ -1,989 +1,992 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE52A1A1-3863-4182-AF5C-C71C71E3469C}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UCloudSDK</RootNamespace>
-    <AssemblyName>UCloudSDK</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;FRAMEWORK, NET4</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\UCloudSDK.xml</DocumentationFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="RestSharp">
-      <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\UCloudSDK\Helpers\FileHelper.cs">
-      <Link>Helpers\FileHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Helpers\MimeHelper.cs">
-      <Link>Helpers\MimeHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Helpers\RestSharpHelper.cs">
-      <Link>Helpers\RestSharpHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Helpers\StringHelper.cs">
-      <Link>Helpers\StringHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Helpers\TypeHelper.cs">
-      <Link>Helpers\TypeHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\Enums.cs">
-      <Link>Models\Enums.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\SecurityGroupRule.cs">
-      <Link>Models\SecurityGroupRule.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\SMS\SMSRequest.cs">
-      <Link>Models\SMS\SMSRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\SMS\SMSResponse.cs">
-      <Link>Models\SMS\SMSResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\BuyUcdnTrafficRequest.cs">
-      <Link>Models\UCDN\BuyUcdnTrafficRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\BuyUcdnTrafficResponse.cs">
-      <Link>Models\UCDN\BuyUcdnTrafficResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\CreateUcdnDomainRequest.cs">
-      <Link>Models\UCDN\CreateUcdnDomainRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\CreateUcdnDomainResponse.cs">
-      <Link>Models\UCDN\CreateUcdnDomainResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\DescribePrefetchCacheTask.TaskSet.cs">
-      <Link>Models\UCDN\DescribePrefetchCacheTask.TaskSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\DescribePrefetchCacheTaskRequest.cs">
-      <Link>Models\UCDN\DescribePrefetchCacheTaskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\DescribePrefetchCacheTaskResponse.cs">
-      <Link>Models\UCDN\DescribePrefetchCacheTaskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\DescribeRefreshCacheTask.TaskSet.cs">
-      <Link>Models\UCDN\DescribeRefreshCacheTask.TaskSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\DescribeRefreshCacheTaskRequest.cs">
-      <Link>Models\UCDN\DescribeRefreshCacheTaskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\DescribeRefreshCacheTaskResponse.cs">
-      <Link>Models\UCDN\DescribeRefreshCacheTaskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\DescribeUcdnDomain.DomainSet.cs">
-      <Link>Models\UCDN\DescribeUcdnDomain.DomainSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\DescribeUcdnDomainRequest.cs">
-      <Link>Models\UCDN\DescribeUcdnDomainRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\DescribeUcdnDomainResponse.cs">
-      <Link>Models\UCDN\DescribeUcdnDomainResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthRequest.cs">
-      <Link>Models\UCDN\GetUcdnDomainBandwidthRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthSet.Set.cs">
-      <Link>Models\UCDN\GetUcdnDomainBandwidthSet.Set.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthsResponse.cs">
-      <Link>Models\UCDN\GetUcdnDomainBandwidthsResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainLog.LogSet.cs">
-      <Link>Models\UCDN\GetUcdnDomainLog.LogSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainLogRequest.cs">
-      <Link>Models\UCDN\GetUcdnDomainLogRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainLogResponse.cs">
-      <Link>Models\UCDN\GetUcdnDomainLogResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainPrefetchEnableRequest.cs">
-      <Link>Models\UCDN\GetUcdnDomainPrefetchEnableRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainPrefetchEnableResponse.cs">
-      <Link>Models\UCDN\GetUcdnDomainPrefetchEnableResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainTraffic.TrafficSet.cs">
-      <Link>Models\UCDN\GetUcdnDomainTraffic.TrafficSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainTrafficRequest.cs">
-      <Link>Models\UCDN\GetUcdnDomainTrafficRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainTrafficResponse.cs">
-      <Link>Models\UCDN\GetUcdnDomainTrafficResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnTraffic.TrafficSet.cs">
-      <Link>Models\UCDN\GetUcdnTraffic.TrafficSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnTrafficRequest.cs">
-      <Link>Models\UCDN\GetUcdnTrafficRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnTrafficResponse.cs">
-      <Link>Models\UCDN\GetUcdnTrafficResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\PrefetchDomainCacheRequest.cs">
-      <Link>Models\UCDN\PrefetchDomainCacheRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\PrefetchDomainCacheResponse.cs">
-      <Link>Models\UCDN\PrefetchDomainCacheResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\RefreshUcdnDomainCacheRequest.cs">
-      <Link>Models\UCDN\RefreshUcdnDomainCacheRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\RefreshUcdnDomainCacheResponse.cs">
-      <Link>Models\UCDN\RefreshUcdnDomainCacheResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\UpdateUcdnDomainRequest.cs">
-      <Link>Models\UCDN\UpdateUcdnDomainRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\UpdateUcdnDomainResponse.cs">
-      <Link>Models\UCDN\UpdateUcdnDomainResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\UpdateUcdnDomainStatusRequest.cs">
-      <Link>Models\UCDN\UpdateUcdnDomainStatusRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UCDN\UpdateUcdnDomainStatusResponse.cs">
-      <Link>Models\UCDN\UpdateUcdnDomainStatusResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\BackupUDBInstanceRequest.cs">
-      <Link>Models\UDB\BackupUDBInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\BackupUDBInstanceResponse.cs">
-      <Link>Models\UDB\BackupUDBInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\ClearUDBLogRequest.cs">
-      <Link>Models\UDB\ClearUDBLogRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\ClearUDBLogResponse.cs">
-      <Link>Models\UDB\ClearUDBLogResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBInstanceRequest.cs">
-      <Link>Models\UDB\CreateUDBInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBInstanceResponse.cs">
-      <Link>Models\UDB\CreateUDBInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBParamGroupRequest.cs">
-      <Link>Models\UDB\CreateUDBParamGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBParamGroupResponse.cs">
-      <Link>Models\UDB\CreateUDBParamGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBReplicationInstanceRequest.cs">
-      <Link>Models\UDB\CreateUDBReplicationInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBReplicationInstanceResponse.cs">
-      <Link>Models\UDB\CreateUDBReplicationInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBSlaveRequest.cs">
-      <Link>Models\UDB\CreateUDBSlaveRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBSlaveResponse.cs">
-      <Link>Models\UDB\CreateUDBSlaveResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBBackupRequest.cs">
-      <Link>Models\UDB\DeleteUDBBackupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBBackupResponse.cs">
-      <Link>Models\UDB\DeleteUDBBackupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBInstanceRequest.cs">
-      <Link>Models\UDB\DeleteUDBInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBInstanceResponse.cs">
-      <Link>Models\UDB\DeleteUDBInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBParamGroupRequest.cs">
-      <Link>Models\UDB\DeleteUDBParamGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBParamGroupResponse.cs">
-      <Link>Models\UDB\DeleteUDBParamGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackup.DataSet.cs">
-      <Link>Models\UDB\DescribeUDBBackup.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackupBlacklistRequest.cs">
-      <Link>Models\UDB\DescribeUDBBackupBlacklistRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackupBlacklistResponse.cs">
-      <Link>Models\UDB\DescribeUDBBackupBlacklistResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackupRequest.cs">
-      <Link>Models\UDB\DescribeUDBBackupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackupResponse.cs">
-      <Link>Models\UDB\DescribeUDBBackupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstance.DataSet.cs">
-      <Link>Models\UDB\DescribeUDBInstance.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstancePrice.DataSet.cs">
-      <Link>Models\UDB\DescribeUDBInstancePrice.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstancePriceRequest.cs">
-      <Link>Models\UDB\DescribeUDBInstancePriceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstancePriceResponse.cs">
-      <Link>Models\UDB\DescribeUDBInstancePriceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstanceRequest.cs">
-      <Link>Models\UDB\DescribeUDBInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstanceResponse.cs">
-      <Link>Models\UDB\DescribeUDBInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstanceStateRequest.cs">
-      <Link>Models\UDB\DescribeUDBInstanceStateRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstanceStateResponse.cs">
-      <Link>Models\UDB\DescribeUDBInstanceStateResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBParamGroup.DataSet.cs">
-      <Link>Models\UDB\DescribeUDBParamGroup.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBParamGroup.ParamMember.cs">
-      <Link>Models\UDB\DescribeUDBParamGroup.ParamMember.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBParamGroupRequest.cs">
-      <Link>Models\UDB\DescribeUDBParamGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBParamGroupResponse.cs">
-      <Link>Models\UDB\DescribeUDBParamGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBType.DataSet.cs">
-      <Link>Models\UDB\DescribeUDBType.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBTypeRequest.cs">
-      <Link>Models\UDB\DescribeUDBTypeRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBTypeResponse.cs">
-      <Link>Models\UDB\DescribeUDBTypeResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\EditUDBBackupBlacklistRequest.cs">
-      <Link>Models\UDB\EditUDBBackupBlacklistRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\EditUDBBackupBlacklistResponse.cs">
-      <Link>Models\UDB\EditUDBBackupBlacklistResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\ModifyUDBInstanceNameRequest.cs">
-      <Link>Models\UDB\ModifyUDBInstanceNameRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\ModifyUDBInstanceNameResponse.cs">
-      <Link>Models\UDB\ModifyUDBInstanceNameResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\PromoteUDBSlaveRequest.cs">
-      <Link>Models\UDB\PromoteUDBSlaveRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\PromoteUDBSlaveResponse.cs">
-      <Link>Models\UDB\PromoteUDBSlaveResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\RestartUDBInstanceRequest.cs">
-      <Link>Models\UDB\RestartUDBInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\RestartUDBInstanceResponse.cs">
-      <Link>Models\UDB\RestartUDBInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\StartUDBInstanceRequest.cs">
-      <Link>Models\UDB\StartUDBInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\StartUDBInstanceResponse.cs">
-      <Link>Models\UDB\StartUDBInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\StopUDBInstanceRequest.cs">
-      <Link>Models\UDB\StopUDBInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\StopUDBInstanceResponse.cs">
-      <Link>Models\UDB\StopUDBInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\UpdateUDBParamGroupRequest.cs">
-      <Link>Models\UDB\UpdateUDBParamGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\UpdateUDBParamGroupResponse.cs">
-      <Link>Models\UDB\UpdateUDBParamGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\UploadUDBParamGroupRequest.cs">
-      <Link>Models\UDB\UploadUDBParamGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDB\UploadUDBParamGroupResponse.cs">
-      <Link>Models\UDB\UploadUDBParamGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\AttachUdiskRequest.cs">
-      <Link>Models\UDisk\AttachUdiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\AttachUdiskResponse.cs">
-      <Link>Models\UDisk\AttachUdiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskRequest.cs">
-      <Link>Models\UDisk\CloneUDiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskResponse.cs">
-      <Link>Models\UDisk\CloneUDiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskSnapshotRequest.cs">
-      <Link>Models\UDisk\CloneUDiskSnapshotRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskSnapshotResponse.cs">
-      <Link>Models\UDisk\CloneUDiskSnapshotResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskRequest.cs">
-      <Link>Models\UDisk\CreateUDiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskResponse.cs">
-      <Link>Models\UDisk\CreateUDiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskSnapshotRequest.cs">
-      <Link>Models\UDisk\CreateUDiskSnapshotRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskSnapshotResponse.cs">
-      <Link>Models\UDisk\CreateUDiskSnapshotResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskRequest.cs">
-      <Link>Models\UDisk\DeleteUDiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskResponse.cs">
-      <Link>Models\UDisk\DeleteUDiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskSnapshotRequest.cs">
-      <Link>Models\UDisk\DeleteUDiskSnapshotRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskSnapshotResponse.cs">
-      <Link>Models\UDisk\DeleteUDiskSnapshotResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDisk.DataSet.cs">
-      <Link>Models\UDisk\DescribeUDisk.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskPrice.DataSet.cs">
-      <Link>Models\UDisk\DescribeUDiskPrice.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskPriceRequest.cs">
-      <Link>Models\UDisk\DescribeUDiskPriceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskPriceResponse.cs">
-      <Link>Models\UDisk\DescribeUDiskPriceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskRequest.cs">
-      <Link>Models\UDisk\DescribeUDiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskResponse.cs">
-      <Link>Models\UDisk\DescribeUDiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskSnapshot.Response.cs">
-      <Link>Models\UDisk\DescribeUDiskSnapshot.Response.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskSnapshotRequest.cs">
-      <Link>Models\UDisk\DescribeUDiskSnapshotRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskSnapshotResponse.cs">
-      <Link>Models\UDisk\DescribeUDiskSnapshotResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskUpgradePriceRequest.cs">
-      <Link>Models\UDisk\DescribeUDiskUpgradePriceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskUpgradePriceResponse.cs">
-      <Link>Models\UDisk\DescribeUDiskUpgradePriceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DetachUDiskRequest.cs">
-      <Link>Models\UDisk\DetachUDiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\DetachUDiskResponse.cs">
-      <Link>Models\UDisk\DetachUDiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\RenameUDiskRequest.cs">
-      <Link>Models\UDisk\RenameUDiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\RenameUDiskResponse.cs">
-      <Link>Models\UDisk\RenameUDiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\ResizeUDiskRequest.cs">
-      <Link>Models\UDisk\ResizeUDiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UDisk\ResizeUDiskResponse.cs">
-      <Link>Models\UDisk\ResizeUDiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\CreateBucketRequest.cs">
-      <Link>Models\UFile\CreateBucketRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\CreateBucketResponse.cs">
-      <Link>Models\UFile\CreateBucketResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\DeleteBucketRequest.cs">
-      <Link>Models\UFile\DeleteBucketRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\DeleteBucketResponse.cs">
-      <Link>Models\UFile\DeleteBucketResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\DeleteFileResponse.cs">
-      <Link>Models\UFile\DeleteFileResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucket.DataSet.cs">
-      <Link>Models\UFile\DescribeBucket.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucket.Domain.cs">
-      <Link>Models\UFile\DescribeBucket.Domain.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucketRequest.cs">
-      <Link>Models\UFile\DescribeBucketRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucketResponse.cs">
-      <Link>Models\UFile\DescribeBucketResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\FileResponse.cs">
-      <Link>Models\UFile\FileResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\FinishMultipartUploadResponse.cs">
-      <Link>Models\UFile\FinishMultipartUploadResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\GetFileList.DataSet.cs">
-      <Link>Models\UFile\GetFileList.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\GetFileListRequest.cs">
-      <Link>Models\UFile\GetFileListRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\GetFileListResponse.cs">
-      <Link>Models\UFile\GetFileListResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\GetFileResponse.cs">
-      <Link>Models\UFile\GetFileResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\InitiateMultipartUploadResponse.cs">
-      <Link>Models\UFile\InitiateMultipartUploadResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\PartFile.cs">
-      <Link>Models\UFile\PartFile.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\PostFileRequest.cs">
-      <Link>Models\UFile\PostFileRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\PostFileResponse.cs">
-      <Link>Models\UFile\PostFileResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\PutFileResponse.cs">
-      <Link>Models\UFile\PutFileResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\ResponseHeader.cs">
-      <Link>Models\UFile\ResponseHeader.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\UpdateBucketRequest.cs">
-      <Link>Models\UFile\UpdateBucketRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\UpdateBucketResponse.cs">
-      <Link>Models\UFile\UpdateBucketResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\UploadHitRequest.cs">
-      <Link>Models\UFile\UploadHitRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\UploadHitResponse.cs">
-      <Link>Models\UFile\UploadHitResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UFile\UploadPartResponse.cs">
-      <Link>Models\UFile\UploadPartResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\AttachUdiskRequest.cs">
-      <Link>Models\UHost\AttachUdiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\AttachUdiskResponse.cs">
-      <Link>Models\UHost\AttachUdiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\CreateCustomImageRequest.cs">
-      <Link>Models\UHost\CreateCustomImageRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\CreateCustomImageResponse.cs">
-      <Link>Models\UHost\CreateCustomImageResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\CreateUHostInstanceRequest.cs">
-      <Link>Models\UHost\CreateUHostInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\CreateUHostInstanceResponse.cs">
-      <Link>Models\UHost\CreateUHostInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\CreateUHostInstanceSnapshotRequest.cs">
-      <Link>Models\UHost\CreateUHostInstanceSnapshotRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\CreateUHostInstanceSnapshotResponse.cs">
-      <Link>Models\UHost\CreateUHostInstanceSnapshotResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeImage.ImageSet.cs">
-      <Link>Models\UHost\DescribeImage.ImageSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeImageRequest.cs">
-      <Link>Models\UHost\DescribeImageRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeImageResponse.cs">
-      <Link>Models\UHost\DescribeImageResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstance.DiskSet.cs">
-      <Link>Models\UHost\DescribeUHostInstance.DiskSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstance.IPSet.cs">
-      <Link>Models\UHost\DescribeUHostInstance.IPSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstance.UHostSet.cs">
-      <Link>Models\UHost\DescribeUHostInstance.UHostSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceRequest.cs">
-      <Link>Models\UHost\DescribeUHostInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceResponse.cs">
-      <Link>Models\UHost\DescribeUHostInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceSnapshot.SnapshotSet.cs">
-      <Link>Models\UHost\DescribeUHostInstanceSnapshot.SnapshotSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceSnapshotRequest.cs">
-      <Link>Models\UHost\DescribeUHostInstanceSnapshotRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceSnapshotResponse.cs">
-      <Link>Models\UHost\DescribeUHostInstanceSnapshotResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DetachUdiskRequest.cs">
-      <Link>Models\UHost\DetachUdiskRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\DetachUdiskResponse.cs">
-      <Link>Models\UHost\DetachUdiskResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstancePrice.PriceSet.cs">
-      <Link>Models\UHost\GetUHostInstancePrice.PriceSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstancePriceRequest.cs">
-      <Link>Models\UHost\GetUHostInstancePriceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstancePriceResponse.cs">
-      <Link>Models\UHost\GetUHostInstancePriceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstanceVncInfoRequest.cs">
-      <Link>Models\UHost\GetUHostInstanceVncInfoRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstanceVncInfoResponse.cs">
-      <Link>Models\UHost\GetUHostInstanceVncInfoResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceNameRequest.cs">
-      <Link>Models\UHost\ModifyUHostInstanceNameRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceNameResponse.cs">
-      <Link>Models\UHost\ModifyUHostInstanceNameResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceRemarkRequest.cs">
-      <Link>Models\UHost\ModifyUHostInstanceRemarkRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceRemarkResponse.cs">
-      <Link>Models\UHost\ModifyUHostInstanceRemarkResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceTagRequest.cs">
-      <Link>Models\UHost\ModifyUHostInstanceTagRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceTagResponse.cs">
-      <Link>Models\UHost\ModifyUHostInstanceTagResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\RebootUHostInstanceRequest.cs">
-      <Link>Models\UHost\RebootUHostInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\RebootUHostInstanceResponse.cs">
-      <Link>Models\UHost\RebootUHostInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ReinstallUHostInstanceRequest.cs">
-      <Link>Models\UHost\ReinstallUHostInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ReinstallUHostInstanceResponse.cs">
-      <Link>Models\UHost\ReinstallUHostInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ResetUHostInstancePasswordRequest.cs">
-      <Link>Models\UHost\ResetUHostInstancePasswordRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ResetUHostInstancePasswordResponse.cs">
-      <Link>Models\UHost\ResetUHostInstancePasswordResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ResizeUHostInstanceRequest.cs">
-      <Link>Models\UHost\ResizeUHostInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\ResizeUHostInstanceResponse.cs">
-      <Link>Models\UHost\ResizeUHostInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\StartUHostInstanceRequest.cs">
-      <Link>Models\UHost\StartUHostInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\StartUHostInstanceResponse.cs">
-      <Link>Models\UHost\StartUHostInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\StopUHostInstanceRequest.cs">
-      <Link>Models\UHost\StopUHostInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\StopUHostInstanceResponse.cs">
-      <Link>Models\UHost\StopUHostInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\TerminateCustomImageRequest.cs">
-      <Link>Models\UHost\TerminateCustomImageRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\TerminateCustomImageResponse.cs">
-      <Link>Models\UHost\TerminateCustomImageResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\TerminateUHostInstanceRequest.cs">
-      <Link>Models\UHost\TerminateUHostInstanceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UHost\TerminateUHostInstanceResponse.cs">
-      <Link>Models\UHost\TerminateUHostInstanceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\AllocateBackendRequest.cs">
-      <Link>Models\ULB\AllocateBackendRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\AllocateBackendResponse.cs">
-      <Link>Models\ULB\AllocateBackendResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\BindSSLRequest.cs">
-      <Link>Models\ULB\BindSSLRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\BindSSLResponse.cs">
-      <Link>Models\ULB\BindSSLResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreatePolicyGroupRequest.cs">
-      <Link>Models\ULB\CreatePolicyGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreatePolicyGroupResponse.cs">
-      <Link>Models\ULB\CreatePolicyGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreatePolicyRequest.cs">
-      <Link>Models\ULB\CreatePolicyRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreatePolicyResponse.cs">
-      <Link>Models\ULB\CreatePolicyResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreateSSLRequest.cs">
-      <Link>Models\ULB\CreateSSLRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreateSSLResponse.cs">
-      <Link>Models\ULB\CreateSSLResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreateULBRequest.cs">
-      <Link>Models\ULB\CreateULBRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreateULBResponse.cs">
-      <Link>Models\ULB\CreateULBResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreateVServerRequest.cs">
-      <Link>Models\ULB\CreateVServerRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\CreateVServerResponse.cs">
-      <Link>Models\ULB\CreateVServerResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeletePolicyGroupRequest.cs">
-      <Link>Models\ULB\DeletePolicyGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeletePolicyGroupResponse.cs">
-      <Link>Models\ULB\DeletePolicyGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeletePolicyRequest.cs">
-      <Link>Models\ULB\DeletePolicyRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeletePolicyResponse.cs">
-      <Link>Models\ULB\DeletePolicyResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeleteSSLRequest.cs">
-      <Link>Models\ULB\DeleteSSLRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeleteSSLResponse.cs">
-      <Link>Models\ULB\DeleteSSLResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeleteULBRequest.cs">
-      <Link>Models\ULB\DeleteULBRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeleteULBResponse.cs">
-      <Link>Models\ULB\DeleteULBResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeleteVServerRequest.cs">
-      <Link>Models\ULB\DeleteVServerRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DeleteVServerResponse.cs">
-      <Link>Models\ULB\DeleteVServerResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroup.BackendSet.cs">
-      <Link>Models\ULB\DescribePolicyGroup.BackendSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroup.DataSet.cs">
-      <Link>Models\ULB\DescribePolicyGroup.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroup.PolicySet.cs">
-      <Link>Models\ULB\DescribePolicyGroup.PolicySet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroupRequest.cs">
-      <Link>Models\ULB\DescribePolicyGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroupResponse.cs">
-      <Link>Models\ULB\DescribePolicyGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeSSL.DataSet.cs">
-      <Link>Models\ULB\DescribeSSL.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeSSLRequest.cs">
-      <Link>Models\ULB\DescribeSSLRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeSSLResponse.cs">
-      <Link>Models\ULB\DescribeSSLResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.BackendSet.cs">
-      <Link>Models\ULB\DescribeULB.BackendSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.DataSet.cs">
-      <Link>Models\ULB\DescribeULB.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.IPSet.cs">
-      <Link>Models\ULB\DescribeULB.IPSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.SSLSet.cs">
-      <Link>Models\ULB\DescribeULB.SSLSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.VserverSet.cs">
-      <Link>Models\ULB\DescribeULB.VserverSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeULBRequest.cs">
-      <Link>Models\ULB\DescribeULBRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\DescribeULBResponse.cs">
-      <Link>Models\ULB\DescribeULBResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\ReleaseBackendRequest.cs">
-      <Link>Models\ULB\ReleaseBackendRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\ReleaseBackendResponse.cs">
-      <Link>Models\ULB\ReleaseBackendResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\UpdateBackendAttributeRequest.cs">
-      <Link>Models\ULB\UpdateBackendAttributeRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\UpdateBackendAttributeResponse.cs">
-      <Link>Models\ULB\UpdateBackendAttributeResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\UpdatePolicyGroupAttributeRequest.cs">
-      <Link>Models\ULB\UpdatePolicyGroupAttributeRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\UpdatePolicyGroupAttributeResponse.cs">
-      <Link>Models\ULB\UpdatePolicyGroupAttributeResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\UpdateULBAttributeRequest.cs">
-      <Link>Models\ULB\UpdateULBAttributeRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\UpdateULBAttributeResponse.cs">
-      <Link>Models\ULB\UpdateULBAttributeResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\UpdateVServerAttributeRequest.cs">
-      <Link>Models\ULB\UpdateVServerAttributeRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\ULB\UpdateVServerAttributeResponse.cs">
-      <Link>Models\ULB\UpdateVServerAttributeResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UMon\GetMetric.DataSet.cs">
-      <Link>Models\UMon\GetMetric.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UMon\GetMetricRequest.cs">
-      <Link>Models\UMon\GetMetricRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UMon\GetMetricResponse.cs">
-      <Link>Models\UMon\GetMetricResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\AllocateEIP.EIPAddr.cs">
-      <Link>Models\UNet\AllocateEIP.EIPAddr.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\AllocateEIP.EIPSet.cs">
-      <Link>Models\UNet\AllocateEIP.EIPSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\AllocateEIPRequest.cs">
-      <Link>Models\UNet\AllocateEIPRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\AllocateEIPResponse.cs">
-      <Link>Models\UNet\AllocateEIPResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\AllocateVIPRequest.cs">
-      <Link>Models\UNet\AllocateVIPRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\AllocateVIPResponse.cs">
-      <Link>Models\UNet\AllocateVIPResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\BindEIPRequest.cs">
-      <Link>Models\UNet\BindEIPRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\BindEIPResponse.cs">
-      <Link>Models\UNet\BindEIPResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\CreateSecurityGroup.Rule.n.cs">
-      <Link>Models\UNet\CreateSecurityGroup.Rule.n.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\CreateSecurityGroupRequest.cs">
-      <Link>Models\UNet\CreateSecurityGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\CreateSecurityGroupResponse.cs">
-      <Link>Models\UNet\CreateSecurityGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DeleteSecurityGroupRequest.cs">
-      <Link>Models\UNet\DeleteSecurityGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DeleteSecurityGroupResponse.cs">
-      <Link>Models\UNet\DeleteSecurityGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIP.EIPAddr.cs">
-      <Link>Models\UNet\DescribeEIP.EIPAddr.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIP.EIPSet.cs">
-      <Link>Models\UNet\DescribeEIP.EIPSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIP.Resource.cs">
-      <Link>Models\UNet\DescribeEIP.Resource.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIPRequest.cs">
-      <Link>Models\UNet\DescribeEIPRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIPResponse.cs">
-      <Link>Models\UNet\DescribeEIPResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroup.DataSet.cs">
-      <Link>Models\UNet\DescribeSecurityGroup.DataSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroup.Rule.cs">
-      <Link>Models\UNet\DescribeSecurityGroup.Rule.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroupRequest.cs">
-      <Link>Models\UNet\DescribeSecurityGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroupResourceRequest.cs">
-      <Link>Models\UNet\DescribeSecurityGroupResourceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroupResourceResponse.cs">
-      <Link>Models\UNet\DescribeSecurityGroupResourceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroupResponse.cs">
-      <Link>Models\UNet\DescribeSecurityGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeVIPRequest.cs">
-      <Link>Models\UNet\DescribeVIPRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\DescribeVIPResponse.cs">
-      <Link>Models\UNet\DescribeVIPResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\GetEIPPrice.PriceSet.cs">
-      <Link>Models\UNet\GetEIPPrice.PriceSet.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\GetEIPPriceRequest.cs">
-      <Link>Models\UNet\GetEIPPriceRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\GetEIPPriceResponse.cs">
-      <Link>Models\UNet\GetEIPPriceResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\GrantSecurityGroupRequest.cs">
-      <Link>Models\UNet\GrantSecurityGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\GrantSecurityGroupResponse.cs">
-      <Link>Models\UNet\GrantSecurityGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\ModifyEIPBandwidthRequest.cs">
-      <Link>Models\UNet\ModifyEIPBandwidthRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\ModifyEIPBandwidthResponse.cs">
-      <Link>Models\UNet\ModifyEIPBandwidthResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\ModifyEIPWeightRequest.cs">
-      <Link>Models\UNet\ModifyEIPWeightRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\ModifyEIPWeightResponse.cs">
-      <Link>Models\UNet\ModifyEIPWeightResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\ReleaseEIPRequest.cs">
-      <Link>Models\UNet\ReleaseEIPRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\ReleaseEIPResponse.cs">
-      <Link>Models\UNet\ReleaseEIPResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\ReleaseVIPRequest.cs">
-      <Link>Models\UNet\ReleaseVIPRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\ReleaseVIPResponse.cs">
-      <Link>Models\UNet\ReleaseVIPResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\UnBindEIPRequest.cs">
-      <Link>Models\UNet\UnBindEIPRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\UnBindEIPResponse.cs">
-      <Link>Models\UNet\UnBindEIPResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\UpdateEIPAttributeRequest.cs">
-      <Link>Models\UNet\UpdateEIPAttributeRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\UpdateEIPAttributeResponse.cs">
-      <Link>Models\UNet\UpdateEIPAttributeResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\UpdateSecurityGroup.Rule.n.cs">
-      <Link>Models\UNet\UpdateSecurityGroup.Rule.n.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\UpdateSecurityGroupRequest.cs">
-      <Link>Models\UNet\UpdateSecurityGroupRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UNet\UpdateSecurityGroupResponse.cs">
-      <Link>Models\UNet\UpdateSecurityGroupResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\Models\UResponse.cs">
-      <Link>Models\UResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\SharedAssemblyInfo.cs">
-      <Link>SharedAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\SMS.cs">
-      <Link>SMS.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\UCDN.cs">
-      <Link>UCDN.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\UCloud.cs">
-      <Link>UCloud.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\UDB.cs">
-      <Link>UDB.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\UDisk.cs">
-      <Link>UDisk.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\UHost.cs">
-      <Link>UHost.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\ULB.cs">
-      <Link>ULB.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\UMon.cs">
-      <Link>UMon.cs</Link>
-    </Compile>
-    <Compile Include="..\UCloudSDK\UNet.cs">
-      <Link>UNet.cs</Link>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{FE52A1A1-3863-4182-AF5C-C71C71E3469C}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>UCloudSDK</RootNamespace>
+        <AssemblyName>UCloudSDK</AssemblyName>
+        <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <TargetFrameworkProfile />
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE;FRAMEWORK, NET4</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <DocumentationFile>bin\Release\UCloudSDK.xml</DocumentationFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="RestSharp">
+            <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Configuration" />
+        <Reference Include="System.Core" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="..\UCloudSDK\Helpers\FileHelper.cs">
+            <Link>Helpers\FileHelper.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Helpers\MimeHelper.cs">
+            <Link>Helpers\MimeHelper.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Helpers\RestSharpHelper.cs">
+            <Link>Helpers\RestSharpHelper.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Helpers\StringHelper.cs">
+            <Link>Helpers\StringHelper.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Helpers\TypeHelper.cs">
+            <Link>Helpers\TypeHelper.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\Enums.cs">
+            <Link>Models\Enums.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\SecurityGroupRule.cs">
+            <Link>Models\SecurityGroupRule.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\SMS\SMSRequest.cs">
+            <Link>Models\SMS\SMSRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\SMS\SMSResponse.cs">
+            <Link>Models\SMS\SMSResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\BuyUcdnTrafficRequest.cs">
+            <Link>Models\UCDN\BuyUcdnTrafficRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\BuyUcdnTrafficResponse.cs">
+            <Link>Models\UCDN\BuyUcdnTrafficResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\CreateUcdnDomainRequest.cs">
+            <Link>Models\UCDN\CreateUcdnDomainRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\CreateUcdnDomainResponse.cs">
+            <Link>Models\UCDN\CreateUcdnDomainResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\DescribePrefetchCacheTask.TaskSet.cs">
+            <Link>Models\UCDN\DescribePrefetchCacheTask.TaskSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\DescribePrefetchCacheTaskRequest.cs">
+            <Link>Models\UCDN\DescribePrefetchCacheTaskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\DescribePrefetchCacheTaskResponse.cs">
+            <Link>Models\UCDN\DescribePrefetchCacheTaskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\DescribeRefreshCacheTask.TaskSet.cs">
+            <Link>Models\UCDN\DescribeRefreshCacheTask.TaskSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\DescribeRefreshCacheTaskRequest.cs">
+            <Link>Models\UCDN\DescribeRefreshCacheTaskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\DescribeRefreshCacheTaskResponse.cs">
+            <Link>Models\UCDN\DescribeRefreshCacheTaskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\DescribeUcdnDomain.DomainSet.cs">
+            <Link>Models\UCDN\DescribeUcdnDomain.DomainSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\DescribeUcdnDomainRequest.cs">
+            <Link>Models\UCDN\DescribeUcdnDomainRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\DescribeUcdnDomainResponse.cs">
+            <Link>Models\UCDN\DescribeUcdnDomainResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthRequest.cs">
+            <Link>Models\UCDN\GetUcdnDomainBandwidthRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthSet.Set.cs">
+            <Link>Models\UCDN\GetUcdnDomainBandwidthSet.Set.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainBandwidthsResponse.cs">
+            <Link>Models\UCDN\GetUcdnDomainBandwidthsResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainLog.LogSet.cs">
+            <Link>Models\UCDN\GetUcdnDomainLog.LogSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainLogRequest.cs">
+            <Link>Models\UCDN\GetUcdnDomainLogRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainLogResponse.cs">
+            <Link>Models\UCDN\GetUcdnDomainLogResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainPrefetchEnableRequest.cs">
+            <Link>Models\UCDN\GetUcdnDomainPrefetchEnableRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainPrefetchEnableResponse.cs">
+            <Link>Models\UCDN\GetUcdnDomainPrefetchEnableResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainTraffic.TrafficSet.cs">
+            <Link>Models\UCDN\GetUcdnDomainTraffic.TrafficSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainTrafficRequest.cs">
+            <Link>Models\UCDN\GetUcdnDomainTrafficRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnDomainTrafficResponse.cs">
+            <Link>Models\UCDN\GetUcdnDomainTrafficResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnTraffic.TrafficSet.cs">
+            <Link>Models\UCDN\GetUcdnTraffic.TrafficSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnTrafficRequest.cs">
+            <Link>Models\UCDN\GetUcdnTrafficRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\GetUcdnTrafficResponse.cs">
+            <Link>Models\UCDN\GetUcdnTrafficResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\PrefetchDomainCacheRequest.cs">
+            <Link>Models\UCDN\PrefetchDomainCacheRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\PrefetchDomainCacheResponse.cs">
+            <Link>Models\UCDN\PrefetchDomainCacheResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\RefreshUcdnDomainCacheRequest.cs">
+            <Link>Models\UCDN\RefreshUcdnDomainCacheRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\RefreshUcdnDomainCacheResponse.cs">
+            <Link>Models\UCDN\RefreshUcdnDomainCacheResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\UpdateUcdnDomainRequest.cs">
+            <Link>Models\UCDN\UpdateUcdnDomainRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\UpdateUcdnDomainResponse.cs">
+            <Link>Models\UCDN\UpdateUcdnDomainResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\UpdateUcdnDomainStatusRequest.cs">
+            <Link>Models\UCDN\UpdateUcdnDomainStatusRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UCDN\UpdateUcdnDomainStatusResponse.cs">
+            <Link>Models\UCDN\UpdateUcdnDomainStatusResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\BackupUDBInstanceRequest.cs">
+            <Link>Models\UDB\BackupUDBInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\BackupUDBInstanceResponse.cs">
+            <Link>Models\UDB\BackupUDBInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\ClearUDBLogRequest.cs">
+            <Link>Models\UDB\ClearUDBLogRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\ClearUDBLogResponse.cs">
+            <Link>Models\UDB\ClearUDBLogResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBInstanceRequest.cs">
+            <Link>Models\UDB\CreateUDBInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBInstanceResponse.cs">
+            <Link>Models\UDB\CreateUDBInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBParamGroupRequest.cs">
+            <Link>Models\UDB\CreateUDBParamGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBParamGroupResponse.cs">
+            <Link>Models\UDB\CreateUDBParamGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBReplicationInstanceRequest.cs">
+            <Link>Models\UDB\CreateUDBReplicationInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBReplicationInstanceResponse.cs">
+            <Link>Models\UDB\CreateUDBReplicationInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBSlaveRequest.cs">
+            <Link>Models\UDB\CreateUDBSlaveRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\CreateUDBSlaveResponse.cs">
+            <Link>Models\UDB\CreateUDBSlaveResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBBackupRequest.cs">
+            <Link>Models\UDB\DeleteUDBBackupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBBackupResponse.cs">
+            <Link>Models\UDB\DeleteUDBBackupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBInstanceRequest.cs">
+            <Link>Models\UDB\DeleteUDBInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBInstanceResponse.cs">
+            <Link>Models\UDB\DeleteUDBInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBParamGroupRequest.cs">
+            <Link>Models\UDB\DeleteUDBParamGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DeleteUDBParamGroupResponse.cs">
+            <Link>Models\UDB\DeleteUDBParamGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackup.DataSet.cs">
+            <Link>Models\UDB\DescribeUDBBackup.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackupBlacklistRequest.cs">
+            <Link>Models\UDB\DescribeUDBBackupBlacklistRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackupBlacklistResponse.cs">
+            <Link>Models\UDB\DescribeUDBBackupBlacklistResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackupRequest.cs">
+            <Link>Models\UDB\DescribeUDBBackupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBBackupResponse.cs">
+            <Link>Models\UDB\DescribeUDBBackupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstance.DataSet.cs">
+            <Link>Models\UDB\DescribeUDBInstance.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstancePrice.DataSet.cs">
+            <Link>Models\UDB\DescribeUDBInstancePrice.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstancePriceRequest.cs">
+            <Link>Models\UDB\DescribeUDBInstancePriceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstancePriceResponse.cs">
+            <Link>Models\UDB\DescribeUDBInstancePriceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstanceRequest.cs">
+            <Link>Models\UDB\DescribeUDBInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstanceResponse.cs">
+            <Link>Models\UDB\DescribeUDBInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstanceStateRequest.cs">
+            <Link>Models\UDB\DescribeUDBInstanceStateRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBInstanceStateResponse.cs">
+            <Link>Models\UDB\DescribeUDBInstanceStateResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBParamGroup.DataSet.cs">
+            <Link>Models\UDB\DescribeUDBParamGroup.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBParamGroup.ParamMember.cs">
+            <Link>Models\UDB\DescribeUDBParamGroup.ParamMember.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBParamGroupRequest.cs">
+            <Link>Models\UDB\DescribeUDBParamGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBParamGroupResponse.cs">
+            <Link>Models\UDB\DescribeUDBParamGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBType.DataSet.cs">
+            <Link>Models\UDB\DescribeUDBType.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBTypeRequest.cs">
+            <Link>Models\UDB\DescribeUDBTypeRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\DescribeUDBTypeResponse.cs">
+            <Link>Models\UDB\DescribeUDBTypeResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\EditUDBBackupBlacklistRequest.cs">
+            <Link>Models\UDB\EditUDBBackupBlacklistRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\EditUDBBackupBlacklistResponse.cs">
+            <Link>Models\UDB\EditUDBBackupBlacklistResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\ModifyUDBInstanceNameRequest.cs">
+            <Link>Models\UDB\ModifyUDBInstanceNameRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\ModifyUDBInstanceNameResponse.cs">
+            <Link>Models\UDB\ModifyUDBInstanceNameResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\PromoteUDBSlaveRequest.cs">
+            <Link>Models\UDB\PromoteUDBSlaveRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\PromoteUDBSlaveResponse.cs">
+            <Link>Models\UDB\PromoteUDBSlaveResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\RestartUDBInstanceRequest.cs">
+            <Link>Models\UDB\RestartUDBInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\RestartUDBInstanceResponse.cs">
+            <Link>Models\UDB\RestartUDBInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\StartUDBInstanceRequest.cs">
+            <Link>Models\UDB\StartUDBInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\StartUDBInstanceResponse.cs">
+            <Link>Models\UDB\StartUDBInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\StopUDBInstanceRequest.cs">
+            <Link>Models\UDB\StopUDBInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\StopUDBInstanceResponse.cs">
+            <Link>Models\UDB\StopUDBInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\UpdateUDBParamGroupRequest.cs">
+            <Link>Models\UDB\UpdateUDBParamGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\UpdateUDBParamGroupResponse.cs">
+            <Link>Models\UDB\UpdateUDBParamGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\UploadUDBParamGroupRequest.cs">
+            <Link>Models\UDB\UploadUDBParamGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDB\UploadUDBParamGroupResponse.cs">
+            <Link>Models\UDB\UploadUDBParamGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\AttachUdiskRequest.cs">
+            <Link>Models\UDisk\AttachUdiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\AttachUdiskResponse.cs">
+            <Link>Models\UDisk\AttachUdiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskRequest.cs">
+            <Link>Models\UDisk\CloneUDiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskResponse.cs">
+            <Link>Models\UDisk\CloneUDiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskSnapshotRequest.cs">
+            <Link>Models\UDisk\CloneUDiskSnapshotRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\CloneUDiskSnapshotResponse.cs">
+            <Link>Models\UDisk\CloneUDiskSnapshotResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskRequest.cs">
+            <Link>Models\UDisk\CreateUDiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskResponse.cs">
+            <Link>Models\UDisk\CreateUDiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskSnapshotRequest.cs">
+            <Link>Models\UDisk\CreateUDiskSnapshotRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\CreateUDiskSnapshotResponse.cs">
+            <Link>Models\UDisk\CreateUDiskSnapshotResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskRequest.cs">
+            <Link>Models\UDisk\DeleteUDiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskResponse.cs">
+            <Link>Models\UDisk\DeleteUDiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskSnapshotRequest.cs">
+            <Link>Models\UDisk\DeleteUDiskSnapshotRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DeleteUDiskSnapshotResponse.cs">
+            <Link>Models\UDisk\DeleteUDiskSnapshotResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDisk.DataSet.cs">
+            <Link>Models\UDisk\DescribeUDisk.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskPrice.DataSet.cs">
+            <Link>Models\UDisk\DescribeUDiskPrice.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskPriceRequest.cs">
+            <Link>Models\UDisk\DescribeUDiskPriceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskPriceResponse.cs">
+            <Link>Models\UDisk\DescribeUDiskPriceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskRequest.cs">
+            <Link>Models\UDisk\DescribeUDiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskResponse.cs">
+            <Link>Models\UDisk\DescribeUDiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskSnapshot.Response.cs">
+            <Link>Models\UDisk\DescribeUDiskSnapshot.Response.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskSnapshotRequest.cs">
+            <Link>Models\UDisk\DescribeUDiskSnapshotRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskSnapshotResponse.cs">
+            <Link>Models\UDisk\DescribeUDiskSnapshotResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskUpgradePriceRequest.cs">
+            <Link>Models\UDisk\DescribeUDiskUpgradePriceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DescribeUDiskUpgradePriceResponse.cs">
+            <Link>Models\UDisk\DescribeUDiskUpgradePriceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DetachUDiskRequest.cs">
+            <Link>Models\UDisk\DetachUDiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\DetachUDiskResponse.cs">
+            <Link>Models\UDisk\DetachUDiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\RenameUDiskRequest.cs">
+            <Link>Models\UDisk\RenameUDiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\RenameUDiskResponse.cs">
+            <Link>Models\UDisk\RenameUDiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\ResizeUDiskRequest.cs">
+            <Link>Models\UDisk\ResizeUDiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UDisk\ResizeUDiskResponse.cs">
+            <Link>Models\UDisk\ResizeUDiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\CreateBucketRequest.cs">
+            <Link>Models\UFile\CreateBucketRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\CreateBucketResponse.cs">
+            <Link>Models\UFile\CreateBucketResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\DeleteBucketRequest.cs">
+            <Link>Models\UFile\DeleteBucketRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\DeleteBucketResponse.cs">
+            <Link>Models\UFile\DeleteBucketResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\DeleteFileResponse.cs">
+            <Link>Models\UFile\DeleteFileResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucket.DataSet.cs">
+            <Link>Models\UFile\DescribeBucket.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucket.Domain.cs">
+            <Link>Models\UFile\DescribeBucket.Domain.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucketRequest.cs">
+            <Link>Models\UFile\DescribeBucketRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\DescribeBucketResponse.cs">
+            <Link>Models\UFile\DescribeBucketResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\FileResponse.cs">
+            <Link>Models\UFile\FileResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\FinishMultipartUploadResponse.cs">
+            <Link>Models\UFile\FinishMultipartUploadResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\GetFileList.DataSet.cs">
+            <Link>Models\UFile\GetFileList.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\GetFileListRequest.cs">
+            <Link>Models\UFile\GetFileListRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\GetFileListResponse.cs">
+            <Link>Models\UFile\GetFileListResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\GetFileResponse.cs">
+            <Link>Models\UFile\GetFileResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\InitiateMultipartUploadResponse.cs">
+            <Link>Models\UFile\InitiateMultipartUploadResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\PartFile.cs">
+            <Link>Models\UFile\PartFile.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\PostFileRequest.cs">
+            <Link>Models\UFile\PostFileRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\PostFileResponse.cs">
+            <Link>Models\UFile\PostFileResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\PutFileResponse.cs">
+            <Link>Models\UFile\PutFileResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\ResponseHeader.cs">
+            <Link>Models\UFile\ResponseHeader.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\UpdateBucketRequest.cs">
+            <Link>Models\UFile\UpdateBucketRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\UpdateBucketResponse.cs">
+            <Link>Models\UFile\UpdateBucketResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\UploadHitRequest.cs">
+            <Link>Models\UFile\UploadHitRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\UploadHitResponse.cs">
+            <Link>Models\UFile\UploadHitResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UFile\UploadPartResponse.cs">
+            <Link>Models\UFile\UploadPartResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\AttachUdiskRequest.cs">
+            <Link>Models\UHost\AttachUdiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\AttachUdiskResponse.cs">
+            <Link>Models\UHost\AttachUdiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\CreateCustomImageRequest.cs">
+            <Link>Models\UHost\CreateCustomImageRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\CreateCustomImageResponse.cs">
+            <Link>Models\UHost\CreateCustomImageResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\CreateUHostInstanceRequest.cs">
+            <Link>Models\UHost\CreateUHostInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\CreateUHostInstanceResponse.cs">
+            <Link>Models\UHost\CreateUHostInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\CreateUHostInstanceSnapshotRequest.cs">
+            <Link>Models\UHost\CreateUHostInstanceSnapshotRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\CreateUHostInstanceSnapshotResponse.cs">
+            <Link>Models\UHost\CreateUHostInstanceSnapshotResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeImage.ImageSet.cs">
+            <Link>Models\UHost\DescribeImage.ImageSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeImageRequest.cs">
+            <Link>Models\UHost\DescribeImageRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeImageResponse.cs">
+            <Link>Models\UHost\DescribeImageResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstance.DiskSet.cs">
+            <Link>Models\UHost\DescribeUHostInstance.DiskSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstance.IPSet.cs">
+            <Link>Models\UHost\DescribeUHostInstance.IPSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstance.UHostSet.cs">
+            <Link>Models\UHost\DescribeUHostInstance.UHostSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceRequest.cs">
+            <Link>Models\UHost\DescribeUHostInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceResponse.cs">
+            <Link>Models\UHost\DescribeUHostInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceSnapshot.SnapshotSet.cs">
+            <Link>Models\UHost\DescribeUHostInstanceSnapshot.SnapshotSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceSnapshotRequest.cs">
+            <Link>Models\UHost\DescribeUHostInstanceSnapshotRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DescribeUHostInstanceSnapshotResponse.cs">
+            <Link>Models\UHost\DescribeUHostInstanceSnapshotResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DetachUdiskRequest.cs">
+            <Link>Models\UHost\DetachUdiskRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\DetachUdiskResponse.cs">
+            <Link>Models\UHost\DetachUdiskResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstancePrice.PriceSet.cs">
+            <Link>Models\UHost\GetUHostInstancePrice.PriceSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstancePriceRequest.cs">
+            <Link>Models\UHost\GetUHostInstancePriceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstancePriceResponse.cs">
+            <Link>Models\UHost\GetUHostInstancePriceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstanceVncInfoRequest.cs">
+            <Link>Models\UHost\GetUHostInstanceVncInfoRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\GetUHostInstanceVncInfoResponse.cs">
+            <Link>Models\UHost\GetUHostInstanceVncInfoResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceNameRequest.cs">
+            <Link>Models\UHost\ModifyUHostInstanceNameRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceNameResponse.cs">
+            <Link>Models\UHost\ModifyUHostInstanceNameResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceRemarkRequest.cs">
+            <Link>Models\UHost\ModifyUHostInstanceRemarkRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceRemarkResponse.cs">
+            <Link>Models\UHost\ModifyUHostInstanceRemarkResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceTagRequest.cs">
+            <Link>Models\UHost\ModifyUHostInstanceTagRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ModifyUHostInstanceTagResponse.cs">
+            <Link>Models\UHost\ModifyUHostInstanceTagResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\RebootUHostInstanceRequest.cs">
+            <Link>Models\UHost\RebootUHostInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\RebootUHostInstanceResponse.cs">
+            <Link>Models\UHost\RebootUHostInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ReinstallUHostInstanceRequest.cs">
+            <Link>Models\UHost\ReinstallUHostInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ReinstallUHostInstanceResponse.cs">
+            <Link>Models\UHost\ReinstallUHostInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ResetUHostInstancePasswordRequest.cs">
+            <Link>Models\UHost\ResetUHostInstancePasswordRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ResetUHostInstancePasswordResponse.cs">
+            <Link>Models\UHost\ResetUHostInstancePasswordResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ResizeUHostInstanceRequest.cs">
+            <Link>Models\UHost\ResizeUHostInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\ResizeUHostInstanceResponse.cs">
+            <Link>Models\UHost\ResizeUHostInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\StartUHostInstanceRequest.cs">
+            <Link>Models\UHost\StartUHostInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\StartUHostInstanceResponse.cs">
+            <Link>Models\UHost\StartUHostInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\StopUHostInstanceRequest.cs">
+            <Link>Models\UHost\StopUHostInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\StopUHostInstanceResponse.cs">
+            <Link>Models\UHost\StopUHostInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\TerminateCustomImageRequest.cs">
+            <Link>Models\UHost\TerminateCustomImageRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\TerminateCustomImageResponse.cs">
+            <Link>Models\UHost\TerminateCustomImageResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\TerminateUHostInstanceRequest.cs">
+            <Link>Models\UHost\TerminateUHostInstanceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UHost\TerminateUHostInstanceResponse.cs">
+            <Link>Models\UHost\TerminateUHostInstanceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\AllocateBackendRequest.cs">
+            <Link>Models\ULB\AllocateBackendRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\AllocateBackendResponse.cs">
+            <Link>Models\ULB\AllocateBackendResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\BindSSLRequest.cs">
+            <Link>Models\ULB\BindSSLRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\BindSSLResponse.cs">
+            <Link>Models\ULB\BindSSLResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreatePolicyGroupRequest.cs">
+            <Link>Models\ULB\CreatePolicyGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreatePolicyGroupResponse.cs">
+            <Link>Models\ULB\CreatePolicyGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreatePolicyRequest.cs">
+            <Link>Models\ULB\CreatePolicyRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreatePolicyResponse.cs">
+            <Link>Models\ULB\CreatePolicyResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreateSSLRequest.cs">
+            <Link>Models\ULB\CreateSSLRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreateSSLResponse.cs">
+            <Link>Models\ULB\CreateSSLResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreateULBRequest.cs">
+            <Link>Models\ULB\CreateULBRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreateULBResponse.cs">
+            <Link>Models\ULB\CreateULBResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreateVServerRequest.cs">
+            <Link>Models\ULB\CreateVServerRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\CreateVServerResponse.cs">
+            <Link>Models\ULB\CreateVServerResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeletePolicyGroupRequest.cs">
+            <Link>Models\ULB\DeletePolicyGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeletePolicyGroupResponse.cs">
+            <Link>Models\ULB\DeletePolicyGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeletePolicyRequest.cs">
+            <Link>Models\ULB\DeletePolicyRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeletePolicyResponse.cs">
+            <Link>Models\ULB\DeletePolicyResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeleteSSLRequest.cs">
+            <Link>Models\ULB\DeleteSSLRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeleteSSLResponse.cs">
+            <Link>Models\ULB\DeleteSSLResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeleteULBRequest.cs">
+            <Link>Models\ULB\DeleteULBRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeleteULBResponse.cs">
+            <Link>Models\ULB\DeleteULBResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeleteVServerRequest.cs">
+            <Link>Models\ULB\DeleteVServerRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DeleteVServerResponse.cs">
+            <Link>Models\ULB\DeleteVServerResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroup.BackendSet.cs">
+            <Link>Models\ULB\DescribePolicyGroup.BackendSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroup.DataSet.cs">
+            <Link>Models\ULB\DescribePolicyGroup.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroup.PolicySet.cs">
+            <Link>Models\ULB\DescribePolicyGroup.PolicySet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroupRequest.cs">
+            <Link>Models\ULB\DescribePolicyGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribePolicyGroupResponse.cs">
+            <Link>Models\ULB\DescribePolicyGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeSSL.DataSet.cs">
+            <Link>Models\ULB\DescribeSSL.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeSSLRequest.cs">
+            <Link>Models\ULB\DescribeSSLRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeSSLResponse.cs">
+            <Link>Models\ULB\DescribeSSLResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.BackendSet.cs">
+            <Link>Models\ULB\DescribeULB.BackendSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.DataSet.cs">
+            <Link>Models\ULB\DescribeULB.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.IPSet.cs">
+            <Link>Models\ULB\DescribeULB.IPSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.SSLSet.cs">
+            <Link>Models\ULB\DescribeULB.SSLSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeULB.VserverSet.cs">
+            <Link>Models\ULB\DescribeULB.VserverSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeULBRequest.cs">
+            <Link>Models\ULB\DescribeULBRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\DescribeULBResponse.cs">
+            <Link>Models\ULB\DescribeULBResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\ReleaseBackendRequest.cs">
+            <Link>Models\ULB\ReleaseBackendRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\ReleaseBackendResponse.cs">
+            <Link>Models\ULB\ReleaseBackendResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\UpdateBackendAttributeRequest.cs">
+            <Link>Models\ULB\UpdateBackendAttributeRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\UpdateBackendAttributeResponse.cs">
+            <Link>Models\ULB\UpdateBackendAttributeResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\UpdatePolicyGroupAttributeRequest.cs">
+            <Link>Models\ULB\UpdatePolicyGroupAttributeRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\UpdatePolicyGroupAttributeResponse.cs">
+            <Link>Models\ULB\UpdatePolicyGroupAttributeResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\UpdateULBAttributeRequest.cs">
+            <Link>Models\ULB\UpdateULBAttributeRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\UpdateULBAttributeResponse.cs">
+            <Link>Models\ULB\UpdateULBAttributeResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\UpdateVServerAttributeRequest.cs">
+            <Link>Models\ULB\UpdateVServerAttributeRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\ULB\UpdateVServerAttributeResponse.cs">
+            <Link>Models\ULB\UpdateVServerAttributeResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UMon\GetMetric.DataSet.cs">
+            <Link>Models\UMon\GetMetric.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UMon\GetMetricRequest.cs">
+            <Link>Models\UMon\GetMetricRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UMon\GetMetricResponse.cs">
+            <Link>Models\UMon\GetMetricResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\AllocateEIP.EIPAddr.cs">
+            <Link>Models\UNet\AllocateEIP.EIPAddr.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\AllocateEIP.EIPSet.cs">
+            <Link>Models\UNet\AllocateEIP.EIPSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\AllocateEIPRequest.cs">
+            <Link>Models\UNet\AllocateEIPRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\AllocateEIPResponse.cs">
+            <Link>Models\UNet\AllocateEIPResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\AllocateVIPRequest.cs">
+            <Link>Models\UNet\AllocateVIPRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\AllocateVIPResponse.cs">
+            <Link>Models\UNet\AllocateVIPResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\BindEIPRequest.cs">
+            <Link>Models\UNet\BindEIPRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\BindEIPResponse.cs">
+            <Link>Models\UNet\BindEIPResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\CreateSecurityGroup.Rule.n.cs">
+            <Link>Models\UNet\CreateSecurityGroup.Rule.n.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\CreateSecurityGroupRequest.cs">
+            <Link>Models\UNet\CreateSecurityGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\CreateSecurityGroupResponse.cs">
+            <Link>Models\UNet\CreateSecurityGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DeleteSecurityGroupRequest.cs">
+            <Link>Models\UNet\DeleteSecurityGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DeleteSecurityGroupResponse.cs">
+            <Link>Models\UNet\DeleteSecurityGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIP.EIPAddr.cs">
+            <Link>Models\UNet\DescribeEIP.EIPAddr.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIP.EIPSet.cs">
+            <Link>Models\UNet\DescribeEIP.EIPSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIP.Resource.cs">
+            <Link>Models\UNet\DescribeEIP.Resource.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIPRequest.cs">
+            <Link>Models\UNet\DescribeEIPRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeEIPResponse.cs">
+            <Link>Models\UNet\DescribeEIPResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroup.DataSet.cs">
+            <Link>Models\UNet\DescribeSecurityGroup.DataSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroup.Rule.cs">
+            <Link>Models\UNet\DescribeSecurityGroup.Rule.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroupRequest.cs">
+            <Link>Models\UNet\DescribeSecurityGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroupResourceRequest.cs">
+            <Link>Models\UNet\DescribeSecurityGroupResourceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroupResourceResponse.cs">
+            <Link>Models\UNet\DescribeSecurityGroupResourceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeSecurityGroupResponse.cs">
+            <Link>Models\UNet\DescribeSecurityGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeVIPRequest.cs">
+            <Link>Models\UNet\DescribeVIPRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\DescribeVIPResponse.cs">
+            <Link>Models\UNet\DescribeVIPResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\GetEIPPrice.PriceSet.cs">
+            <Link>Models\UNet\GetEIPPrice.PriceSet.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\GetEIPPriceRequest.cs">
+            <Link>Models\UNet\GetEIPPriceRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\GetEIPPriceResponse.cs">
+            <Link>Models\UNet\GetEIPPriceResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\GrantSecurityGroupRequest.cs">
+            <Link>Models\UNet\GrantSecurityGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\GrantSecurityGroupResponse.cs">
+            <Link>Models\UNet\GrantSecurityGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\ModifyEIPBandwidthRequest.cs">
+            <Link>Models\UNet\ModifyEIPBandwidthRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\ModifyEIPBandwidthResponse.cs">
+            <Link>Models\UNet\ModifyEIPBandwidthResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\ModifyEIPWeightRequest.cs">
+            <Link>Models\UNet\ModifyEIPWeightRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\ModifyEIPWeightResponse.cs">
+            <Link>Models\UNet\ModifyEIPWeightResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\ReleaseEIPRequest.cs">
+            <Link>Models\UNet\ReleaseEIPRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\ReleaseEIPResponse.cs">
+            <Link>Models\UNet\ReleaseEIPResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\ReleaseVIPRequest.cs">
+            <Link>Models\UNet\ReleaseVIPRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\ReleaseVIPResponse.cs">
+            <Link>Models\UNet\ReleaseVIPResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\UnBindEIPRequest.cs">
+            <Link>Models\UNet\UnBindEIPRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\UnBindEIPResponse.cs">
+            <Link>Models\UNet\UnBindEIPResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\UpdateEIPAttributeRequest.cs">
+            <Link>Models\UNet\UpdateEIPAttributeRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\UpdateEIPAttributeResponse.cs">
+            <Link>Models\UNet\UpdateEIPAttributeResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\UpdateSecurityGroup.Rule.n.cs">
+            <Link>Models\UNet\UpdateSecurityGroup.Rule.n.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\UpdateSecurityGroupRequest.cs">
+            <Link>Models\UNet\UpdateSecurityGroupRequest.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UNet\UpdateSecurityGroupResponse.cs">
+            <Link>Models\UNet\UpdateSecurityGroupResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\Models\UResponse.cs">
+            <Link>Models\UResponse.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\SharedAssemblyInfo.cs">
+            <Link>SharedAssemblyInfo.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\SMS.cs">
+            <Link>SMS.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\UCDN.cs">
+            <Link>UCDN.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\UCloud.cs">
+            <Link>UCloud.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\UDB.cs">
+            <Link>UDB.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\UDisk.cs">
+            <Link>UDisk.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\UFile.cs">
+            <Link>UFile.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\UHost.cs">
+            <Link>UHost.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\ULB.cs">
+            <Link>ULB.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\UMon.cs">
+            <Link>UMon.cs</Link>
+        </Compile>
+        <Compile Include="..\UCloudSDK\UNet.cs">
+            <Link>UNet.cs</Link>
+        </Compile>
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup />
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

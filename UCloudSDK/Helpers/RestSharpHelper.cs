@@ -27,7 +27,7 @@ namespace UCloudSDK
         /// 生成标准化UCloud Header.
         /// </summary>
         /// <param name="parameters">参数.</param>
-        /// <returns></returns>
+        /// <returns>CanonicalizedUCloudHeaders</returns>
         public static string CanonicalizedUCloudHeaders(this List<Parameter> parameters)
         {
             var header = parameters.Where(p => p.Type == ParameterType.HttpHeader);
@@ -64,7 +64,7 @@ namespace UCloudSDK
         /// </summary>
         /// <param name="request">The request.</param>
         /// <param name="obj">The object.</param>
-        /// <returns></returns>
+        /// <returns>IRestRequest对象</returns>
         public static IRestRequest AddUObject(this IRestRequest request, object obj)
         {
             request.AddUObject(obj, new string[] { });
@@ -77,7 +77,7 @@ namespace UCloudSDK
         /// <param name="request">The request.</param>
         /// <param name="obj">The object.</param>
         /// <param name="includedProperties">The included properties.</param>
-        /// <returns></returns>
+        /// <returns>IRestRequest对象</returns>
         public static IRestRequest AddUObject(this IRestRequest request, object obj, params string[] includedProperties)
         {
             // automatically create parameters from object props

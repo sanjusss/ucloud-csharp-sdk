@@ -40,7 +40,7 @@ namespace UCloudSDK
         /// 获取监控数据
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
-        /// <returns>返回对象</returns>
+        /// <returns>返回对象<see cref="UCloudSDK.Models.GetMetricResponse"/></returns>
         public GetMetricResponse GetMetric(GetMetricRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
