@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE52A1A1-3863-4182-AF5C-C71C71E3469C}</ProjectGuid>
+    <ProjectGuid>{8F72F6DA-19D9-4ACC-81AD-1E277F41E9D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UCloudSDK</RootNamespace>
     <AssemblyName>UCloudSDK</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,7 +28,7 @@
     <DefineConstants>TRACE;FRAMEWORK, NET4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\UCloudSDK.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\UCloudSDK.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RestSharp">
@@ -976,12 +975,13 @@
     <Compile Include="..\UCloudSDK\UNet.cs">
       <Link>UNet.cs</Link>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

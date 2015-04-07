@@ -17,7 +17,11 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
-
+nuget/
+*-dev.sln
+*.cmd
+*.nupkg
+*.nuspec
 # Roslyn cache directories
 *.ide/
 

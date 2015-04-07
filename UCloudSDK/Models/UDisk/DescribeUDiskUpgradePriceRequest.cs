@@ -44,7 +44,7 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 升级目标UDisk ID                
         /// </summary>
-        public int SourceId { get; set; }
+        public string SourceId { get; set; }
 
         /// <summary>
         /// 项目编号                
@@ -54,10 +54,10 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 实例化 <see cref="DescribeUDiskUpgradePriceRequest"/> 类.
         /// </summary>
-        /// <param name="region">数据中心</param>                    
-        /// <param name="size">购买UDisk大小</param>                    
+        /// <param name="region">数据中心</param>             
         /// <param name="sourceid">升级目标UDisk ID</param>                    
-        public DescribeUDiskUpgradePriceRequest(string region, int size, int sourceid)
+        /// <param name="size">购买UDisk大小</param>                           
+        public DescribeUDiskUpgradePriceRequest(string region, string sourceid, int size)
         {               
             Region = region;
             Size = size;

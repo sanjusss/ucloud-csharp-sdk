@@ -73,13 +73,15 @@ namespace UCloudSDK.Models
         public string ProjectId { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="CreateUDiskRequest"/> 类.
+        /// 实例化 <see cref="CreateUDiskRequest" /> 类.
         /// </summary>
-        /// <param name="region">数数据中心</param>                    
-        /// <param name="size">磁盘大小</param>                    
-        public CreateUDiskRequest(string region, int size)
+        /// <param name="region">数数据中心</param>
+        /// <param name="name">硬盘名称.</param>
+        /// <param name="size">磁盘大小</param>
+        public CreateUDiskRequest(string region,string name, int size)
         {
             Region = region;
+            Name = name;
             Size = size;
         }
     }

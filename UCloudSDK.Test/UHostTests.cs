@@ -137,7 +137,7 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void ModifyUHostInstanceRemarkTest()
         {
-            var entity = new ModifyUHostInstanceRemarkRequest(Config.region, Config.UhostId,"IcyUHost");
+            var entity = new ModifyUHostInstanceRemarkRequest(Config.region, Config.UhostId,"Icy主机");
             var response = uhost.ModifyUHostInstanceRemark(entity);
             Assert.AreEqual(response.RetCode, 0);
         }

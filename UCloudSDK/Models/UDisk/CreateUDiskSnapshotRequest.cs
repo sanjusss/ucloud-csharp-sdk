@@ -36,7 +36,7 @@ namespace UCloudSDK.Models
         /// <summary>
         /// 快照的UDisk的Id                
         /// </summary>
-        public int UDiskId { get; set; }
+        public string UDiskId { get; set; }
 
         /// <summary>
         /// 快照名称                
@@ -44,9 +44,9 @@ namespace UCloudSDK.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Year  
+        /// 付费方式  
         ///     <para>
-        ///      Month, Dynamic 默认: Dynamic
+        ///      Year,Month, Dynamic 默认: Dynamic
         ///     </para>                 
         /// </summary>
         public string ChargeType { get; set; }
@@ -70,14 +70,18 @@ namespace UCloudSDK.Models
         public string Comment { get; set; }
 
         /// <summary>
-        /// 实例化 <see cref="CreateUDiskSnapshotRequest"/> 类.
+        /// 实例化 <see cref="CreateUDiskSnapshotRequest" /> 类.
         /// </summary>
-        /// <param name="region">数据中心</param>                    
-        /// <param name="udiskid">快照的UDisk的Id</param>                    
-        public CreateUDiskSnapshotRequest(string region, int udiskid)
+        /// <param name="region">数据中心</param>
+        /// <param name="udiskid">快照的UDisk的Id</param>
+        /// <param name="name">快照名称.</param>
+        /// <param name="comment">快照描述.</param>
+        public CreateUDiskSnapshotRequest(string region, string udiskid,string name,string comment)
         {               
             Region = region;
             UDiskId = udiskid;
+            Name = name;
+            Comment = comment;
         }                
     }
 }

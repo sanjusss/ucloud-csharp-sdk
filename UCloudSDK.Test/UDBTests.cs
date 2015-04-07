@@ -17,9 +17,13 @@ namespace UCloudSDK.Tests
         private UDB udb = new UDB(Config.PublicKey, Config.PrivateKey);
 
         /// <summary>
-        /// db实例id, 通过CreateUDBInstance获得
+        /// MYSQL实例id, 通过CreateUDBInstance获得
         /// </summary>
         private string dbid = "udb-hkdmou";
+        /// <summary>
+        /// Mongo实例id, 通过CreateUDBInstance获得
+        /// </summary>
+        private string mgDBId = "udb-s1hq2v";
         /// <summary>
         /// 配置参数组id, 通过CreateUDBParamGroup获得
         /// </summary>
@@ -28,6 +32,10 @@ namespace UCloudSDK.Tests
         /// 备份id, 通过DescribeUDBBackup获得
         /// </summary>
         private int backupId = 252789;
+        /// <summary>
+        /// slave的DBId, 通过CreateUDBSlave获得
+        /// </summary>
+        private string slaveId = "udb-52be3l";
 
         [TestMethod()]
         public void BackupUDBInstanceTest()
@@ -55,6 +63,15 @@ namespace UCloudSDK.Tests
         }
 
         [TestMethod()]
+        public void CreateMDBInstanceTest()
+        {
+            var entity = new CreateUDBInstanceRequest(Config.region, "mongodb-2.6", "ICYMGDB", "ulv76dr19s", 3306, 3, 600, 20);
+            entity.ChargeType = "Month";
+            var response = udb.CreateUDBInstance(entity);
+            Assert.AreEqual(response.RetCode, 0);
+        }
+
+        [TestMethod()]
         public void CreateUDBParamGroupTest()
         {
             var entity = new CreateUDBParamGroupRequest(Config.region, "ICYDBGROUP", "icydbconfig", 2, "mysql-5.1");
@@ -65,15 +82,17 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void CreateUDBReplicationInstanceTest()
         {
-            //TODO:没钱了，创建不了
-            Assert.Fail();
+            var entity = new CreateUDBReplicationInstanceRequest(Config.region, mgDBId, "newmongo");
+            var response = udb.CreateUDBReplicationInstance(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
         public void CreateUDBSlaveTest()
         {
-            //TODO:没钱了，创建不了
-            Assert.Fail();
+            var entity = new CreateUDBSlaveRequest(Config.region,dbid,"newslave");
+            var response = udb.CreateUDBSlave(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
@@ -180,8 +199,9 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void PromoteUDBSlaveTest()
         {
-            //TODO:没钱了，创建不了
-            Assert.Fail();
+            var entity = new PromoteUDBSlaveRequest(Config.region,slaveId);
+            var response = udb.PromoteUDBSlave(entity);
+            Assert.AreEqual(response.RetCode, 0);
         }
 
         [TestMethod()]
@@ -219,8 +239,88 @@ namespace UCloudSDK.Tests
         [TestMethod()]
         public void UploadUDBParamGroupTest()
         {
-            var content = @"W2NsaWVudF0NCiBwb3J0ID0gMzMwNg0KIHNvY2tldCA9IC90bXAvbXlzcWwuc29jaw0KIFtteWlzYW1jaGtdDQoga2V5X2J1ZmZlcl9zaXplID0gMjBNDQogcmVhZF9idWZmZXIgPSAyTQ0KIHNvcnRfYnVmZmVyX3NpemUgPSAyME0NCiB3cml0ZV9idWZmZXIgPSAyTQ0KIFtteXNxbF0NCiBuby1hdXRvLXJlaGFzaA0KIFtteXNxbGRdDQogYmFja19sb2cgPSAyMDAwDQogYmFzZWRpciA9IC9vcHQvdWRiL3Byb2dyYW0vbXlzcWwvbXlzcWwtNS42LjIwDQogYmluZC1hZGRyZXNzID0gMTAuNC40LjE2OA0KIGJpbmxvZy1mb3JtYXQgPSBNSVhFRA0KIGNoYXJhY3Rlcl9zZXRfc2VydmVyID0gdXRmOA0KIGRhdGFkaXIgPSAvb3B0L3VkYi9pbnN0YW5jZS9teXNxbC01LjYvMTdlMzRmNjktODRkZi00ZGZlLTkzMTgtNGY1YTVkODI0NDcyL2RhdGENCiBldmVudF9zY2hlZHVsZXIgPSBPTg0KIGV4cGlyZV9sb2dzX2RheXMgPSA3DQogZ2VuZXJhbC1sb2ctZmlsZSA9IC9vcHQvdWRiL2luc3RhbmNlL215c3FsLTUuNi8xN2UzNGY2OS04NGRmLTRkZmUtOTMxOC00ZjVhNWQ4MjQ0NzIvbG9nL215c3FsZC5sb2cNCiBpbm5vZGJfYnVmZmVyX3Bvb2xfc2l6ZSA9IDYyOTE0NTYwMA0KIGlubm9kYl9kYXRhX2ZpbGVfcGF0aCA9IGliZGF0YTE6MTAwTTphdXRvZXh0ZW5kDQogaW5ub2RiX2RhdGFfaG9tZV9kaXIgPSAvb3B0L3VkYi9pbnN0YW5jZS9teXNxbC01LjYvMTdlMzRmNjktODRkZi00ZGZlLTkzMTgtNGY1YTVkODI0NDcyL2RhdGENCiBpbm5vZGJfZmlsZV9wZXJfdGFibGUgPSAxDQogaW5ub2RiX2ZsdXNoX2xvZ19hdF90cnhfY29tbWl0ID0gMg0KIGlubm9kYl9mbHVzaF9tZXRob2QgPSBPX0RJUkVDVA0KIGlubm9kYl9pb19jYXBhY2l0eSA9IDIwMDANCiBpbm5vZGJfbG9nX2J1ZmZlcl9zaXplID0gODM4ODYwOA0KIGlubm9kYl9sb2dfZmlsZV9zaXplID0gNTEyTQ0KIGlubm9kYl9sb2dfZmlsZXNfaW5fZ3JvdXAgPSAyDQogaW5ub2RiX2xvZ19ncm91cF9ob21lX2RpciA9IC9vcHQvdWRiL2luc3RhbmNlL215c3FsLTUuNi8xN2UzNGY2OS04NGRmLTRkZmUtOTMxOC00ZjVhNWQ4MjQ0NzIvZGF0YQ0KIGlubm9kYl9tYXhfZGlydHlfcGFnZXNfcGN0ID0gNTANCiBpbm5vZGJfb3Blbl9maWxlcyA9IDEwMjQNCiBpbm5vZGJfcmVhZF9pb190aHJlYWRzID0gOA0KIGlubm9kYl90aHJlYWRfY29uY3VycmVuY3kgPSAyMA0KIGlubm9kYl93cml0ZV9pb190aHJlYWRzID0gOA0KIGtleV9idWZmZXJfc2l6ZSA9IDMzNTU0NDMyDQogbG9jYWxfaW5maWxlID0gMA0KIGxvZy1iaW4gPSAvb3B0L3VkYi9pbnN0YW5jZS9teXNxbC01LjYvMTdlMzRmNjktODRkZi00ZGZlLTkzMTgtNGY1YTVkODI0NDcyL2JpbmxvZy9teXNxbC1iaW4ubG9nDQogbG9nLWVycm9yID0gL29wdC91ZGIvaW5zdGFuY2UvbXlzcWwtNS42LzE3ZTM0ZjY5LTg0ZGYtNGRmZS05MzE4LTRmNWE1ZDgyNDQ3Mi9sb2cvbXlzcWxkLmxvZw0KbG9nX2Jpbl90cnVzdF9mdW5jdGlvbl9jcmVhdG9ycyA9IDENCiBsb2dfb3V0cHV0ID0gVEFCTEUNCiBsb25nX3F1ZXJ5X3RpbWUgPSAzDQogbWF4X2FsbG93ZWRfcGFja2V0ID0gMTY3NzcyMTYNCiBtYXhfY29ubmVjdF9lcnJvcnMgPSAxMDAwMDAwDQogbWF4X2Nvbm5lY3Rpb25zID0gMjAwMA0KIG15aXNhbV9zb3J0X2J1ZmZlcl9zaXplID0gODM4ODYwOA0KIG5ldF9idWZmZXJfbGVuZ3RoID0gODE5Mg0KIHBpZC1maWxlID0gL29wdC91ZGIvaW5zdGFuY2UvbXlzcWwtNS42LzE3ZTM0ZjY5LTg0ZGYtNGRmZS05MzE4LTRmNWE1ZDgyNDQ3Mi9teXNxbGQucGlkDQogcG9ydCA9IDMzMDYNCiBxdWVyeV9jYWNoZV9zaXplID0gMTY3NzcyMTYNCiByZWFkX2J1ZmZlcl9zaXplID0gMjYyMTQ0DQogcmVhZF9ybmRfYnVmZmVyX3NpemUgPSA1MjQyODgNCiByZWxheS1sb2cgPSAvb3B0L3VkYi9pbnN0YW5jZS9teXNxbC01LjYvMTdlMzRmNjktODRkZi00ZGZlLTkzMTgtNGY1YTVkODI0NDcyL3JlbGF5bG9nL215c3FsLXJlbGF5LmxvZw0KIHNlY3VyZS1maWxlLXByaXYgPSAvb3B0L3VkYi9pbnN0YW5jZS9teXNxbC01LjYvMTdlMzRmNjktODRkZi00ZGZlLTkzMTgtNGY1YTVkODI0NDcyL3RtcA0KIHNlcnZlci1pZCA9IDE2ODAzNTQ5Ng0KIHNraXAtc2xhdmUtc3RhcnQNCiBza2lwX25hbWVfcmVzb2x2ZQ0KIHNsYXZlLWxvYWQtdG1wZGlyID0gL29wdC91ZGIvaW5zdGFuY2UvbXlzcWwtNS42LzE3ZTM0ZjY5LTg0ZGYtNGRmZS05MzE4LTRmNWE1ZDgyNDQ3Mi90bXANCiBzbG93LXF1ZXJ5LWxvZy1maWxlID0gL29wdC91ZGIvaW5zdGFuY2UvbXlzcWwtNS42LzE3ZTM0ZjY5LTg0ZGYtNGRmZS05MzE4LTRmNWE1ZDgyNDQ3Mi9sb2cvbXlzcWwtc2xvdy5sb2cNCiBzbG93X3F1ZXJ5X2xvZyA9IDENCiBzb2NrZXQgPSAvb3B0L3VkYi9pbnN0YW5jZS9teXNxbC01LjYvMTdlMzRmNjktODRkZi00ZGZlLTkzMTgtNGY1YTVkODI0NDcyL215c3FsZC5zb2NrDQogc29ydF9idWZmZXJfc2l6ZSA9IDUyNDI4OA0KIHN5bmNfYmlubG9nID0gMQ0KIHRhYmxlX29wZW5fY2FjaGUgPSAxMjgNCiB0aHJlYWRfY2FjaGVfc2l6ZSA9IDUwDQogdG1wZGlyID0gL29wdC91ZGIvaW5zdGFuY2UvbXlzcWwtNS42LzE3ZTM0ZjY5LTg0ZGYtNGRmZS05MzE4LTRmNWE1ZDgyNDQ3Mi90bXANCiB1c2VyID0gbXlzcWwNCiBbbXlzcWxkX3NhZmVdDQogbG9nLWVycm9yID0gL29wdC91ZGIvaW5zdGFuY2UvbXlzcWwtNS42LzE3ZTM0ZjY5LTg0ZGYtNGRmZS05MzE4LTRmNWE1ZDgyNDQ3Mi9sb2cvbXlzcWxkLmxvZw0KIHBpZC1maWxlID0gL29wdC91ZGIvaW5zdGFuY2UvbXlzcWwtNS42LzE3ZTM0ZjY5LTg0ZGYtNGRmZS05MzE4LTRmNWE1ZDgyNDQ3Mi9teXNxbGQucGlkDQogW215c3FsZHVtcF0NCiBtYXhfYWxsb3dlZF9wYWNrZXQgPSAxNk0NCiBxdWljaw0KIFtteXNxbGhvdGNvcHldDQogaW50ZXJhY3RpdmUtdGltZW91dA0KIC9vcHQvdWRiL2luc3RhbmNlL215c3E%3D&DBTypeId=mysql-5.5&Description=test&GroupName=test1222&PublicKey=ucloudpmtest1%40ucloud.cn140474078895539362&Region=cn-east-01&Signature=941092ab104570b68b7d1b0af922b1174a81a50a";
-            var entity = new UploadUDBParamGroupRequest(Config.region, "mysql-5.1", "ICYMA", "icyup", content);
+            #region 配置内容
+            var config = @"[client]
+ port = 3306
+ socket = /tmp/mysql.sock
+ [myisamchk]
+ key_buffer_size = 20M
+ read_buffer = 2M
+ sort_buffer_size = 20M
+ write_buffer = 2M
+ [mysql]
+ no-auto-rehash
+ [mysqld]
+ back_log = 2000
+ basedir = /opt/udb/program/mysql/mysql-5.6.20
+ bind-address = 10.4.4.168
+ binlog-format = MIXED
+ character_set_server = utf8
+ datadir = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/data
+ event_scheduler = ON
+ expire_logs_days = 7
+ general-log-file = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/log/mysqld.log
+ innodb_buffer_pool_size = 629145600
+ innodb_data_file_path = ibdata1:100M:autoextend
+ innodb_data_home_dir = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/data
+ innodb_file_per_table = 1
+ innodb_flush_log_at_trx_commit = 2
+ innodb_flush_method = O_DIRECT
+ innodb_io_capacity = 2000
+ innodb_log_buffer_size = 8388608
+ innodb_log_file_size = 512M
+ innodb_log_files_in_group = 2
+ innodb_log_group_home_dir = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/data
+ innodb_max_dirty_pages_pct = 50
+ innodb_open_files = 1024
+ innodb_read_io_threads = 8
+ innodb_thread_concurrency = 20
+ innodb_write_io_threads = 8
+ key_buffer_size = 33554432
+ local_infile = 0
+ log-bin = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/binlog/mysql-bin.log
+ log-error = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/log/mysqld.log
+log_bin_trust_function_creators = 1
+ log_output = TABLE
+ long_query_time = 3
+ max_allowed_packet = 16777216
+ max_connect_errors = 1000000
+ max_connections = 2000
+ myisam_sort_buffer_size = 8388608
+ net_buffer_length = 8192
+ pid-file = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/mysqld.pid
+ port = 3306
+ query_cache_size = 16777216
+ read_buffer_size = 262144
+ read_rnd_buffer_size = 524288
+ relay-log = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/relaylog/mysql-relay.log
+ secure-file-priv = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/tmp
+ server-id = 168035496
+ skip-slave-start
+ skip_name_resolve
+ slave-load-tmpdir = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/tmp
+ slow-query-log-file = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/log/mysql-slow.log
+ slow_query_log = 1
+ socket = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/mysqld.sock
+ sort_buffer_size = 524288
+ sync_binlog = 1
+ table_open_cache = 128
+ thread_cache_size = 50
+ tmpdir = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/tmp
+ user = mysql
+ [mysqld_safe]
+ log-error = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/log/mysqld.log
+ pid-file = /opt/udb/instance/mysql-5.6/17e34f69-84df-4dfe-9318-4f5a5d824472/mysqld.pid
+ [mysqldump]
+ max_allowed_packet = 16M
+ quick
+ [mysqlhotcopy]
+ interactive-timeout
+ /opt/udb/instance/mysq";
+            #endregion
+            //配置要进行BASE64编码 
+            var content = config.ToBase64();
+            var entity = new UploadUDBParamGroupRequest(Config.region, "mysql-5.1", "ICYGMA", "icyuup", content);
             var response = udb.UploadUDBParamGroup(entity);
             Assert.AreEqual(response.RetCode, 0);
         }

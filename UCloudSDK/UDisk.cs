@@ -41,7 +41,7 @@ namespace UCloudSDK
         /// </summary>
         /// <param name="requestParams">请求参数.</param>
         /// <returns>返回对象</returns>
-        public AttachUDiskResponse AttachUdisk(AttachUDiskRequest requestParams)
+        public AttachUDiskResponse AttachUDisk(AttachUDiskRequest requestParams)
         {
             var request = new RestRequest(Method.GET);
             request.AddUObject(requestParams);

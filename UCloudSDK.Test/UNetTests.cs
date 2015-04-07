@@ -18,7 +18,7 @@ namespace UCloudSDK.Tests
         /// <summary>
         /// EIP Id,通过DescribeEIP()获得
         /// </summary>
-        private string eipId = "eip-zyitmx";
+        private string eipId = "eip-awo0gh";
 
         [TestMethod()]
         public void AllocateEIPTest()
@@ -155,6 +155,16 @@ namespace UCloudSDK.Tests
         {
             var entity = new UnBindEIPRequest(Config.region, eipId, MetricResourceType.uhost.ToString(), Config.UhostId);
             var response = unet.UnBindEIP(entity);
+            Assert.AreEqual(response.RetCode, 0);
+        }
+
+        [TestMethod()]
+        public void UpdateEIPAttributeTest()
+        {
+            var entity = new UpdateEIPAttributeRequest(Config.region,eipId);
+            // Name Tag Remark都为空则报错
+            entity.Tag = "eiptest";
+            var response = unet.UpdateEIPAttribute(entity);
             Assert.AreEqual(response.RetCode, 0);
         }
 

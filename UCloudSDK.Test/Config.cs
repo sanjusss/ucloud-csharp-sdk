@@ -27,7 +27,7 @@ namespace UCloudSDK.Test
         /// 请修改为自己想设置的
         /// </para>
         /// </summary>
-        public static string Bucket = "";        
+        public static string Bucket = "";
         /// <summary>
         /// UHost Id
         /// <para>
