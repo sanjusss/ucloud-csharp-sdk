@@ -1,4 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/hj6u55nvbok98xy5/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/dcwmp3siioro05qy/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)
+
+
 
 ucloud-csharp-sdk
 ===================
@@ -274,7 +276,7 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
 ### 8. 关于测试
 
 > 1. 除ULB SSL相关的四个方法（CreateSSL DeleteSSL BindSSL DescribeSSL）因无证书未做测试外，其它方法均已测试。
-> 2. 并非纯粹的单元测试，有的测试需要依赖其它测试的结果。
+> 2. UCloud现在未提供沙箱环境，而在一些测试需要进行支付，所以测试并非纯粹的单元测试，有的测试需要依赖其它测试的结果。
     
 其它
 -------------
