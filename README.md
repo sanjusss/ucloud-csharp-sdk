@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/hj6u55nvbok98xy5/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)
+
 ucloud-csharp-sdk
 ===================
 ucloud-csharp-sdk是使用C#开发，用于请求UCloud API的.Net SDK。现已覆盖：
@@ -271,12 +273,14 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
 
 ### 8. 关于测试
 
-> 除ULB SSL相关的四个方法（CreateSSL DeleteSSL BindSSL DescribeSSL）因无证书未做测试外，其它方法均已测试。
+> 1. 除ULB SSL相关的四个方法（CreateSSL DeleteSSL BindSSL DescribeSSL）因无证书未做测试外，其它方法均已测试。
+> 2. 并非纯粹的单元测试，有的测试需要依赖其它测试的结果。
     
 其它
 -------------
 
 > ucloud-csharp-sdk 根据官方API文档制作完成。如果在使用过程中遇到任何问题，请及时反馈。
+
 ### 链接
 UCloud: http://www.ucloud.cn/
 UCloud API: http://docs.ucloud.cn/api/index.html
