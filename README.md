@@ -32,6 +32,9 @@ SDK使用方法
 使用API前，需要对PublicKey（用户公钥）  PrivateKey（用户私钥） BaseUrl（API地址 ，可选，默认为https://api.ucloud.cn） 进行设置。设置方法有两种：一种是在config文件中；一种是在程序中初始化对象时进行设置。
 
 #### 2.1 在config文件中设置
+
+> 使用NuGet方式安装的，在项目中会自动添加以下内容，只需填写相关配置即可
+
     <configSections>
         <section name="UcloudSetting" type="System.Configuration.NameValueSectionHandler" />
     </configSections>
@@ -274,13 +277,16 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
 ### 8. 关于测试
 
 > 1. 使用测试方法请先在UCloud.Test中Config.cs配置相关参数
-> 2. UDisk的一些测试方法返回错误结果，因为没有相关权限，已在测试中注明。除此之外，其它方法都经过测试并返回了正确结果。
+> 2. UDisk的一些测试方法返
+回错误结果，因为没有相关权限，已在测试中注明。除此之外，其它方法都经过测试并返回了正确结果。
 > 3. UCloud现在未提供沙箱环境，而一些测试需要进行支付，所以测试并非纯粹的单元测试，有的测试需要依赖其它测试的结果。
     
 其它
 -------------
 
-> ucloud-csharp-sdk 根据官方API文档制作完成。如果在使用过程中遇到任何问题，请及时反馈。
+### API文档
+
+> 在线API文档： http://icyflash.gitcafe.io/ucloud-csharp-sdk
 
 ### 链接
 UCloud: http://www.ucloud.cn/
