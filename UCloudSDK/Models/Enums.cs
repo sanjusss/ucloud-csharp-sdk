@@ -1,4 +1,6 @@
-﻿namespace UCloudSDK.Models
+﻿using System;
+
+namespace UCloudSDK.Models
 {
     /// <summary>
     /// 认证方式
@@ -16,6 +18,7 @@
         /// <summary>
         /// key
         /// </summary>
+        [Obsolete("暂不支持,请使用Password",true)]
         KeyPair
     }
 
@@ -638,13 +641,13 @@
     {
         /// <summary>
         /// The error
-        /// <para>暂不支持</para>
         /// </summary>
+        [Obsolete("暂不支持,请使用binlog", true)]
         error=10,
         /// <summary>
         /// The slow
-        /// <para>暂不支持</para>
         /// </summary>
+        [Obsolete("暂不支持,请使用binlog", true)]
         slow=20,
         /// <summary>
         /// The binlog
