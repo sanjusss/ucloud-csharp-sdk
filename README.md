@@ -11,7 +11,12 @@ ucloud-csharp-sdk是使用C#开发，用于请求UCloud API的.Net SDK。现已�
 >  5. 对象存储 UFile
 >  6. 接入云 UCDN
 >  7. 云监控 UMon
->  8. 短信包
+>  8. 云硬盘 UDisk
+>  9. 短信包 SMS
+
+### SDK文档
+
+> 在线文档： http://icyflash.gitcafe.io/ucloud-csharp-sdk
 
 SDK使用方法
 -------------
@@ -19,7 +24,7 @@ SDK使用方法
 ### 1.添加类库
 #### 1.1 将类库添加至项目
 
-**NuGet**
+**NuGet**（简单方便，自动添加相关配置内容）
 
 > PM> Install-Package UCloudSDK
 
@@ -69,21 +74,21 @@ SDK使用方法
 
 >  1. 类名对应于产品名。比如云主机**UHost**产品对应的类名为`UHost`
 >  2. API方法名与文档中方法名一致。具体方法名请参见：[http://docs.ucloud.cn/api/apilist.html](http://docs.ucloud.cn/api/apilist.html)
->  3. 请求的参数类型名称为**方法名+Request**。比如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)，则参数类型为`CreateUHostInstanceRequest`
+>  3. 请求的实体类型名称为**方法名+Request**。比如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)，则参数类型为`CreateUHostInstanceRequest`
 >  4. 返回值的类型名称为**方法名+Response**。比如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)，则返回类型为`CreateUHostInstanceResponse`
 >  5. 请求参数**Param.n**的类型为`NList`，继承于`List<string>` 。
->  6. 返回值的**Array**类型，**string**类型的为`List<string>`  ，**object**类型的为List<方法名+object名称>，如在[DescribeUHostInstance](http://docs.ucloud.cn/api/uhost/describe_uhost_instance.html) 中，返回值UHostSet为object集合，则其对应的C#类型为`List<DescribeUHostInstanceUHostSet>`
->  7. 请求参数类型的构造函数包含所有Required为Yes的参数。比如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)方法的构造函数：
+>  6. 返回值的**Array**类型：**string**类型的为`List<string>`  ，**object**类型的为List<方法名+object名称>，如在[DescribeUHostInstance](http://docs.ucloud.cn/api/uhost/describe_uhost_instance.html) 中，返回值UHostSet为object集合，则其对应的C#类型为`List<DescribeUHostInstanceUHostSet>`
+>  7. 请求实体类型的构造函数包含所有Required为Yes的参数。比如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)方法的构造函数：
 > `CreateUHostInstanceRequest(string region, string imageid, string
 > loginmode)`
 
-API使用有三种方法：
+请求API有三种方法：
 
     //强类型请求及返回，对应于各个产品类
     T Execute<T>(IRestRequest request)
-    //强类型返回，使用UCloud基类
+    //自定义请求参数，强类型返回，使用UCloud基类
     T Execute<T>(Dictionary<string, string> dictionary, Method method = Method.GET)
-    //动态内容返回，使用UCloud基类 只支持.Net4及以上
+    //自定义请求参数，动态内容返回，使用UCloud基类 只支持.Net4及以上
     RestResponse<dynamic> Execute(Dictionary<string, string> dictionary, Method method = Method.GET)
 
 > **注意：**
@@ -124,7 +129,7 @@ API使用有三种方法：
     //若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
     var error = response.RetCode!=0 ? response.Message : "";
     
-#### 3.2 强类型返回
+#### 3.2 自定义请求参数，强类型返回
 请求参数为字典，返回值为强类型
 
     var ucloud=new UCloud();
@@ -151,8 +156,8 @@ API使用有三种方法：
     //若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
     var error = response.RetCode!=0 ? response.Message : "";
     
-#### 3.2 动态类型返回（**.Net4**及以上支持）
-请求参数为字典，返回值为动态类型。适用于未覆盖到的API方法。
+#### 3.2 自定义请求参数，动态内容返回（**.Net4**及以上支持）
+请求参数为字典，返回值为动态类型。适用于SDK未覆盖到的API。
 
     var ucloud=new UCloud(); 
     var dict=new Dictionary<string, string>();
@@ -181,7 +186,7 @@ API使用有三种方法：
 ### 4. 对象存储UFile文件操作使用方法
 
 > **注意**
-> 这里是假设Bucket已创建，名称为bucketName，未创建的话，请先创建Bucket [CreateBucket](http://docs.ucloud.cn/api/ufile/create_bucket.html)
+> 这里Bucket已创建，名称为bucketName，未创建的话，请先创建Bucket [CreateBucket](http://docs.ucloud.cn/api/ufile/create_bucket.html)
 
     // 初始化UFile对象
     UFile ufile=new UFile(){Bucket="bucketName"};  
@@ -277,17 +282,12 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
 ### 8. 关于测试
 
 > 1. 使用测试方法请先在UCloud.Test中Config.cs配置相关参数
-> 2. UDisk的一些测试方法返
-回错误结果，因为没有相关权限，已在测试中注明。除此之外，其它方法都经过测试并返回了正确结果。
+> 2. UDisk的一些测试方法返回错误结果，因为没有相关权限，已在测试中注明。除此之外，其它方法都经过测试并返回了正确结果。
 > 3. UCloud现在未提供沙箱环境，而一些测试需要进行支付，所以测试并非纯粹的单元测试，有的测试需要依赖其它测试的结果。
     
 其它
 -------------
 
-### API文档
-
-> 在线API文档： http://icyflash.gitcafe.io/ucloud-csharp-sdk
-
-### 链接
+### 相关链接
 UCloud: http://www.ucloud.cn/
 UCloud API: http://docs.ucloud.cn/api/index.html
