@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/dcwmp3siioro05qy/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/u66q1emtjy77pu4t/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)
 
 ucloud-csharp-sdk
 ===================
