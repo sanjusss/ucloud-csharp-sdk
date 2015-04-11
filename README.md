@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/u66q1emtjy77pu4t/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/42jwxytd7c2yyk9d/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)
 
 ucloud-csharp-sdk
 ===================
@@ -21,24 +21,25 @@ ucloud-csharp-sdk是使用C#开发，用于请求UCloud API的.Net SDK。现已�
 SDK使用方法
 -------------
 
-### 1.添加类库
+### 1. 添加SDK类库
 #### 1.1 将类库添加至项目
 
 **NuGet**（简单方便，自动添加相关配置内容）
 
 > PM> Install-Package UCloudSDK
 
-#### 1.2引入命令空间
+#### 1.2 引入命令空间
 
     using UCloudSDK;
     using UCloudSDK.Models;
 
-### 2.配置
-使用API前，需要对PublicKey（用户公钥）  PrivateKey（用户私钥） BaseUrl（API地址 ，可选，默认为https://api.ucloud.cn） 进行设置。设置方法有两种：一种是在config文件中；一种是在程序中初始化对象时进行设置。
+### 2. 配置
+使用API前，需要对PublicKey（用户公钥）  PrivateKey（用户私钥） BaseUrl（API地址 ，可选，默认为https://api.ucloud.cn） 进行配置。
+配置方法有两种：一种是在config文件中；一种是在程序中初始化对象时进行设置。
 
-#### 2.1 在config文件中设置
+#### 2.1 在config文件中配置
 
-> 使用NuGet方式安装的，在项目中会自动添加以下内容，只需填写相关配置即可
+> 使用NuGet方式会在app(web).config中自动添加以下内容，根据注释进行配置。
 
     <configSections>
         <section name="UcloudSetting" type="System.Configuration.NameValueSectionHandler" />
@@ -69,13 +70,13 @@ SDK使用方法
     ucloud.BaseUrl="https://api.ucloud.cn";
     
 
-### 3.API请求
+### 3. API请求
 为便于区别和使用，SDK采用了以下约定：
 
 >  1. 类名对应于产品名。比如云主机**UHost**产品对应的类名为`UHost`
 >  2. API方法名与文档中方法名一致。具体方法名请参见：[http://docs.ucloud.cn/api/apilist.html](http://docs.ucloud.cn/api/apilist.html)
->  3. 请求的实体类型名称为**方法名+Request**。比如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)，则参数类型为`CreateUHostInstanceRequest`
->  4. 返回值的类型名称为**方法名+Response**。比如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)，则返回类型为`CreateUHostInstanceResponse`
+>  3. 请求的实体类型名称为**方法名+Request**。如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)，则请求类型为`CreateUHostInstanceRequest`
+>  4. 返回值的类型名称为**方法名+Response**。如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)，则返回类型为`CreateUHostInstanceResponse`
 >  5. 请求参数**Param.n**的类型为`NList`，继承于`List<string>` 。
 >  6. 返回值的**Array**类型：**string**类型的为`List<string>`  ，**object**类型的为List<方法名+object名称>，如在[DescribeUHostInstance](http://docs.ucloud.cn/api/uhost/describe_uhost_instance.html) 中，返回值UHostSet为object集合，则其对应的C#类型为`List<DescribeUHostInstanceUHostSet>`
 >  7. 请求实体类型的构造函数包含所有Required为Yes的参数。比如创建[UHost实例](http://docs.ucloud.cn/api/uhost/create_uhost_instance.html)方法的构造函数：
@@ -156,7 +157,7 @@ SDK使用方法
     //若RetCode不为0，说明API请求失败错误，使用Message查看错误内容
     var error = response.RetCode!=0 ? response.Message : "";
     
-#### 3.2 自定义请求参数，动态内容返回（**.Net4**及以上支持）
+#### 3.3 自定义请求参数，动态内容返回（**.Net4**及以上支持）
 请求参数为字典，返回值为动态类型。适用于SDK未覆盖到的API。
 
     var ucloud=new UCloud(); 
@@ -257,7 +258,7 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
 > 由于C#命名规则，枚举值不允许使用“-”，部分枚举值（比如Region）需要使用`string.ToHyphen()`来取值。在枚举的注释中有注明需要用此方法的。
 > 由于C#命名规则，枚举值不允许使用数字，部分枚举值（比如Priority）需要使用`(int)Priority.High`来取值。在枚举的注释中有注明需要用此方法的。
 
-3. 需要BASE64编码的请使用`string.ToBase64()`    扩展方法
+3. 需要BASE64编码的请使用`string.ToBase64()`    扩展方法。
 4. NList类型转换后会自动在属性后添加.n，使用时无需再添加。使用方法如下：
 
 > 以更新防火墙规则[UpdateSecurityGroup](http://docs.ucloud.cn/api/unet/update_security_group.html)为例
@@ -265,6 +266,8 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
     NList rules=new NList();
     //添加规则
     rules.Add("TCP|3306|0.0.0.0/0|DROP|50");
+    
+    //另一种添加规则的方式
     //该Rule是一个对象，SDK内置了此对象，方便使用
     var rule = new SecurityGroupRule()
     {
@@ -277,13 +280,14 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
     };
     //ToString() 直接生成“Proto|Dst_port|Src_ip|Action|Priority”
     rules.Add(rule.ToString());
+    
     var entity = new UpdateSecurityGroupRequest("cn-north-03", "6583",rules);
 
 ### 8. 关于测试
 
-> 1. 使用测试方法请先在UCloud.Test中Config.cs配置相关参数
+> 1. 使用测试方法请先在UCloud.Test中Config.cs配置相关参数。
 > 2. UDisk的一些测试方法返回错误结果，因为没有相关权限，已在测试中注明。除此之外，其它方法都经过测试并返回了正确结果。
-> 3. UCloud现在未提供沙箱环境，而一些测试需要进行支付，所以测试并非纯粹的单元测试，有的测试需要依赖其它测试的结果。
+> 3. UCloud现在未提供沙箱环境，而一些测试需要进行支付，所以测试并非纯粹的单元测试，有的测试需要依赖其它测试的结果。具体请查看每个测试所需参数上方的注释。
     
 其它
 -------------
