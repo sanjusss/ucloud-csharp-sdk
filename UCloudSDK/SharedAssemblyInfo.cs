@@ -31,6 +31,6 @@ namespace UCloudSDK
 {
     class SharedAssemblyInfo
     {
-        public const string Version = "1.0.10";
+        public const string Version = "1.0.11";
     }
 }

@@ -1,4 +1,5 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/42jwxytd7c2yyk9d/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/42jwxytd7c2yyk9d/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)   ![MIT](https://img.shields.io/badge/license-MIT-yellow.svg)    [![NuGet](https://img.shields.io/nuget/v/UCloudSDK.svg)](https://www.nuget.org/packages/UCloudSDK/)  
+
 
 ucloud-csharp-sdk
 ===================
@@ -22,6 +23,7 @@ SDK使用方法
 -------------
 
 ### 1. 添加SDK类库
+
 #### 1.1 将类库添加至项目
 
 **NuGet**（简单方便，自动添加相关配置内容）
@@ -34,6 +36,7 @@ SDK使用方法
     using UCloudSDK.Models;
 
 ### 2. 配置
+
 使用API前，需要对PublicKey（用户公钥）  PrivateKey（用户私钥） BaseUrl（API地址 ，可选，默认为https://api.ucloud.cn） 进行配置。
 配置方法有两种：一种是在config文件中；一种是在程序中初始化对象时进行设置。
 
@@ -71,6 +74,7 @@ SDK使用方法
     
 
 ### 3. API请求
+
 为便于区别和使用，SDK采用了以下约定：
 
 >  1. 类名对应于产品名。比如云主机**UHost**产品对应的类名为`UHost`
@@ -99,6 +103,7 @@ SDK使用方法
 
 
 #### 3.1 强类型请求及返回     （**推荐使用**）
+
 请求参数及返回值都是强类型。
 按照SDK设置约定，所有的方法都类似下形式： 
 
@@ -131,6 +136,7 @@ SDK使用方法
     var error = response.RetCode!=0 ? response.Message : "";
     
 #### 3.2 自定义请求参数，强类型返回
+
 请求参数为字典，返回值为强类型
 
     var ucloud=new UCloud();
@@ -158,6 +164,7 @@ SDK使用方法
     var error = response.RetCode!=0 ? response.Message : "";
     
 #### 3.3 自定义请求参数，动态内容返回（**.Net4**及以上支持）
+
 请求参数为字典，返回值为动态类型。适用于SDK未覆盖到的API。
 
     var ucloud=new UCloud(); 
@@ -241,25 +248,99 @@ SDK使用方法
     var content = "你好，Ucloud";
     var entity = new SMSRequest(phone, content);
     var response = ucloud.SendSms(entity);
+    
+### 6. Response
 
-### 6. RestSharp
+除UFile部分Response外，所以的Response继承于`UResponse`
+
+    public class UResponse
+    {
+        /// <summary>
+        /// 执行结果代码
+        ///     <para>
+        ///     执行成功与否，0 表示成功，其他值则为错误代码.
+        ///     </para>
+        /// </summary>
+        public int RetCode { get; set; }
+
+        /// <summary>
+        /// 错误消息.
+        /// </summary>
+        public string Message { get; set; }
+    }
+
+UFile的一部分API，如上传下载等返回类型为`FileResponse` ，同时操作还根据请求结果返回Header，继承于`ResponseHeader`
+
+    /// <summary>
+    /// 对象存储UFile操作的返回对象
+    /// </summary>
+    public partial class FileResponse : ResponseHeader
+    {
+        /// <summary>
+        /// 执行结果代码
+        ///     <para>
+        ///     执行成功与否，0 表示成功，其他值则为错误代码.
+        ///     </para>
+        /// </summary>
+        public int RetCode { get; set; }
+
+        /// <summary>
+        /// 消息.
+        /// </summary>
+        public string ErrMsg { get; set; }
+    }
+    
+    /// <summary>
+    /// 对象存储UFile操作后返回的HTTP Header
+    /// </summary>
+    public partial class ResponseHeader
+    {
+        /// <summary>
+        /// 的文件哈希值.
+        /// </summary>
+        public string ETag { get; set; }
+
+        /// <summary>
+        /// 会话Id.
+        /// </summary>
+        public string XSessionId { get; set; }
+
+        /// <summary>
+        /// 文件长度.
+        /// </summary>
+        public int ContentLength { get; set; }
+
+        /// <summary>
+        /// 文件类型.
+        /// </summary>
+        public string ContentType { get; set; }
+
+        /// <summary>
+        /// 文件的范围.
+        /// </summary>
+        public string ContentRange { get; set; }
+    }
+
+
+### 7. RestSharp
+
 SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请求进行设置，比如代理、过期时间等，可对UCloud的**Client**属性进行设置。更多RestSharp使用方法请参见其[官方文档](https://github.com/restsharp/RestSharp/wiki)。
 
     var uhost=new UHost();
     //设置HTTP代理
     uhost.Client.Proxy=new WebProxy("http://proxy.com");
 
-### 7. 其它特性
+### 8. 其它特性
 
-1. 根据官方API文档添加了详细的注释，配合Visual Studio使用更加方便。
-2. 添加了大部分枚举值以便于使用。
+1.根据官方API文档添加了详细的注释，配合Visual Studio使用更加方便。
+2.添加了大部分枚举值以便于使用。
 
 > **注意：**
 > 由于C#命名规则，枚举值不允许使用“-”，部分枚举值（比如Region）需要使用`string.ToHyphen()`来取值。在枚举的注释中有注明需要用此方法的。
 > 由于C#命名规则，枚举值不允许使用数字，部分枚举值（比如Priority）需要使用`(int)Priority.High`来取值。在枚举的注释中有注明需要用此方法的。
 
-3. 需要BASE64编码的请使用`string.ToBase64()`    扩展方法。
-4. NList类型转换后会自动在属性后添加.n，使用时无需再添加。使用方法如下：
+3.需要BASE64编码的请使用`string.ToBase64()`    扩展方法。
+4.NList类型转换后会自动在属性后添加.n，使用时无需再添加。使用方法如下：
 
 > 以更新防火墙规则[UpdateSecurityGroup](http://docs.ucloud.cn/api/unet/update_security_group.html)为例
 
@@ -283,11 +364,11 @@ SDK的HTTP请求使用了[RestSharp](http://restsharp.org/)，需要对HTTP请�
     
     var entity = new UpdateSecurityGroupRequest("cn-north-03", "6583",rules);
 
-### 8. 关于测试
+### 9. 关于测试
 
-> 1. 使用测试方法请先在UCloud.Test中Config.cs配置相关参数。
-> 2. UDisk的一些测试方法返回错误结果，因为没有相关权限，已在测试中注明。除此之外，其它方法都经过测试并返回了正确结果。
-> 3. UCloud现在未提供沙箱环境，而一些测试需要进行支付，所以测试并非纯粹的单元测试，有的测试需要依赖其它测试的结果。具体请查看每个测试所需参数上方的注释。
+1. 使用测试方法请先在UCloud.Test中Config.cs配置相关参数。
+2. UDisk的一些测试方法返回错误结果，因为没有相关权限，已在测试中注明。除此之外，其它方法都经过测试并返回了正确结果。
+3. UCloud现在未提供沙箱环境，而一些测试需要进行支付，所以测试并非纯粹的单元测试，有的测试需要依赖其它测试的结果。具体请查看每个测试所需参数上方的注释。
     
 其它
 -------------

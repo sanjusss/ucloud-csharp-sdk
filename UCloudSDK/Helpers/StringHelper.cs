@@ -50,6 +50,19 @@ namespace UCloudSDK
         }
 
         /// <summary>
+        /// 获取Url Safe的BASE64编码.
+        /// </summary>
+        /// <param name="text">字符串.</param>
+        /// <returns>
+        /// BASE64编码
+        /// </returns>
+        public static string ToUrlSafeBase64(this string text)
+        {
+            var base64 = text.ToBase64();
+            return base64.TrimEnd('=').Replace('+', '-').Replace('/', '_');
+        }
+
+        /// <summary>
         /// base64解码.
         /// </summary>
         /// <param name="text">BASE64编码字符串.</param>
