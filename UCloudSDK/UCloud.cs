@@ -114,7 +114,7 @@ namespace UCloudSDK
         /// </summary>
         /// <param name="parameters">参数键值对.</param>
         /// <returns>签名值</returns>
-        public string VerfyAc(List<Parameter> parameters)
+        private string VerfyAc(List<Parameter> parameters)
         {
             return VerfyAc(parameters, PrivateKey);
         }
@@ -125,7 +125,7 @@ namespace UCloudSDK
         /// <param name="parameters">参数键值对.</param>
         /// <param name="privateKey">私钥.</param>
         /// <returns>签名值</returns>
-        public string VerfyAc(List<Parameter> parameters, string privateKey)
+        private string VerfyAc(List<Parameter> parameters, string privateKey)
         {
             var param=
             parameters.Where(t => t.Type == ParameterType.GetOrPost).ToList();

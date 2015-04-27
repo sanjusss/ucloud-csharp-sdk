@@ -705,7 +705,7 @@ namespace UCloudSDK
         /// <param name="request">The request.</param>
         /// <returns>返回对象<see cref="UCloudSDK.Models.FileResponse"/></returns>
         /// <exception cref="System.ApplicationException"></exception>
-        public FileResponse FileExecute(IRestRequest request)
+        private FileResponse FileExecute(IRestRequest request)
         {
             var response = Client.Execute<FileResponse>(request);
             Client.BaseUrl = new Uri(BaseUrl);
@@ -739,7 +739,7 @@ namespace UCloudSDK
         /// <param name="bucket">Bucket.</param>
         /// <param name="key">Key.</param>
         /// <returns>签名</returns>
-        public string SignRequest(IRestRequest request, string bucket, string key)
+        private string SignRequest(IRestRequest request, string bucket, string key)
         {
             string Authorization = string.Empty;
             string StringToSign = string.Empty;

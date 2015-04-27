@@ -6,7 +6,7 @@
     public partial class ResponseHeader
     {
         /// <summary>
-        /// 的文件哈希值.
+        /// 文件哈希值.
         /// </summary>
         public string ETag { get; set; }
 

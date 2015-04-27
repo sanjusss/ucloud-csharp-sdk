@@ -30,7 +30,7 @@ SDK使用方法
 
 > PM> Install-Package UCloudSDK
 
-#### 1.2 引入命令空间
+#### 1.2 引入命名空间
 
     using UCloudSDK;
     using UCloudSDK.Models;
@@ -296,7 +296,7 @@ UFile的一部分API，如上传下载等返回类型为`FileResponse` ，同时
     public partial class ResponseHeader
     {
         /// <summary>
-        /// 的文件哈希值.
+        /// 文件哈希值.
         /// </summary>
         public string ETag { get; set; }
 
