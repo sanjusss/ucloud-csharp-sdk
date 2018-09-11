@@ -3,6 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>UCloudSDK</AssemblyName>
+    <Authors>icyflash</Authors>
+    <Copyright>Copyright © UCloudSDK Project</Copyright>
+    <Version>1.0.11.0</Version>
+    <Product>UCloud API C# SDK</Product>
+    <Description>UCloud C# SDK是用于调用UCloud API的类库，适用于.Net Core 2.0及以上。
+
+UCloud API: http://docs.ucloud.cn/api/index.html</Description>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/icyflash/ucloud-csharp-sdk/master/License.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/icyflash/ucloud-csharp-sdk</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/icyflash/ucloud-csharp-sdk</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageReleaseNotes>UCloud C# SDK是用于调用UCloud API的类库，适用于.Net Core 2.0及以上。
+
+UCloud API: http://docs.ucloud.cn/api/index.html</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
