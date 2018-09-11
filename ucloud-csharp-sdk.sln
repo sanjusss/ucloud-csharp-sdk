@@ -15,7 +15,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCloudSDK.Net451", "UCloudS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCloudSDK.Net452", "UCloudSDK.Net452\UCloudSDK.Net452.csproj", "{7520B35E-BF1D-4816-866D-0D508BD9DC86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCloudSDK.NetCore2", "UCloudSDK.NetCore2\UCloudSDK.NetCore2.csproj", "{5D0D5CA2-CDEA-4CAB-AA17-9881742B698D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UCloudSDK.NetCore2", "UCloudSDK.NetCore2\UCloudSDK.NetCore2.csproj", "{5D0D5CA2-CDEA-4CAB-AA17-9881742B698D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{984BE5C2-D99B-4CC6-9E29-D0E15945DBE0}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

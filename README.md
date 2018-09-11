@@ -1,3 +1,21 @@
+﻿
+[![Build status](https://ci.appveyor.com/api/projects/status/rrjbrsj6o638emr0?svg=true)](https://ci.appveyor.com/project/sanjusss/ucloud-csharp-sdk)
+[![Supported](https://img.shields.io/badge/Supported-.NET3.5%2B%2F.NETCore2.0%2B-brightgreen.svg)](#)
+[![GitHub tag](https://img.shields.io/github/tag/sanjusss/ucloud-csharp-sdk.svg)](https://github.com/sanjusss/ucloud-csharp-sdk/tags)
+[![GitHub release](https://img.shields.io/github/release/sanjusss/ucloud-csharp-sdk.svg)](https://github.com/sanjusss/ucloud-csharp-sdk/releases)
+
+# 说明
+本项目是在[ucloud-csharp-sdk](https://github.com/icyflash/ucloud-csharp-sdk)上增加对.Net Core 的兼容。  
+.NET Core 2.0或以上 安装方法：  
+> PM> Install-Package UCloudSDK.NetCore  
+
+.NET Framework 3.5或以上 安装方法：  
+> PM> Install-Package UCloudSDK  
+
+### 以下是原README文档
+*****
+*****
+
 [![Build status](https://ci.appveyor.com/api/projects/status/42jwxytd7c2yyk9d/branch/master?svg=true)](https://ci.appveyor.com/project/icyflash/ucloud-csharp-sdk/branch/master)   ![MIT](https://img.shields.io/badge/license-MIT-yellow.svg)    [![NuGet](https://img.shields.io/nuget/v/UCloudSDK.svg)](https://www.nuget.org/packages/UCloudSDK/)  
 
 
