@@ -12,7 +12,7 @@ build_script:
     dotnet publish -c Release -o publish UCloudSDK.NetCore2
 artifacts:
 - path: UCloudSDK.NetCore2\publish
-  name: UCloudSDK.NetCore2-$(APPVEYOR_BUILD_VERSION)
+  name: UCloudSDK.NetCore-$(APPVEYOR_BUILD_VERSION)
   type: WebDeployPackage
 - path: '**\*.nupkg'
 deploy:
