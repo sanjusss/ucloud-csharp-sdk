@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCloudSDK", "UCloudSDK\UCloudSDK.csproj", "{BB3049AE-7687-4C98-A59C-70C77A525289}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCloudSDK.Net451", "UCloudSDK.Net451\UCloudSDK.Net451.csproj", "{4B894672-9848-4E5F-8D0D-0711384C3580}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCloudSDK.Net452", "UCloudSDK.Net452\UCloudSDK.Net452.csproj", "{7520B35E-BF1D-4816-866D-0D508BD9DC86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCloudSDK.NetCore2", "UCloudSDK.NetCore2\UCloudSDK.NetCore2.csproj", "{5D0D5CA2-CDEA-4CAB-AA17-9881742B698D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +47,15 @@ Global
 		{7520B35E-BF1D-4816-866D-0D508BD9DC86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7520B35E-BF1D-4816-866D-0D508BD9DC86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7520B35E-BF1D-4816-866D-0D508BD9DC86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D0D5CA2-CDEA-4CAB-AA17-9881742B698D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D0D5CA2-CDEA-4CAB-AA17-9881742B698D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D0D5CA2-CDEA-4CAB-AA17-9881742B698D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D0D5CA2-CDEA-4CAB-AA17-9881742B698D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B20A4DFE-088C-4ABF-B42D-D85587183970}
 	EndGlobalSection
 EndGlobal
